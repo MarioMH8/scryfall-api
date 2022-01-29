@@ -1,0 +1,15 @@
+export enum Format {
+	standard,
+	future,
+	historic,
+	pioneer,
+	modern,
+	legacy,
+	pauper,
+	vintage,
+	penny,
+	commander,
+	brawl,
+	duel,
+	oldschool,
+}

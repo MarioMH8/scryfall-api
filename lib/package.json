@@ -1,0 +1,38 @@
+{
+	"name": "scryfall-api",
+	"version": "2.2.2",
+	"description": "A Javascript library for https://scryfall.com/docs/api written in Typescript.",
+	"keywords": [
+		"magic the gathering",
+		"magic",
+		"gathering",
+		"api",
+		"mtg",
+		"typescript",
+		"card",
+		"cards",
+		"scryfall",
+		"scry"
+	],
+	"homepage": "https://github.com/MarioMH8/hexadrop",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/MarioMH8/scryfall-api"
+	},
+	"license": "MIT",
+	"main": "dist/scryfall-api.cjs.js",
+	"umd:main": "dist/scryfall-api.umd.min.js",
+	"module": "dist/scryfall-api.esm.js",
+	"scripts": {
+		"test": "jest"
+	},
+	"peerDependencies": {
+		"axios": "^0.25.0"
+	},
+	"devDependencies": {
+		"axios": "0.25.0"
+	},
+	"preconstruct": {
+		"umdName": "ScryfallAPI"
+	}
+}

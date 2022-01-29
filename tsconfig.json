@@ -1,0 +1,21 @@
+{
+	"compilerOptions": {
+		"target": "ESNext",
+		"module": "ESNext",
+		"moduleResolution": "Node",
+		"strictNullChecks": true,
+		"noImplicitAny": true,
+		"noImplicitReturns": true,
+		"allowJs": false,
+		"skipLibCheck": true,
+		"esModuleInterop": false,
+		"composite": true,
+		"sourceMap": true,
+		"allowSyntheticDefaultImports": true,
+		"strict": true,
+		"declaration": true,
+		"forceConsistentCasingInFileNames": true,
+		"resolveJsonModule": true,
+		"isolatedModules": true
+	}
+}

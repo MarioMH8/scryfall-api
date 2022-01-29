@@ -1,0 +1,77 @@
+{
+	"name": "scryfall-api",
+	"version": "0.0.0",
+	"description": "A Javascript library for https://scryfall.com/docs/api written in Typescript.",
+	"keywords": [
+		"magic the gathering",
+		"magic",
+		"gathering",
+		"api",
+		"mtg",
+		"typescript",
+		"card",
+		"cards",
+		"scryfall",
+		"scry"
+	],
+	"homepage": "https://github.com/MarioMH8/scryfall-api",
+	"bugs": {
+		"url": "https://github.com/MarioMH8/scryfall-api/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/MarioMH8/scryfall-api"
+	},
+	"private": true,
+	"workspaces": [
+		"lib/"
+	],
+	"license": "MIT",
+	"scripts": {
+		"build": "preconstruct build",
+		"prettier": "prettier --ignore-unknown --check .",
+		"prettier:fix": "prettier --ignore-unknown --write .",
+		"lint": "eslint --ext .ts,.tsx --ignore-path .gitignore .",
+		"lint:fix": "eslint --ext .ts,.tsx --ignore-path .gitignore --fix .",
+		"postinstall": "preconstruct dev && manypkg check",
+		"prepare": "husky install",
+		"release": "yarn preconstruct build && yarn changeset publish",
+		"test": "yarn workspaces run test"
+	},
+	"lint-staged": {
+		"*.{ts,tsx}": "eslint --fix",
+		"*": "prettier --ignore-unknown --write ."
+	},
+	"dependencies": {
+		"@babel/core": "7.16.12",
+		"@babel/preset-env": "7.16.11",
+		"@babel/preset-typescript": "7.16.7",
+		"@changesets/cli": "^2.20.0",
+		"@commitlint/cli": "16.1.0",
+		"@commitlint/config-conventional": "16.0.0",
+		"@manypkg/cli": "0.19.1",
+		"@preconstruct/cli": "2.1.5",
+		"@types/jest": "27.4.0",
+		"@types/node": "16.11.21",
+		"@typescript-eslint/eslint-plugin": "5.10.1",
+		"@typescript-eslint/parser": "5.10.1",
+		"eslint": "8.7.0",
+		"eslint-config-prettier": "8.3.0",
+		"eslint-plugin-prettier": "4.0.0",
+		"eslint-plugin-react": "7.28.0",
+		"husky": "7.0.4",
+		"jest": "27.4.7",
+		"lint-staged": "12.3.2",
+		"prettier": "2.5.1",
+		"ts-jest": "27.1.3",
+		"typescript": "4.5.5"
+	},
+	"preconstruct": {
+		"packages": [
+			"lib/"
+		],
+		"globals": {
+			"axios": "axios"
+		}
+	}
+}

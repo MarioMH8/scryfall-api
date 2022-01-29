@@ -1,0 +1,15 @@
+export enum Sort {
+	name,
+	set,
+	released,
+	rarity,
+	color,
+	usd,
+	tix,
+	eur,
+	cmc,
+	power,
+	toughness,
+	edhrec,
+	artist,
+}
