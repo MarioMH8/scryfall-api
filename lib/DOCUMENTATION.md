@@ -236,7 +236,7 @@ Cards.search('type:planeswalker')
 	.then(result => console.log(result.name));
 ```
 
-For information on how to provide extra options, see the [`/get/cards/search`](https://scryfall.com/docs/api/cards/search) page on Scryfall. You can also reference the [`SearchOptions`](lib/src/types/SearchOptions.ts) interface
+For information on how to provide extra options, see the [`/get/cards/search`](https://scryfall.com/docs/api/cards/search) page on Scryfall. You can also reference the [`SearchOptions`](src/types/SearchOptions.ts) interface
 
 This query returns a [`MagicPageResult`](#magicemittert-).
 
