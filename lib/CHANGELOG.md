@@ -1,5 +1,11 @@
 # scryfall-api
 
+## 3.0.1
+
+### Patch Changes
+
+-   30beaf5: Fixed readme in npm.js
+
 ## 3.0.0
 
 ### Major Changes
