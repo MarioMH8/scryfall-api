@@ -32,13 +32,7 @@ You can now make changes to the repository.
 To compile:
 
 ```bat
-npm run build
-```
-
-To compile on every file change:
-
-```bat
-npm run build:watch
+yarn build
 ```
 
 ## MIT License
