@@ -24,7 +24,7 @@ Thanks for wanting to help out! Here's the setup you'll have to do:
 ```bat
 git clone git@github.com:MarioMH8/scryfall-api.git
 cd scryfall-api
-npm install
+yarn install
 ```
 
 You can now make changes to the repository.
