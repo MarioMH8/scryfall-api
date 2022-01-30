@@ -29,12 +29,12 @@
 	"license": "MIT",
 	"scripts": {
 		"build": "preconstruct build",
-		"prettier": "prettier --ignore-unknown --check .",
-		"prettier:fix": "prettier --ignore-unknown --write .",
 		"lint": "eslint --ext .ts,.tsx --ignore-path .gitignore .",
 		"lint:fix": "eslint --ext .ts,.tsx --ignore-path .gitignore --fix .",
 		"postinstall": "preconstruct dev && manypkg check",
 		"prepare": "husky install",
+		"prettier": "prettier --ignore-unknown --check .",
+		"prettier:fix": "prettier --ignore-unknown --write .",
 		"release": "yarn preconstruct build && yarn changeset publish",
 		"test": "yarn workspaces run test"
 	},
