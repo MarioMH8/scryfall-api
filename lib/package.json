@@ -23,6 +23,9 @@
 	"main": "dist/scryfall-api.cjs.js",
 	"umd:main": "dist/scryfall-api.umd.min.js",
 	"module": "dist/scryfall-api.esm.js",
+	"files": [
+		"dist"
+	],
 	"scripts": {
 		"test": "jest"
 	},
