@@ -20,7 +20,7 @@ jobs:
             - name: Setup .npmrc file for publish
               uses: actions/setup-node@v2
               with:
-                  node-version: '12'
+                  node-version: '16'
                   registry-url: 'https://registry.npmjs.org'
 
             - name: Get yarn cache directory path
