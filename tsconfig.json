@@ -15,7 +15,10 @@
 		"strict": true,
 		"declaration": true,
 		"forceConsistentCasingInFileNames": true,
+		"removeComments": false,
 		"resolveJsonModule": true,
-		"isolatedModules": true
+		"strictBindCallApply": true,
+		"isolatedModules": true,
+		"noFallthroughCasesInSwitch": true
 	}
 }

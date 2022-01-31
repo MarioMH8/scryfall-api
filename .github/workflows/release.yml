@@ -23,25 +23,16 @@ jobs:
                   node-version: '16'
                   registry-url: 'https://registry.npmjs.org'
 
-            - name: Get yarn cache directory path
-              id: yarn-cache-path
-              run: echo "::set-output name=dir::$(yarn cache dir)"
+            - name: Cache
+              uses: c-hive/gha-yarn-cache@v2
 
-            - uses: actions/cache@v2
-              id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-              with:
-                  path: ${{ steps.yarn-cache-path.outputs.dir }}
-                  key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-                  restore-keys: |
-                      ${{ runner.os }}-yarn-
+            - name: Install dependencies
+              run: yarn install
 
             - name: Configure Git User
               run: |
                   git config --global user.email "development@mariomh.com"
                   git config --global user.name "$GITHUB_ACTOR"
-
-            - name: Install dependencies
-              run: yarn install
 
             - name: Create Release Pull Request or Publish to npm
               id: changesets

@@ -1,5 +1,5 @@
 {
-	"name": "scryfall-api",
+	"name": "scryfall-api-root",
 	"version": "0.0.0",
 	"description": "A Javascript library for https://scryfall.com/docs/api written in Typescript.",
 	"keywords": [
@@ -72,5 +72,6 @@
 		"globals": {
 			"axios": "axios"
 		}
-	}
+	},
+	"packageManager": "yarn@3.1.1"
 }
