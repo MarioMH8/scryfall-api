@@ -786,7 +786,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@changesets/cli@npm:^2.23.0":
+"@changesets/cli@npm:2.23.0":
   version: 2.23.0
   resolution: "@changesets/cli@npm:2.23.0"
   dependencies:
@@ -8277,7 +8277,7 @@ __metadata:
   dependencies:
     "@babel/core": 7.18.6
     "@babel/preset-typescript": 7.18.6
-    "@changesets/cli": ^2.23.0
+    "@changesets/cli": 2.23.0
     "@commitlint/cli": 17.0.3
     "@commitlint/config-conventional": 17.0.3
     "@manypkg/cli": 0.19.1
