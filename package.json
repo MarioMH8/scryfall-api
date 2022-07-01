@@ -37,6 +37,7 @@
 		"prettier:fix": "prettier --ignore-unknown --write .",
 		"release": "yarn preconstruct build && yarn changeset publish",
 		"test": "yarn workspaces run test",
+		"typecheck": "yarn workspaces foreach -piv run typecheck",
 		"version": "yarn changeset version && yarn install --mode update-lockfile"
 	},
 	"lint-staged": {

@@ -27,7 +27,8 @@
 		"dist"
 	],
 	"scripts": {
-		"test": "jest"
+		"test": "jest",
+		"typecheck": "tsc --noEmit"
 	},
 	"peerDependencies": {
 		"axios": "^0"
