@@ -30,10 +30,10 @@
 		"test": "jest"
 	},
 	"peerDependencies": {
-		"axios": "^0.25.0"
+		"axios": "^0"
 	},
 	"devDependencies": {
-		"axios": "0.25.0"
+		"axios": "0.27.2"
 	},
 	"preconstruct": {
 		"umdName": "ScryfallAPI"
