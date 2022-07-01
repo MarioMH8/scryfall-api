@@ -36,7 +36,8 @@
 		"prettier": "prettier --ignore-unknown --check .",
 		"prettier:fix": "prettier --ignore-unknown --write .",
 		"release": "yarn preconstruct build && yarn changeset publish",
-		"test": "yarn workspaces run test"
+		"test": "yarn workspaces run test",
+		"version": "yarn changeset version && yarn install --mode update-lockfile"
 	},
 	"lint-staged": {
 		"*.{ts,tsx}": "eslint --fix",
