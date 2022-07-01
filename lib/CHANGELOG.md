@@ -1,5 +1,11 @@
 # scryfall-api
 
+## 3.0.3
+
+### Patch Changes
+
+-   df334fd: Updated dependencies
+
 ## 3.0.2
 
 ### Patch Changes
