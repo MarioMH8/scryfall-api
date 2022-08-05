@@ -78,7 +78,7 @@
 	},
 	"lint-staged": {
 		"*.{ts,tsx}": "eslint --fix",
-		"*": "prettier --write ."
+		"*": "prettier --ignore-unknown --write"
 	},
 	"preconstruct": {
 		"umdName": "scryfall",
