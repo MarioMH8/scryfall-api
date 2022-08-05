@@ -1,6 +1,6 @@
 {
 	"name": "scryfall-api",
-	"version": "3.0.3",
+	"version": "3.1.0",
 	"description": "A Javascript library for https://scryfall.com/docs/api written in Typescript.",
 	"keywords": [
 		"magic the gathering",
