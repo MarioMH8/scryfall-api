@@ -13,10 +13,7 @@
 		"sourceType": "module"
 	},
 	"plugins": ["react", "@typescript-eslint"],
-	"rules": {},
-	"settings": {
-		"react": {
-			"version": "detect"
-		}
+	"rules": {
+		"@typescript-eslint/ban-ts-comment": "off"
 	}
 }

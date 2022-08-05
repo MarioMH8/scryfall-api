@@ -5,7 +5,7 @@
 
 A Javascript library for [Scryfall](https://scryfall.com/docs/api) written in Typescript.
 
-As of [January 29th, 2022](./lib/CHANGELOG.md), almost all features described in the [Scryfall documentation](https://scryfall.com/docs/api) are supported. If you see something that isn't supported, make an issue! See [support readme](./lib/SUPPORT.md).
+As of [August 6th, 2022](./CHANGELOG.md), almost all features described in the [Scryfall documentation](https://scryfall.com/docs/api) are supported. If you see something that isn't supported, make an issue! See [support readme](./SUPPORT.md).
 
 ## Installation
 
@@ -15,7 +15,7 @@ npm install scryfall-api
 
 ## Documentation
 
-Link to [documentation.](./lib/DOCUMENTATION.md)
+Link to [documentation.](./DOCUMENTATION.md)
 
 ## Contributing
 

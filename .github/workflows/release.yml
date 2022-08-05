@@ -79,7 +79,7 @@ jobs:
               id: changesets
               uses: changesets/action@v1
               with:
-                  publish: yarn release
+                  publish: yarn publish
                   version: yarn version
                   commit: 'chore: release'
                   title: 'Release'

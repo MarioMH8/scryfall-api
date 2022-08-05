@@ -1,15 +1,38 @@
-node_modules
-.DS_Store
-dist
-dist-ssr
-*.local
-.eslintcache
-tsconfig.tsbuildinfo
-
-.pnp.*
+# Yarn Zero Install
 .yarn/*
+#.pnp.*
+!.yarn/cache
 !.yarn/patches
 !.yarn/plugins
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+# All logs
+*.log
+
+# Node modules
+node_modules
+
+# Dist folder
+dist
+
+# ts
+*.tsbuildinfo
+
+# test
+coverage
+cobertura-coverage.xml
+.vitest-result.json
+
+# Firebase
+.firebase
+
+# StoryBook
+storybook-static
+
+# eslint
+.eslintcache
+
+# TypeScript
+tsconfig.tsbuildinfo

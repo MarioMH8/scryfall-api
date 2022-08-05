@@ -1,6 +1,6 @@
 {
-	"name": "scryfall-api-root",
-	"version": "0.0.0",
+	"name": "scryfall-api",
+	"version": "3.0.3",
 	"description": "A Javascript library for https://scryfall.com/docs/api written in Typescript.",
 	"keywords": [
 		"magic the gathering",
@@ -22,58 +22,64 @@
 		"type": "git",
 		"url": "https://github.com/MarioMH8/scryfall-api"
 	},
-	"private": true,
-	"workspaces": [
-		"lib/"
-	],
 	"license": "MIT",
+	"main": "dist/scryfall-api.cjs.js",
+	"umd:main": "dist/scryfall-api.umd.min.js",
+	"module": "dist/scryfall-api.esm.js",
+	"files": [
+		"dist"
+	],
 	"scripts": {
-		"build": "preconstruct build",
+		"build": "yarn typecheck && preconstruct build",
+		"build:watch": "preconstruct watch",
 		"lint": "eslint --ext .ts,.tsx --ignore-path .gitignore .",
 		"lint:fix": "eslint --ext .ts,.tsx --ignore-path .gitignore --fix .",
-		"postinstall": "preconstruct dev && manypkg check",
 		"prepare": "husky install",
 		"prettier": "prettier --ignore-unknown --check .",
 		"prettier:fix": "prettier --ignore-unknown --write .",
-		"release": "yarn preconstruct build && yarn changeset publish",
-		"test": "yarn workspaces run test",
-		"typecheck": "yarn workspaces foreach -piv run typecheck",
-		"version": "yarn changeset version && yarn install --mode update-lockfile"
+		"publish": "yarn build && yarn changeset publish",
+		"test": "vitest",
+		"test:coverage": "vitest run --coverage",
+		"typecheck": "tsc --noEmit",
+		"version": "yarn changeset version && yarn install --mode update-lockfile",
+		"webstorm-integration": "vitest --watch --reporter=dot --reporter=json --outputFile=.vitest-result.json"
+	},
+	"peerDependencies": {
+		"axios": "^0"
+	},
+	"devDependencies": {
+		"@babel/core": "7.18.10",
+		"@babel/preset-typescript": "7.18.6",
+		"@changesets/cli": "2.24.2",
+		"@commitlint/cli": "17.0.3",
+		"@commitlint/config-conventional": "17.0.3",
+		"@manypkg/cli": "0.19.1",
+		"@preconstruct/cli": "2.2.1",
+		"@types/node": "18.6.4",
+		"@typescript-eslint/eslint-plugin": "5.32.0",
+		"@typescript-eslint/parser": "5.32.0",
+		"axios": "0.27.2",
+		"c8": "7.12.0",
+		"eslint": "8.21.0",
+		"eslint-config-prettier": "8.5.0",
+		"eslint-plugin-prettier": "4.2.1",
+		"eslint-plugin-react": "7.30.1",
+		"husky": "8.0.1",
+		"lint-staged": "13.0.3",
+		"prettier": "2.7.1",
+		"typescript": "4.7.4",
+		"vite": "3.0.4",
+		"vitest": "0.21.0"
 	},
 	"lint-staged": {
 		"*.{ts,tsx}": "eslint --fix",
 		"*": "prettier --ignore-unknown --write ."
 	},
-	"dependencies": {
-		"@babel/core": "7.18.6",
-		"@babel/preset-typescript": "7.18.6",
-		"@changesets/cli": "2.23.0",
-		"@commitlint/cli": "17.0.3",
-		"@commitlint/config-conventional": "17.0.3",
-		"@manypkg/cli": "0.19.1",
-		"@preconstruct/cli": "2.1.6",
-		"@types/jest": "27.5.2",
-		"@types/node": "16.11.42",
-		"@typescript-eslint/eslint-plugin": "5.30.3",
-		"@typescript-eslint/parser": "5.30.3",
-		"eslint": "8.18.0",
-		"eslint-config-prettier": "8.5.0",
-		"eslint-plugin-prettier": "4.2.1",
-		"eslint-plugin-react": "7.30.1",
-		"husky": "8.0.1",
-		"jest": "27.5.1",
-		"lint-staged": "13.0.3",
-		"prettier": "2.7.1",
-		"ts-jest": "27.1.5",
-		"typescript": "4.7.4"
-	},
 	"preconstruct": {
-		"packages": [
-			"lib/"
-		],
+		"umdName": "scryfall",
 		"globals": {
 			"axios": "axios"
 		}
 	},
-	"packageManager": "yarn@3.2.1"
+	"packageManager": "yarn@3.2.2"
 }
