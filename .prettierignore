@@ -1,1 +1,10 @@
 dist
+.yarn
+storybook-static
+.changeset
+.github
+.husky
+.idea
+.pnp.*
+gha-creds-*
+coverage
