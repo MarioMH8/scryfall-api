@@ -1,5 +1,11 @@
 # scryfall-api
 
+## 3.1.0
+
+### Minor Changes
+
+-   a8a8a42: Removed Misc
+
 ## 3.0.3
 
 ### Patch Changes
