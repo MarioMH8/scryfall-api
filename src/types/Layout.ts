@@ -3,8 +3,10 @@ export enum Layout {
 	split,
 	flip,
 	transform,
+	modal_dfc,
 	meld,
 	leveler,
+	'class',
 	saga,
 	adventure,
 	planar,
@@ -16,5 +18,5 @@ export enum Layout {
 	augment,
 	host,
 	art_series,
-	double_sided,
+	reversible_card,
 }
