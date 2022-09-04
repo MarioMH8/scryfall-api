@@ -1,5 +1,11 @@
 # scryfall-api
 
+## 3.2.0
+
+### Minor Changes
+
+-   2a4d89a: Update Layouts to match the latest Scryfall API version
+
 ## 3.1.0
 
 ### Minor Changes
