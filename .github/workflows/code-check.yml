@@ -39,11 +39,7 @@ jobs:
                 run: yarn typecheck
     test:
         name: Test
-        strategy:
-            matrix:
-                os: [ubuntu-latest, windows-latest]
-                version: [ 14, 16, 18 ]
-        runs-on: ${{ matrix.os }}
+        runs-on: ubuntu-latest
         permissions:
             contents: 'read'
             id-token: 'write'
