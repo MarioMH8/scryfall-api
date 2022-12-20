@@ -67,7 +67,7 @@
 	},
 	"lint-staged": {
 		"*.{ts,tsx}": "eslint --fix",
-		"*": "prettier --ignore-unknown --write ."
+		"*": "prettier --ignore-unknown --write"
 	},
 	"volta": {
 		"node": "18.12.1",
