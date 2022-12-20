@@ -1,19 +1,19 @@
-import { Border } from './Border';
-import { CardFace } from './CardFace';
-import { Color } from './Color';
-import { FrameEffect } from './FrameEffect';
-import { Game } from './Game';
-import { ImageUris } from './ImageUris';
-import { Layout } from './Layout';
-import { Legalities } from './Legalties';
-import { Preview } from './Preview';
-import { Prices } from './Prices';
-import { PromoType } from './PromoType';
-import { PurchaseUris } from './PurchaseUris';
-import { Rarity } from './Rarity';
-import { RelatedCard } from './RelatedCard';
-import { RelatedUris } from './RelatedUris';
-import { Set as ScryfallSet } from './Set';
+import type { Border } from './Border';
+import type { CardFace } from './CardFace';
+import type { Color } from './Color';
+import type { FrameEffect } from './FrameEffect';
+import type { Game } from './Game';
+import type { ImageUris } from './ImageUris';
+import type { Layout } from './Layout';
+import type { Legalities } from './Legalties';
+import type { Preview } from './Preview';
+import type { Prices } from './Prices';
+import type { PromoType } from './PromoType';
+import type { PurchaseUris } from './PurchaseUris';
+import type { Rarity } from './Rarity';
+import type { RelatedCard } from './RelatedCard';
+import type { RelatedUris } from './RelatedUris';
+import type { Set as ScryfallSet } from './Set';
 
 export interface Card {
 	object: 'card';

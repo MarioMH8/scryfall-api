@@ -1,114 +1,54 @@
 name: Release
 
 on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
-    types: [opened, synchronize]
+    push:
+        branches: [ main ]
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
 
 jobs:
-  check:
-    name: Code check
-    runs-on: ubuntu-18.04
-    permissions:
-      contents: 'read'
-      id-token: 'write'
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+    release:
+        name: Release
+        runs-on: ubuntu-latest
+        if: ${{ github.event_name == 'push' }}
+        needs: [ check,test ]
+        permissions:
+            contents: 'write'
+            id-token: 'write'
+            issues: 'write'
+            pull-requests: 'write'
+        steps:
+            -   name: Checkout
+                uses: actions/checkout@v3
 
-      - name: Setup Node
-        uses: actions/setup-node@v2
-        with:
-          node-version: '16'
+            -   name: Setup Node
+                uses: actions/setup-node@v3
+                with:
+                    node-version: 'lts/*'
+                    cache: 'yarn'
 
-      - name: Cache
-        uses: c-hive/gha-yarn-cache@v2
+            -   name: Configure Git User
+                run: |
+                    git config --global user.email "development@mariomh.com"
+                    git config --global user.name "$GITHUB_ACTOR"
 
-      - name: Install dependencies
-        run: yarn install
+            -   name: Install dependencies
+                run: yarn install
 
-      - name: Typecheck
-        run: yarn typecheck
+            -   name: Build
+                run: yarn build
 
-      - name: Prettier
-        run: yarn prettier
-
-      - name: Lint
-        run: yarn lint
-  test:
-    name: Test
-    runs-on: ubuntu-18.04
-    if: ${{ github.event_name == 'push' }}
-    permissions:
-      contents: 'read'
-      id-token: 'write'
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Setup Node
-        uses: actions/setup-node@v2
-        with:
-          node-version: '16'
-
-      - name: Cache
-        uses: c-hive/gha-yarn-cache@v2
-
-      - name: Install dependencies
-        run: yarn install
-
-      - name: Test
-        run: yarn test
-
-  release:
-    name: Release
-    runs-on: ubuntu-18.04
-    if: ${{ github.event_name == 'push' }}
-    needs: [check, test]
-    permissions:
-      contents: 'write'
-      id-token: 'write'
-      issues: 'write'
-      pull-requests: 'write'
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
-      - name: Setup Node
-        uses: actions/setup-node@v2
-        with:
-          node-version: '16'
-          registry-url: 'https://registry.npmjs.org'
-
-      - name: Cache
-        uses: c-hive/gha-yarn-cache@v2
-
-      - name: Install dependencies
-        run: yarn install
-
-      - name: Configure Git User
-        run: |
-          git config --global user.email "development@mariomh.com"
-          git config --global user.name "$GITHUB_ACTOR"
-
-      - name: Create Release Pull Request or Publish to npm
-        id: changesets
-        uses: changesets/action@v1
-        with:
-          publish: yarn publish
-          version: yarn version
-          commit: 'chore: release'
-          title: 'Release'
-          setupGitUser: false
-        env:
-          YARN_ENABLE_IMMUTABLE_INSTALLS: false
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+            -   name: Create Release Pull Request or Publish to npm
+                uses: changesets/action@v1
+                with:
+                    publish: yarn publish
+                    version: yarn version
+                    commit: 'chore: release'
+                    title: 'Release'
+                    setupGitUser: false
+                env:
+                    YARN_ENABLE_IMMUTABLE_INSTALLS: false
+                    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                    NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

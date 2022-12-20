@@ -1,5 +1,5 @@
-import { Color } from './Color';
-import { ImageUris } from './ImageUris';
+import type { Color } from './Color';
+import type { ImageUris } from './ImageUris';
 
 export interface CardFace {
 	object: 'card_face';

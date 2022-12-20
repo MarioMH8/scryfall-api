@@ -1,4 +1,4 @@
-import { RelatedCardComponent } from './RelatedCardComponent';
+import type { RelatedCardComponent } from './RelatedCardComponent';
 
 export interface RelatedCard {
 	component: keyof typeof RelatedCardComponent;
