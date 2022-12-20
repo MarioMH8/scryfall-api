@@ -1,5 +1,6 @@
-import { expect, describe, it } from 'vitest';
-import Catalog from './Catalog';
+import { describe, expect, it } from 'vitest';
+
+import Catalog from '../src/api/Catalog';
 
 describe('Scryfall', function () {
 	describe('Catalog', function () {

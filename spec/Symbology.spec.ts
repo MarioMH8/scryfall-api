@@ -1,5 +1,6 @@
-import { expect, describe, it } from 'vitest';
-import Symbology from './Symbology';
+import { describe, expect, it } from 'vitest';
+
+import Symbology from '../src/api/Symbology';
 
 describe('Scryfall', function () {
 	describe('Symbology', () => {

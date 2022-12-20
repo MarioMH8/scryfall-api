@@ -1,5 +1,6 @@
-import { expect, describe, it } from 'vitest';
-import Rulings from './Rulings';
+import { describe, expect, it } from 'vitest';
+
+import Rulings from '../src/api/Rulings';
 
 describe('Scryfall', function () {
 	describe('Rulings', function () {

@@ -1,7 +1,7 @@
-import { expect, describe, it } from 'vitest';
-import { Card } from '../index';
-import { CardIdentifierBuilder } from '../index';
-import Cards from './Cards';
+import { describe, expect, it } from 'vitest';
+
+import { Card, CardIdentifierBuilder } from '../src';
+import Cards from '../src/api/Cards';
 
 describe('Scryfall', function () {
 	describe('Cards', function () {
@@ -100,8 +100,10 @@ describe('Scryfall', function () {
 				const results = await Cards.search('s:kld', { order: 'cmc' }).all();
 				expect(results.length).toBe(264);
 				results.forEach((v, i) => {
-					if (i === 0) return;
-					expect(v.cmc).toBeGreaterThanOrEqual(results[i - 1].cmc);
+					if (i === 0) {
+						return;
+					}
+					expect(v.cmc).toBeGreaterThanOrEqual(results[i - 1]?.cmc ?? 0);
 				});
 			});
 
@@ -135,60 +137,66 @@ describe('Scryfall', function () {
 
 		describe('collection', () => {
 			it('by id', async () => {
-				const collection = [CardIdentifierBuilder.byId('94c70f23-0ca9-425e-a53a-6c09921c0075')];
+				const collection = [
+					CardIdentifierBuilder.byId('94c70f23-0ca9-425e-a53a-6c09921c0075'),
+				];
 				const cards = await Cards.collection(...collection);
 				expect(cards.length).toBe(1);
-				expect(cards[0].name).toBe('Crush Dissent');
+				expect(cards[0]?.name).toBe('Crush Dissent');
 			});
 
 			it('by multiverse id', async () => {
 				const collection = [CardIdentifierBuilder.byMultiverseId(462293)];
 				const cards = await Cards.collection(...collection);
 				expect(cards.length).toBe(1);
-				expect(cards[0].name).toBe('Contentious Plan');
+				expect(cards[0]?.name).toBe('Contentious Plan');
 			});
 
 			it('by mtgo id', async () => {
 				const collection = [CardIdentifierBuilder.byMtgoId(71692)];
 				const cards = await Cards.collection(...collection);
 				expect(cards.length).toBe(1);
-				expect(cards[0].name).toBe('Bond of Insight');
+				expect(cards[0]?.name).toBe('Bond of Insight');
 			});
 
 			it('by oracle id', async () => {
-				const collection = [CardIdentifierBuilder.byOracleId('394c6de5-7957-4a0b-a6b9-ee0c707cd022')];
+				const collection = [
+					CardIdentifierBuilder.byOracleId('394c6de5-7957-4a0b-a6b9-ee0c707cd022'),
+				];
 				const cards = await Cards.collection(...collection);
 				expect(cards.length).toBe(1);
-				expect(cards[0].name).toBe('Forgotten Cave');
+				expect(cards[0]?.name).toBe('Forgotten Cave');
 			});
 
 			it('by illustration id', async () => {
-				const collection = [CardIdentifierBuilder.byIllustrationId('99f43949-049e-41e2-bf4c-e22e11790012')];
+				const collection = [
+					CardIdentifierBuilder.byIllustrationId('99f43949-049e-41e2-bf4c-e22e11790012'),
+				];
 				const cards = await Cards.collection(...collection);
 				expect(cards.length).toBe(1);
-				expect(cards[0].name).toBe('GO TO JAIL');
+				expect(cards[0]?.name).toBe('GO TO JAIL');
 			});
 
 			it('by name', async () => {
 				const collection = [CardIdentifierBuilder.byName('Blood Scrivener')];
 				const cards = await Cards.collection(...collection);
 				expect(cards.length).toBe(1);
-				expect(cards[0].name).toBe('Blood Scrivener');
+				expect(cards[0]?.name).toBe('Blood Scrivener');
 			});
 
 			it('by name & set', async () => {
 				const collection = [CardIdentifierBuilder.byName('Lightning Bolt', 'prm')];
 				const cards = await Cards.collection(...collection);
 				expect(cards.length).toBe(1);
-				expect(cards[0].name).toBe('Lightning Bolt');
-				expect(cards[0].set).toBe('prm');
+				expect(cards[0]?.name).toBe('Lightning Bolt');
+				expect(cards[0]?.set).toBe('prm');
 			});
 
 			it('by set', async () => {
 				const collection = [CardIdentifierBuilder.bySet('mrd', '150')];
 				const cards = await Cards.collection(...collection);
 				expect(cards.length).toBe(1);
-				expect(cards[0].name).toBe('Chalice of the Void');
+				expect(cards[0]?.name).toBe('Chalice of the Void');
 			});
 
 			it('by multiverse id, 100 cards', async () => {
@@ -200,7 +208,7 @@ describe('Scryfall', function () {
 				const cards = await Cards.collection(...collection);
 				expect(cards.length).toBe(100);
 				for (let i = 0; i < 100; i++) {
-					expect(cards[i].multiverse_ids).toContain(i + 1);
+					expect(cards[i]?.multiverse_ids).toContain(i + 1);
 				}
 			});
 
@@ -211,7 +219,7 @@ describe('Scryfall', function () {
 				];
 				const cards = await Cards.collection(...collection);
 				expect(cards.length).toBe(1);
-				expect(cards[0].name).toBe('Crush Dissent');
+				expect(cards[0]?.name).toBe('Crush Dissent');
 			});
 		});
 	});
