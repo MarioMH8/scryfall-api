@@ -1,4 +1,4 @@
-import { SetType } from './SetType';
+import type { SetType } from './SetType';
 
 export interface Set {
 	id: string;

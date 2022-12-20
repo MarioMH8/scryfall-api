@@ -1,6 +1,6 @@
-import { Sort } from './Sort';
-import { SortDirection } from './SortDirection';
-import { UniqueStrategy } from './UniqueStrategy';
+import type { Sort } from './Sort';
+import type { SortDirection } from './SortDirection';
+import type { UniqueStrategy } from './UniqueStrategy';
 
 export interface SearchOptions {
 	unique?: keyof typeof UniqueStrategy;

@@ -1,4 +1,4 @@
-import { ResultData } from './ResultData';
+import type { ResultData } from './ResultData';
 
 export interface ResultList<T, NOT_FOUND = never> extends ResultData<T, NOT_FOUND> {
 	has_more: boolean;

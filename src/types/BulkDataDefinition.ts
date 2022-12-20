@@ -1,4 +1,4 @@
-import { BulkDataType } from './BulkDataType';
+import type { BulkDataType } from './BulkDataType';
 
 export interface BulkDataDefinition {
 	compressed_size: number;

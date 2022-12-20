@@ -1,13 +1,14 @@
 import MagicPageResult from '../query/MagicPageResult';
 import MagicQuery from '../query/MagicQuery';
-import { Card, CardIdentifier, ResultCatalog, ResultList, SearchOptions } from '../types';
+import type { Card, CardIdentifier, ResultCatalog, ResultList, SearchOptions } from '../types';
 
 class Cards extends MagicQuery {
 	public async autoCompleteName(name: string): Promise<string[]> {
 		const result = await this.query<ResultCatalog>('cards/autocomplete', {
 			q: name,
 		});
-		return result?.data || [];
+
+		return result?.data ?? [];
 	}
 
 	public async byArenaId(id: number): Promise<Card | undefined> {
@@ -30,21 +31,34 @@ class Cards extends MagicQuery {
 
 	public async byName(name: string, set?: string, fuzzy?: boolean): Promise<Card | undefined>;
 
-	public async byName(name: string, set?: string | boolean, fuzzy = false): Promise<Card | undefined> {
+	public async byName(
+		name: string,
+		set?: boolean | string,
+		fuzzy = false
+	): Promise<Card | undefined> {
+		let f = fuzzy;
+		let s = set;
 		if (typeof set === 'boolean') {
-			fuzzy = set;
-			set = undefined;
+			f = set;
+			s = undefined;
 		}
 
 		return this.query<Card>('cards/named', {
-			[fuzzy ? 'fuzzy' : 'exact']: name,
-			set,
+			[f ? 'fuzzy' : 'exact']: name,
+			set: s,
 		});
 	}
 
-	public async bySet(setCode: string, collectorNumber: number, lang?: string): Promise<Card | undefined> {
+	public async bySet(
+		setCode: string,
+		collectorNumber: number,
+		lang?: string
+	): Promise<Card | undefined> {
 		const path = ['cards', setCode, collectorNumber];
-		if (lang) path.push(lang);
+		if (lang) {
+			path.push(lang);
+		}
+
 		return this.query<Card>(path);
 	}
 
@@ -58,14 +72,15 @@ class Cards extends MagicQuery {
 			// the api only supports a max collection size of 75, so we take the list of identifiers (any length)
 			// and split it into 75 card-max requests
 			const collectionSection = { identifiers: identifiers.slice(i, i + 75) };
-
+			/* eslint no-await-in-loop: "warn" */
 			const result = await this.query<ResultList<Card, CardIdentifier>>(
 				'cards/collection',
 				undefined,
 				collectionSection
 			);
-			cards.push(...(result?.data || []));
+			cards.push(...(result?.data ?? []));
 		}
+
 		return cards;
 	}
 

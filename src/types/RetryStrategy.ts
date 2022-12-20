@@ -1,4 +1,4 @@
-import { SearchError } from './SearchError';
+import type { SearchError } from './SearchError';
 
 export interface RetryStrategy {
 	attempts: number;

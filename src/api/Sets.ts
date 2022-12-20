@@ -1,10 +1,11 @@
 import MagicQuery from '../query/MagicQuery';
-import { ResultList, Set } from '../types';
+import type { ResultList, Set } from '../types';
 
 class Sets extends MagicQuery {
 	public async all(): Promise<Set[]> {
 		const result = await this.query<ResultList<Set>>('sets');
-		return result?.data || [];
+
+		return result?.data ?? [];
 	}
 
 	public async byCode(code: string): Promise<Set | undefined> {

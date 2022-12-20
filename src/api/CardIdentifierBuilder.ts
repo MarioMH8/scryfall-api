@@ -1,4 +1,4 @@
-import { CardIdentifier } from '../types';
+import type { CardIdentifier } from '../types';
 
 export class CardIdentifierBuilder {
 	public static byId(id: string): CardIdentifier {
@@ -18,14 +18,18 @@ export class CardIdentifierBuilder {
 	}
 
 	public static byName(name: string, set?: string): CardIdentifier {
-		return { name, set };
+		if (set) {
+			return { name, set };
+		}
+
+		return { name };
 	}
 
 	public static byOracleId(id: string): CardIdentifier {
 		return { oracle_id: id };
 	}
 
-	public static bySet(set: string, collectorNumber: string | number): CardIdentifier {
+	public static bySet(set: string, collectorNumber: number | string): CardIdentifier {
 		return { collector_number: `${collectorNumber}`, set };
 	}
 }
