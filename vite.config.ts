@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite';
+import { defineConfig, UserConfigExport } from 'vite';
 import typescript2 from 'rollup-plugin-typescript2';
 
 export default defineConfig({
@@ -50,4 +50,4 @@ export default defineConfig({
 			extension: '.ts',
 		},
 	},
-});
+} as UserConfigExport);
