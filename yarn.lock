@@ -1147,12 +1147,12 @@ __metadata:
   linkType: hard
 
 "@vitest/coverage-c8@npm:^0.27.0":
-  version: 0.27.1
-  resolution: "@vitest/coverage-c8@npm:0.27.1"
+  version: 0.27.2
+  resolution: "@vitest/coverage-c8@npm:0.27.2"
   dependencies:
     c8: ^7.12.0
-    vitest: 0.27.1
-  checksum: 3d009c5c948b765113cd5003f52facbdd0629b91daaa14580a91efdb9d4d868718483b60fd291560a9327816ceaffcdf55b31b1696d9107ad48deba52ad38c00
+    vitest: 0.27.2
+  checksum: ab2169f348ac54f08c62f9dc917c6c396ccbd623400408ebede821568d1741fb3e80722ffa36a8b6fa21696a670771e761fbfe00e3e3fea7b50904915d4f0720
   languageName: node
   linkType: hard
 
@@ -1531,9 +1531,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.30001400":
-  version: 1.0.30001442
-  resolution: "caniuse-lite@npm:1.0.30001442"
-  checksum: c1bff65bd4f53da2d288e7f55be40706ee0119b983eae5a9dcc884046990476891630aef72d708f7989f8f1964200c44e4c37ea40deecaa2fb4a480df23e6317
+  version: 1.0.30001445
+  resolution: "caniuse-lite@npm:1.0.30001445"
+  checksum: f98ca67829c3c52af5af0a62b8510432b2ad9594437d24ad460a6eb1a23d93e7a31631b1f550fbbe482ad05c467aa00da710a41699eb13d1f246d7db4147ab79
   languageName: node
   linkType: hard
 
@@ -2155,12 +2155,13 @@ __metadata:
   linkType: hard
 
 "eslint-import-resolver-node@npm:^0.3.6":
-  version: 0.3.6
-  resolution: "eslint-import-resolver-node@npm:0.3.6"
+  version: 0.3.7
+  resolution: "eslint-import-resolver-node@npm:0.3.7"
   dependencies:
     debug: ^3.2.7
-    resolve: ^1.20.0
-  checksum: 6266733af1e112970e855a5bcc2d2058fb5ae16ad2a6d400705a86b29552b36131ffc5581b744c23d550de844206fb55e9193691619ee4dbf225c4bde526b1c8
+    is-core-module: ^2.11.0
+    resolve: ^1.22.1
+  checksum: 3379aacf1d2c6952c1b9666c6fa5982c3023df695430b0d391c0029f6403a7775414873d90f397e98ba6245372b6c8960e16e74d9e4a3b0c0a4582f3bdbe3d6e
   languageName: node
   linkType: hard
 
@@ -2775,15 +2776,15 @@ __metadata:
   linkType: hard
 
 "glob@npm:^8.0.1":
-  version: 8.0.3
-  resolution: "glob@npm:8.0.3"
+  version: 8.1.0
+  resolution: "glob@npm:8.1.0"
   dependencies:
     fs.realpath: ^1.0.0
     inflight: ^1.0.4
     inherits: 2
     minimatch: ^5.0.1
     once: ^1.3.0
-  checksum: 50bcdea19d8e79d8de5f460b1939ffc2b3299eac28deb502093fdca22a78efebc03e66bf54f0abc3d3d07d8134d19a32850288b7440d77e072aa55f9d33b18c5
+  checksum: 92fbea3221a7d12075f26f0227abac435de868dd0736a17170663783296d0dd8d3d532a5672b4488a439bf5d7fb85cdd07c11185d6cd39184f0385cbdfb86a47
   languageName: node
   linkType: hard
 
@@ -3129,7 +3130,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"is-core-module@npm:^2.8.1, is-core-module@npm:^2.9.0":
+"is-core-module@npm:^2.11.0, is-core-module@npm:^2.8.1, is-core-module@npm:^2.9.0":
   version: 2.11.0
   resolution: "is-core-module@npm:2.11.0"
   dependencies:
@@ -3685,11 +3686,11 @@ __metadata:
   linkType: hard
 
 "minimatch@npm:^5.0.1":
-  version: 5.1.2
-  resolution: "minimatch@npm:5.1.2"
+  version: 5.1.5
+  resolution: "minimatch@npm:5.1.5"
   dependencies:
     brace-expansion: ^2.0.1
-  checksum: 32ffda25b9fb8270a1c1beafdb7489dc0e411af553495136509a945691f63c9b6b000eeeaaf8bffe3efa609c1d6d3bc0f5a106f6c3443b5c05da649100ded964
+  checksum: 2eca85c49d69b572c1cc7036a870fab781961bee5654dd8ae65f1c51e51458b83f89c53ae5a5c76beca34b8c646e2351ac74957b0f8691df21045d7e1f42947d
   languageName: node
   linkType: hard
 
@@ -3932,9 +3933,9 @@ __metadata:
   linkType: hard
 
 "object-inspect@npm:^1.12.2, object-inspect@npm:^1.9.0":
-  version: 1.12.2
-  resolution: "object-inspect@npm:1.12.2"
-  checksum: a534fc1b8534284ed71f25ce3a496013b7ea030f3d1b77118f6b7b1713829262be9e6243acbcb3ef8c626e2b64186112cb7f6db74e37b2789b9c789ca23048b2
+  version: 1.12.3
+  resolution: "object-inspect@npm:1.12.3"
+  checksum: dabfd824d97a5f407e6d5d24810d888859f6be394d8b733a77442b277e0808860555176719c5905e765e3743a7cada6b8b0a3b85e5331c530fd418cc8ae991db
   languageName: node
   linkType: hard
 
@@ -4249,11 +4250,11 @@ __metadata:
   linkType: hard
 
 "prettier@npm:^2.7.1":
-  version: 2.8.2
-  resolution: "prettier@npm:2.8.2"
+  version: 2.8.3
+  resolution: "prettier@npm:2.8.3"
   bin:
     prettier: bin-prettier.js
-  checksum: 740c56c2128d587d656ea1dde9bc9c3503dfc94db4f3ac387259215eeb2e216680bdad9d18a0c9feecc6b42cfa188d6fa777df4c36c1d00cedd4199074fbfbd2
+  checksum: 92f2ceb522d454370e02082aa74ad27388672f7cee8975028b59517c069fe643bdc73e322675c8faf2ff173d7a626d1a6389f26b474000308e793aa25fff46e5
   languageName: node
   linkType: hard
 
@@ -4418,7 +4419,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve@npm:^1.10.0, resolve@npm:^1.20.0, resolve@npm:^1.22.0, resolve@npm:^1.22.1":
+"resolve@npm:^1.10.0, resolve@npm:^1.22.0, resolve@npm:^1.22.1":
   version: 1.22.1
   resolution: "resolve@npm:1.22.1"
   dependencies:
@@ -4431,7 +4432,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve@patch:resolve@^1.10.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.20.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.22.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.22.1#~builtin<compat/resolve>":
+"resolve@patch:resolve@^1.10.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.22.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.22.1#~builtin<compat/resolve>":
   version: 1.22.1
   resolution: "resolve@patch:resolve@npm%3A1.22.1#~builtin<compat/resolve>::version=1.22.1&hash=c3c19d"
   dependencies:
@@ -4486,8 +4487,8 @@ __metadata:
   linkType: hard
 
 "rollup@npm:^3.7.0":
-  version: 3.9.1
-  resolution: "rollup@npm:3.9.1"
+  version: 3.10.0
+  resolution: "rollup@npm:3.10.0"
   dependencies:
     fsevents: ~2.3.2
   dependenciesMeta:
@@ -4495,7 +4496,7 @@ __metadata:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: 929cfab6b8bb2e20c28d7a4c3909b53729f4a63d8cc14f3b1a217d5f8e550737ee0903124ba58a1f2e7efd45c596e044a968aa379411731d0e76c910621d7d3f
+  checksum: 31a882689c58d084ac36362aeaf2422dc4b80d671bd88c856693c37d63a26ddac9b9819dfba7f79c2d50d5207868b0e3d75f728fe551bbc347cf5dedf8ece18e
   languageName: node
   linkType: hard
 
@@ -5228,24 +5229,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite-node@npm:0.27.1":
-  version: 0.27.1
-  resolution: "vite-node@npm:0.27.1"
-  dependencies:
-    cac: ^6.7.14
-    debug: ^4.3.4
-    mlly: ^1.1.0
-    pathe: ^0.2.0
-    picocolors: ^1.0.0
-    source-map: ^0.6.1
-    source-map-support: ^0.5.21
-    vite: ^3.0.0 || ^4.0.0
-  bin:
-    vite-node: vite-node.mjs
-  checksum: 1cd6b40395365e30edaf926b7cfec03230c92a99ee6565c79b3b2ac9b35863843ad2f24536e80c1f816b49fae55e7ab9dabf3a40fe61ea65d4d5e4774b0f60af
-  languageName: node
-  linkType: hard
-
 "vite-node@npm:0.27.2":
   version: 0.27.2
   resolution: "vite-node@npm:0.27.2"
@@ -5299,51 +5282,6 @@ __metadata:
   bin:
     vite: bin/vite.js
   checksum: eb86c8cdfe8dcb6644005486b31cb60bc596f2aa683cb194abb5c0afca7c2a5dfdb02bbc7f83f419ad170227ac9c3b898f4406a6d1433105fb61d79d78e47d52
-  languageName: node
-  linkType: hard
-
-"vitest@npm:0.27.1":
-  version: 0.27.1
-  resolution: "vitest@npm:0.27.1"
-  dependencies:
-    "@types/chai": ^4.3.4
-    "@types/chai-subset": ^1.3.3
-    "@types/node": "*"
-    acorn: ^8.8.1
-    acorn-walk: ^8.2.0
-    cac: ^6.7.14
-    chai: ^4.3.7
-    debug: ^4.3.4
-    local-pkg: ^0.4.2
-    picocolors: ^1.0.0
-    source-map: ^0.6.1
-    strip-literal: ^1.0.0
-    tinybench: ^2.3.1
-    tinypool: ^0.3.0
-    tinyspy: ^1.0.2
-    vite: ^3.0.0 || ^4.0.0
-    vite-node: 0.27.1
-    why-is-node-running: ^2.2.2
-  peerDependencies:
-    "@edge-runtime/vm": "*"
-    "@vitest/browser": "*"
-    "@vitest/ui": "*"
-    happy-dom: "*"
-    jsdom: "*"
-  peerDependenciesMeta:
-    "@edge-runtime/vm":
-      optional: true
-    "@vitest/browser":
-      optional: true
-    "@vitest/ui":
-      optional: true
-    happy-dom:
-      optional: true
-    jsdom:
-      optional: true
-  bin:
-    vitest: vitest.mjs
-  checksum: 635b83429c74db4b9e10954ffd7eb21c9927fc83ea4c53e935cf2d8d15636b07b7482fa0c9469a32248da6570bdabfee08b9bc3b57d7b2a52861533115f9c8bc
   languageName: node
   linkType: hard
 
