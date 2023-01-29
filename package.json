@@ -70,7 +70,7 @@
 		"*": "prettier --ignore-unknown --write"
 	},
 	"volta": {
-		"node": "18.12.1",
+		"node": "18.13.0",
 		"yarn": "3.3.1"
 	},
 	"packageManager": "yarn@3.3.1"
