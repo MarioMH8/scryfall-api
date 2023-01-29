@@ -54,7 +54,7 @@
 	},
 	"devDependencies": {
 		"@changesets/cli": "2.26.0",
-		"@hexatool/eslint-config-typescript": "1.0.1",
+		"@hexatool/eslint-config-typescript": "1.0.3",
 		"@hexatool/tsconfig": "18.0.0",
 		"@types/node": "18.11.18",
 		"@vitest/coverage-c8": "^0.28.0",
