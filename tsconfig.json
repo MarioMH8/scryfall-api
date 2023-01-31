@@ -1,4 +1,7 @@
 {
 	"extends": "@hexatool/tsconfig",
+	"compilerOptions": {
+		"baseUrl": "."
+	},
 	"exclude": ["dist", "node_modules"]
 }
