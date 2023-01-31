@@ -1,10 +1,10 @@
 export interface CardIdentifier {
+	collector_number?: string;
 	id?: string;
+	illustration_id?: string;
 	mtgo_id?: number;
 	multiverse_id?: number;
-	oracle_id?: string;
-	illustration_id?: string;
 	name?: string;
+	oracle_id?: string;
 	set?: string;
-	collector_number?: string;
 }

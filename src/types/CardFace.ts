@@ -2,8 +2,6 @@ import type { Color } from './Color';
 import type { ImageUris } from './ImageUris';
 
 export interface CardFace {
-	object: 'card_face';
-
 	artist?: string;
 	color_indicator?: Color[];
 	colors: Color[];
@@ -13,6 +11,7 @@ export interface CardFace {
 	loyalty?: string;
 	mana_cost: string;
 	name: string;
+	object: 'card_face';
 	oracle_text?: string;
 	power?: string;
 	printed_name?: string;

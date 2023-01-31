@@ -1,10 +1,10 @@
 import type { Color } from './Color';
 
 export interface ManaCost {
-	cost: string;
 	cmc: number;
-	colors: Color[];
 	colorless: boolean;
+	colors: Color[];
+	cost: string;
 	monocolored: boolean;
 	multicolored: boolean;
 }

@@ -1,9 +1,9 @@
 export interface HomepageLink {
-	id: number;
+	badge?: string;
 	created_at: string;
-	updated_at: string;
+	id: number;
 	priority: number;
 	text: string;
+	updated_at: string;
 	uri: string;
-	badge?: string;
 }
