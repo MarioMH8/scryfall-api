@@ -1,5 +1,11 @@
 # scryfall-api
 
+## 3.2.4
+
+### Patch Changes
+
+- 6ef3fa9: Added `alchemy` and `arsenal` SetType
+
 ## 3.2.3
 
 ### Patch Changes
