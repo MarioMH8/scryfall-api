@@ -1,7 +1,7 @@
 export interface RelatedUris {
-	gatherer?: string;
-	tcgplayer_decks?: string;
-	edhrec?: string;
-	mtgtop8?: string;
 	[key: string]: string | undefined;
+	edhrec?: string;
+	gatherer?: string;
+	mtgtop8?: string;
+	tcgplayer_decks?: string;
 }

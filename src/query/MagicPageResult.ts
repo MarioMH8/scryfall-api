@@ -2,9 +2,9 @@ import type { PageQuery, ResultList } from '../types';
 import type MagicQuery from './MagicQuery';
 
 export default class MagicPageResult<T, Q extends MagicQuery, P = unknown> {
-	private _hasMore: boolean;
 	private _count: number;
 
+	private _hasMore: boolean;
 	constructor(
 		private readonly q: Q,
 		private readonly apiPath: string,

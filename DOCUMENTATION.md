@@ -1,47 +1,47 @@
 ## Table of Contents
 
--   [Usage](#usage-)
--   [Cards](#cards-)
-    -   [`Cards.autoCompleteName(name: string): Promise<string[]>;` ](#cardsautocompletenamename-string-promisestring-)
-    -   [`Cards.byArenaId(id: number): Promise<Card | undefined>;` ](#cardsbyarenaidid-number-promisecard--undefined-)
-    -   [`Cards.byId(id: string): Promise<Card | undefined>;`](#cardsbyidid-string-promisecard--undefined-)
-    -   [`Cards.byMtgoId(id: number): Promise<Card | undefined>;` ](#cardsbymtgoidid-number-promisecard--undefined-)
-    -   [`Cards.byMultiverseId(id: number): Promise<Card | undefined>;` ](#cardsbymultiverseidid-number-promisecard--undefined-)
-    -   [`Cards.byName(name: string, fuzzy = false): Promise<Card | undefined>;`](#cardsbynamename-string-set-string-fuzzy--false-promisecard--undefined-)
-    -   [`Cards.byName(name: string, set?: string, fuzzy = false): Promise<Card | undefined>;`](#cardsbynamename-string-set-string-fuzzy--false-promisecard--undefined-)
-    -   [`Cards.bySet(code: string, collectorId: number, lang?: string): Promise<Card | undefined>;`](#cardsbysetsetcode-string-collectornumber-number-lang-string-promisecard--undefined-)
-    -   [`Cards.byTcgPlayerId(id: number): Promise<Card | undefined>;` ](#cardsbytcgplayeridid-number-promisecard--undefined-)
-    -   [`Cards.collection(...collection: CardIdentifier[]): Promise<Card[]>;`](#cardscollectioncollection-cardidentifier-promisecard-)
-    -   [`Cards.random(id: number): Promise<Card | undefined>;` ](#cardsrandomid-number-promisecard--undefined-)
-    -   [`Cards.search(query: string, options?: SearchOptions | number): MagicPageResult<Card, Cards>;` ](#cardssearchquery-string-options-searchoptions--number-magicpageresultcard-cards-)
--   [Sets](#sets-)
-    -   [`Sets.all(): Promise<Set[]>;` ](#setsall-promiseset-)
-    -   [`Sets.byCode(code: string): Promise<Set>;` ](#setsbycodecode-string-promiseset-)
-    -   [`Sets.byId(id: string): Promise<Set>;` ](#setsbyidid-string-promiseset-)
-    -   [`Sets.byTcgPlayerId(id: number): Promise<Set>;` ](#setsbytcgplayeridid-number-promiseset-)
--   [Rulings](#rulings-)
-    -   [`Rulings.byArenaId(id: number): Promise<Ruling[]>;` ](#rulingsbyarenaidid-number-promiseruling-)
-    -   [`Rulings.byId(id: string): Promise<Ruling[]>;` ](#rulingsbyidid-string-promiseruling-)
-    -   [`Rulings.byMtgoId(id: number): Promise<Ruling[]>;` ](#rulingsbymtgoidid-number-promiseruling-)
-    -   [`Rulings.byMultiverseId(id: number): Promise<Ruling[]>;` ](#rulingsbymultiverseidid-number-promiseruling-)
-    -   [`Rulings.bySet(code: string, collectorId: string | number): Promise<Ruling[]>;` ](#rulingsbysetcode-string-collectorid-string--number-promiseruling-)
--   [Symbology](#symbology-)
-    -   [`Symbology.all(): Promise<CardSymbol[]>;`](#symbologyall-promisecardsymbol-)
-    -   [`Symbology.parseMana(mana: string): Promise<ManaCost>;` ](#symbologyparsemanamana-string-promisemanacost-)
--   [Catalogs](#catalogs-)
-    -   [`Catalog.artifactTypes(): Promise<string[]>;` ](#catalogartifacttypes-promisestring-)
-    -   [`Catalog.artistNames(): Promise<string[]>;` ](#catalogartistnames-promisestring-)
-    -   [`Catalog.cardNames(): Promise<string[]>;` ](#catalogcardnames-promisestring-)
-    -   [`Catalog.creatureTypes(): Promise<string[]>;` ](#catalogcreaturetypes-promisestring-)
-    -   [`Catalog.enchantmentTypes(): Promise<string[]>;` ](#catalogenchantmenttypes-promisestring-)
-    -   [`Catalog.landTypes(): Promise<string[]>;`](#cataloglandtypes-promisestring-)
-    -   [`Catalog.loyalties(): Promise<string[]>;` ](#catalogloyalties-promisestring-)
-    -   [`Catalog.planeswalkerTypes(): Promise<string[]>;` ](#catalogplaneswalkertypes-promisestring-)
-    -   [`Catalog.powers(): Promise<string[]>;` ](#catalogpowers-promisestring-)
-    -   [`Catalog.spellTypes(): Promise<string[]>;` ](#catalogspelltypes-promisestring-)
-    -   [`Catalog.toughnesses(): Promise<string[]>;`](#catalogtoughnesses-promisestring-)
-    -   [`Catalog.watermarks(): Promise<string[]>;` ](#catalogwatermarks-promisestring-)
-    -   [`Catalog.wordBank(): Promise<string[]>;`](#catalogwordbank-promisestring-)
+- [Usage](#usage-)
+- [Cards](#cards-)
+    - [`Cards.autoCompleteName(name: string): Promise<string[]>;` ](#cardsautocompletenamename-string-promisestring-)
+    - [`Cards.byArenaId(id: number): Promise<Card | undefined>;` ](#cardsbyarenaidid-number-promisecard--undefined-)
+    - [`Cards.byId(id: string): Promise<Card | undefined>;`](#cardsbyidid-string-promisecard--undefined-)
+    - [`Cards.byMtgoId(id: number): Promise<Card | undefined>;` ](#cardsbymtgoidid-number-promisecard--undefined-)
+    - [`Cards.byMultiverseId(id: number): Promise<Card | undefined>;` ](#cardsbymultiverseidid-number-promisecard--undefined-)
+    - [`Cards.byName(name: string, fuzzy = false): Promise<Card | undefined>;`](#cardsbynamename-string-set-string-fuzzy--false-promisecard--undefined-)
+    - [`Cards.byName(name: string, set?: string, fuzzy = false): Promise<Card | undefined>;`](#cardsbynamename-string-set-string-fuzzy--false-promisecard--undefined-)
+    - [`Cards.bySet(code: string, collectorId: number, lang?: string): Promise<Card | undefined>;`](#cardsbysetsetcode-string-collectornumber-number-lang-string-promisecard--undefined-)
+    - [`Cards.byTcgPlayerId(id: number): Promise<Card | undefined>;` ](#cardsbytcgplayeridid-number-promisecard--undefined-)
+    - [`Cards.collection(...collection: CardIdentifier[]): Promise<Card[]>;`](#cardscollectioncollection-cardidentifier-promisecard-)
+    - [`Cards.random(id: number): Promise<Card | undefined>;` ](#cardsrandomid-number-promisecard--undefined-)
+    - [`Cards.search(query: string, options?: SearchOptions | number): MagicPageResult<Card, Cards>;` ](#cardssearchquery-string-options-searchoptions--number-magicpageresultcard-cards-)
+- [Sets](#sets-)
+    - [`Sets.all(): Promise<Set[]>;` ](#setsall-promiseset-)
+    - [`Sets.byCode(code: string): Promise<Set>;` ](#setsbycodecode-string-promiseset-)
+    - [`Sets.byId(id: string): Promise<Set>;` ](#setsbyidid-string-promiseset-)
+    - [`Sets.byTcgPlayerId(id: number): Promise<Set>;` ](#setsbytcgplayeridid-number-promiseset-)
+- [Rulings](#rulings-)
+    - [`Rulings.byArenaId(id: number): Promise<Ruling[]>;` ](#rulingsbyarenaidid-number-promiseruling-)
+    - [`Rulings.byId(id: string): Promise<Ruling[]>;` ](#rulingsbyidid-string-promiseruling-)
+    - [`Rulings.byMtgoId(id: number): Promise<Ruling[]>;` ](#rulingsbymtgoidid-number-promiseruling-)
+    - [`Rulings.byMultiverseId(id: number): Promise<Ruling[]>;` ](#rulingsbymultiverseidid-number-promiseruling-)
+    - [`Rulings.bySet(code: string, collectorId: string | number): Promise<Ruling[]>;` ](#rulingsbysetcode-string-collectorid-string--number-promiseruling-)
+- [Symbology](#symbology-)
+    - [`Symbology.all(): Promise<CardSymbol[]>;`](#symbologyall-promisecardsymbol-)
+    - [`Symbology.parseMana(mana: string): Promise<ManaCost>;` ](#symbologyparsemanamana-string-promisemanacost-)
+- [Catalogs](#catalogs-)
+    - [`Catalog.artifactTypes(): Promise<string[]>;` ](#catalogartifacttypes-promisestring-)
+    - [`Catalog.artistNames(): Promise<string[]>;` ](#catalogartistnames-promisestring-)
+    - [`Catalog.cardNames(): Promise<string[]>;` ](#catalogcardnames-promisestring-)
+    - [`Catalog.creatureTypes(): Promise<string[]>;` ](#catalogcreaturetypes-promisestring-)
+    - [`Catalog.enchantmentTypes(): Promise<string[]>;` ](#catalogenchantmenttypes-promisestring-)
+    - [`Catalog.landTypes(): Promise<string[]>;`](#cataloglandtypes-promisestring-)
+    - [`Catalog.loyalties(): Promise<string[]>;` ](#catalogloyalties-promisestring-)
+    - [`Catalog.planeswalkerTypes(): Promise<string[]>;` ](#catalogplaneswalkertypes-promisestring-)
+    - [`Catalog.powers(): Promise<string[]>;` ](#catalogpowers-promisestring-)
+    - [`Catalog.spellTypes(): Promise<string[]>;` ](#catalogspelltypes-promisestring-)
+    - [`Catalog.toughnesses(): Promise<string[]>;`](#catalogtoughnesses-promisestring-)
+    - [`Catalog.watermarks(): Promise<string[]>;` ](#catalogwatermarks-promisestring-)
+    - [`Catalog.wordBank(): Promise<string[]>;`](#catalogwordbank-promisestring-)
 
 ## Usage [↑](#table-of-contents)
 
@@ -76,7 +76,8 @@ The names are sorted with the nearest match first.
 
 Spaces, punctuation, and capitalization are ignored.
 
-If q is less than 2 characters long, or if no names match, the Catalog will contain 0 items(instead of returning any errors).
+If q is less than 2 characters long, or if no names match, the Catalog will contain 0 items(instead of returning any
+errors).
 
 ```ts
 import { Cards } from 'scryfall-api';
@@ -146,7 +147,8 @@ Cards.byName('Warhammer', 'MRD', true).then(result => console.log(result.name, r
 
 ### `Cards.bySet(setCode: string, collectorNumber: number, lang?: string): Promise<Card | undefined>;` [↑](#table-of-contents)
 
-Gets a card based on its set and collector id. You can use the optional `lang` argument to get cards in another language. See the [Scryfall Documentation for a list of all languages](https://scryfall.com/docs/api/languages).
+Gets a card based on its set and collector id. You can use the optional `lang` argument to get cards in another
+language. See the [Scryfall Documentation for a list of all languages](https://scryfall.com/docs/api/languages).
 
 ```ts
 import { Cards } from 'scryfall-api';
@@ -169,18 +171,20 @@ Cards.byTcgPlayerId(1030).then(result => console.log(result.name)); // Ankh of M
 
 Takes a list of "card identifiers", which describe a card, and returns their actual card objects.
 
-This method is useful for decks and even entire collections. Scryfall has a limit of 75 cards, but this API will split your request into multiple API calls, allowing requests of _as many cards as you want_.
+This method is useful for decks and even entire collections. Scryfall has a limit of 75 cards, but this API will split
+your request into multiple API calls, allowing requests of _as many cards as you want_.
 
-In order to assist with manual requests, this method comes with a new set of factories by the name `CardIdentifier`. These are:
+In order to assist with manual requests, this method comes with a new set of factories by the name `CardIdentifier`.
+These are:
 
--   `CardIdentifier.byId(id: string): CardIdentifier;`
--   `CardIdentifier.byMultiverseId(id: number): CardIdentifier;`
--   `CardIdentifier.byMtgoId(id: number): CardIdentifier;`
--   `CardIdentifier.byOracleId(id: string): CardIdentifier;`
--   `CardIdentifier.byIllustrationId(id: string): CardIdentifier;`
--   `CardIdentifier.byName(string: string, set?: string): CardIdentifier;`
--   `CardIdentifier.byName(string: string, set?: string): CardIdentifier;`
--   `CardIdentifier.bySet(set: string, collectorNumber: string | number): CardIdentifier;`
+- `CardIdentifier.byId(id: string): CardIdentifier;`
+- `CardIdentifier.byMultiverseId(id: number): CardIdentifier;`
+- `CardIdentifier.byMtgoId(id: number): CardIdentifier;`
+- `CardIdentifier.byOracleId(id: string): CardIdentifier;`
+- `CardIdentifier.byIllustrationId(id: string): CardIdentifier;`
+- `CardIdentifier.byName(string: string, set?: string): CardIdentifier;`
+- `CardIdentifier.byName(string: string, set?: string): CardIdentifier;`
+- `CardIdentifier.bySet(set: string, collectorNumber: string | number): CardIdentifier;`
 
 ```ts
 import { Cards, CardIdentifier } from 'scryfall-api';
@@ -234,9 +238,12 @@ Cards.search('type:planeswalker')
 	.then(result => console.log(result.name));
 ```
 
-For information on how to provide extra options, see the [`/get/cards/search`](https://scryfall.com/docs/api/cards/search) page on Scryfall. You can also reference the [`SearchOptions`](src/types/SearchOptions.ts) interface
+For information on how to provide extra options, see
+the [`/get/cards/search`](https://scryfall.com/docs/api/cards/search) page on Scryfall. You can also reference
+the [`SearchOptions`](src/types/SearchOptions.ts) interface
 
-The page parameter is the page of results that the query will begin at. A page is 175 cards, and cannot be changed. To get only the one page you requested, you can do the following:
+The page parameter is the page of results that the query will begin at. A page is 175 cards, and cannot be changed. To
+get only the one page you requested, you can do the following:
 
 ```ts
 import { Cards } from 'scryfall-api';
@@ -378,7 +385,8 @@ From the [Scryfall documentation](https://scryfall.com/docs/api/card-symbols/par
 
 Parses the given mana cost parameter and returns Scryfall’s interpretation.
 
-The server understands most community shorthand for mana costs(such as `2WW` for `{2}{W}{W}`). Symbols can also be out of order, lowercase, or have multiple colorless costs(such as `2{g}2` for `{4}{G}`).
+The server understands most community shorthand for mana costs(such as `2WW` for `{2}{W}{W}`). Symbols can also be out
+of order, lowercase, or have multiple colorless costs(such as `2{g}2` for `{4}{G}`).
 
 ```ts
 import { Symbology } from 'scryfall-api';

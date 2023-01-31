@@ -1,4 +1,6 @@
 {
 	"extends": "@hexatool/tsconfig",
-	"exclude": ["dist"]
+	"exclude": [
+		"dist"
+	]
 }

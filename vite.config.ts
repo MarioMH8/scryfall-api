@@ -1,5 +1,5 @@
-import { defineConfig, UserConfigExport } from 'vite';
 import typescript2 from 'rollup-plugin-typescript2';
+import { defineConfig, UserConfigExport } from 'vite';
 
 export default defineConfig({
 	build: {
@@ -7,7 +7,7 @@ export default defineConfig({
 		lib: {
 			formats: ['es', 'umd', 'cjs'],
 			entry: 'src/index.ts',
-			name: 'Scry'
+			name: 'Scry',
 		},
 		sourcemap: false,
 		rollupOptions: {
@@ -17,8 +17,8 @@ export default defineConfig({
 			output: {
 				exports: 'named',
 				globals: {
-					axios: 'Axios'
-				}
+					axios: 'Axios',
+				},
 			},
 		},
 	},
