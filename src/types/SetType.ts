@@ -19,4 +19,6 @@ export enum SetType {
 	promo,
 	token,
 	memorabilia,
+	alchemy,
+	arsenal,
 }
