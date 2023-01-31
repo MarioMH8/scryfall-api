@@ -46,9 +46,6 @@
 		"typecheck": "tsc --noEmit",
 		"version": "yarn changeset version && yarn install --mode update-lockfile"
 	},
-	"engines": {
-		"node": ">=18"
-	},
 	"peerDependencies": {
 		"axios": "^0 || ^1"
 	},
@@ -64,10 +61,6 @@
 		"vite": "4.0.4",
 		"vite-plugin-dts": "1.7.2",
 		"vitest": "0.28.3"
-	},
-	"lint-staged": {
-		"*.{ts,tsx}": "eslint --fix",
-		"*": "prettier --ignore-unknown --write"
 	},
 	"volta": {
 		"node": "18.13.0",
