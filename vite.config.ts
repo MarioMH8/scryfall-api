@@ -1,45 +1,30 @@
-import typescript2 from 'rollup-plugin-typescript2';
 import { defineConfig, UserConfigExport } from 'vite';
+import dts from 'vite-plugin-dts';
+import externalize from './vite.plugin.external';
 
 export default defineConfig({
 	build: {
 		target: 'ESNext',
 		lib: {
-			formats: ['es', 'umd', 'cjs'],
+			formats: ['es', 'umd'],
 			entry: 'src/index.ts',
-			name: 'Scry',
+			name: 'Scryfall'
 		},
 		sourcemap: false,
 		rollupOptions: {
-			external: [
-				'axios',
-			],
 			output: {
-				exports: 'named',
 				globals: {
-					axios: 'Axios',
-				},
+					axios: 'Axios'
+				}
 			},
 		},
 	},
 	plugins: [
-		{
-			...typescript2({
-				check: false,
-				tsconfigOverride: {
-					compilerOptions: {
-						module: 'ES2020',
-						declaration: true,
-						declarationDir: 'dist/types',
-						emitDeclarationOnly: true,
-						baseUrl: '.',
-					},
-				},
-				include: ['src/*.ts+(|x)', 'src/**/*.ts+(|x)'],
-				useTsconfigDeclarationDir: true,
-			}),
-			apply: 'build',
-		},
+		dts({
+			skipDiagnostics: true,
+			rollupTypes: true,
+		}),
+		externalize(),
 	],
 	test: {
 		include: ['**/*.{test,spec}.{ts,tsx}'],

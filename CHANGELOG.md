@@ -1,5 +1,11 @@
 # scryfall-api
 
+## 3.2.3
+
+### Patch Changes
+
+- 14f391a: Fix TypeScript definitions
+
 ## 3.2.1
 
 ### Patch Changes
