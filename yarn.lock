@@ -685,23 +685,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hexatool/eslint-config-typescript@npm:1.0.5":
-  version: 1.0.5
-  resolution: "@hexatool/eslint-config-typescript@npm:1.0.5"
+"@hexatool/eslint-config-typescript@npm:1.0.6":
+  version: 1.0.6
+  resolution: "@hexatool/eslint-config-typescript@npm:1.0.6"
   dependencies:
-    "@hexatool/eslint-config": 1.0.4
+    "@hexatool/eslint-config": 1.0.6
     "@typescript-eslint/eslint-plugin": 5.51.0
     "@typescript-eslint/parser": 5.51.0
   peerDependencies:
     eslint: ">=8"
     typescript: ">=4"
-  checksum: 0cd0a719648cb8aa5876072a30696f990431461ebeeb861f4b42c091ab9e8ed079d17f4707c4f2d254b2e700f52bac7d69342983e111d05070ff914bd6cf264d
+  checksum: dd4bbf86862d85f3149d3f0822afa8bbd21460a0dd4bab0f1ef5f88fa2a86975a4fc433d4f023fcebe46fcb186f97e6ff6dd746daabf2044891040c26863076e
   languageName: node
   linkType: hard
 
-"@hexatool/eslint-config@npm:1.0.4":
-  version: 1.0.4
-  resolution: "@hexatool/eslint-config@npm:1.0.4"
+"@hexatool/eslint-config@npm:1.0.6":
+  version: 1.0.6
+  resolution: "@hexatool/eslint-config@npm:1.0.6"
   dependencies:
     "@babel/core": 7.20.12
     "@babel/eslint-parser": 7.19.1
@@ -710,10 +710,10 @@ __metadata:
     eslint-plugin-prettier: 4.2.1
     eslint-plugin-simple-import-sort: 10.0.0
     eslint-plugin-unused-imports: 2.0.0
-    prettier: 2.8.3
+    prettier: 2.8.4
   peerDependencies:
     eslint: ">=8"
-  checksum: 1422a8603484fa476c75b6514b2bce2f40af287bfcd08def96d134a037c2b726ca2d841d7dabc72578e82296074f87e7c4cd2d3693b5701e67097a4d2b1f40f8
+  checksum: a0be43dcde720ac8ad74fd386c225874261f14e31c56fb152d3ffacf49377404d837bdd5bcf5acab5bed3b86cdcc2709557827586fc7dc43cae8567291662051
   languageName: node
   linkType: hard
 
@@ -4489,7 +4489,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:2.8.3, prettier@npm:^2.7.1":
+"prettier@npm:2.8.4":
+  version: 2.8.4
+  resolution: "prettier@npm:2.8.4"
+  bin:
+    prettier: bin-prettier.js
+  checksum: c173064bf3df57b6d93d19aa98753b9b9dd7657212e33b41ada8e2e9f9884066bb9ca0b4005b89b3ab137efffdf8fbe0b462785aba20364798ff4303aadda57e
+  languageName: node
+  linkType: hard
+
+"prettier@npm:^2.7.1":
   version: 2.8.3
   resolution: "prettier@npm:2.8.3"
   bin:
@@ -4819,7 +4828,7 @@ __metadata:
   resolution: "scryfall-api@workspace:."
   dependencies:
     "@changesets/cli": 2.26.0
-    "@hexatool/eslint-config-typescript": 1.0.5
+    "@hexatool/eslint-config-typescript": 1.0.6
     "@hexatool/tsconfig": 18.0.0
     "@types/node": 18.13.0
     "@vitest/coverage-c8": 0.28.4
