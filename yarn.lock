@@ -4802,7 +4802,7 @@ __metadata:
     eslint: 8.34.0
     typescript: 4.9.5
     vite: 4.1.1
-    vite-plugin-dts: 1.7.2
+    vite-plugin-dts: 1.7.3
     vitest: 0.28.5
   peerDependencies:
     axios: ^0 || ^1
@@ -5576,9 +5576,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite-plugin-dts@npm:1.7.2":
-  version: 1.7.2
-  resolution: "vite-plugin-dts@npm:1.7.2"
+"vite-plugin-dts@npm:1.7.3":
+  version: 1.7.3
+  resolution: "vite-plugin-dts@npm:1.7.3"
   dependencies:
     "@microsoft/api-extractor": ^7.33.5
     "@rollup/pluginutils": ^5.0.2
@@ -5590,7 +5590,7 @@ __metadata:
     ts-morph: 17.0.1
   peerDependencies:
     vite: ">=2.9.0"
-  checksum: 2445cc131481eddcac8fdff7feabf49018cabf745b0f1e955b45c9ce98313e5e7d9e9bb838af78577866404ed9070d915b4b6bc80c9f6eb91ec95608ce456f2d
+  checksum: 8bc41400a4b29d0c178e7c0acc23f5e839637725d3a4e909defc820308f654280bde59901d5a287b84501d71fa4129abafa05fb83756fda328916e423af2d2a7
   languageName: node
   linkType: hard
 
