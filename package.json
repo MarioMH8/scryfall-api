@@ -52,7 +52,7 @@
 	"devDependencies": {
 		"@changesets/cli": "2.26.1",
 		"@hexatool/eslint-config-typescript": "1.0.9",
-		"@hexatool/tsconfig": "18.0.0",
+		"@hexatool/tsconfig": "20.0.1",
 		"@types/node": "18.16.16",
 		"@vitest/coverage-c8": "0.31.1",
 		"axios": "1.4.0",
