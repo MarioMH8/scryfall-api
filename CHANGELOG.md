@@ -1,5 +1,11 @@
 # scryfall-api
 
+## 3.2.5
+
+### Patch Changes
+
+- 03b96ea: Fix cjs export file
+
 ## 3.2.4
 
 ### Patch Changes
