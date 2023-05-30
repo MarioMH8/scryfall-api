@@ -1,4 +1,5 @@
-import Axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
+import type { AxiosRequestConfig, AxiosResponse } from 'axios';
+import Axios, { AxiosError } from 'axios';
 
 import { MagicQueryError } from '../error/MagicQueryError';
 import type { Query, RetryStrategy, SearchError, TOrArrayOfT } from '../types';

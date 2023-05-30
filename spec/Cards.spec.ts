@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
-import { Card, CardIdentifierBuilder } from '../src';
+import type { Card } from '../src';
+import { CardIdentifierBuilder } from '../src';
 import Cards from '../src/api/Cards';
 
 describe('Scryfall', function () {

@@ -1,6 +1,7 @@
-import { defineConfig, UserConfigExport } from 'vite';
+import type { UserConfigExport } from 'vite';
+import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
-import externalize from './vite.plugin.external';
+import { externalizeDeps } from 'vite-plugin-externalize-deps';
 
 export default defineConfig({
 	build: {
@@ -24,7 +25,7 @@ export default defineConfig({
 			skipDiagnostics: true,
 			rollupTypes: true,
 		}),
-		externalize(),
+		externalizeDeps(),
 	],
 	test: {
 		include: ['**/*.{test,spec}.{ts,tsx}'],
