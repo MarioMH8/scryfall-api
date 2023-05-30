@@ -7,7 +7,7 @@ export default defineConfig({
 	build: {
 		target: 'ESNext',
 		lib: {
-			formats: ['es', 'umd'],
+			formats: ['es', 'umd', 'cjs'],
 			entry: 'src/index.ts',
 			name: 'Scryfall'
 		},

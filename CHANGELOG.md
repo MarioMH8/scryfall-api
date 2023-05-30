@@ -16,7 +16,7 @@
 
 ### Patch Changes
 
-- 78fd3d5: Añadir soporte para axios v1
+- 78fd3d5: Add support for axios v1
 
 ## 3.2.0
 
