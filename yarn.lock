@@ -1119,10 +1119,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:20.2.5":
-  version: 20.2.5
-  resolution: "@types/node@npm:20.2.5"
-  checksum: 38ce7c7e9d76880dc632f71d71e0d5914fcda9d5e9a7095d6c339abda55ca4affb0f2a882aeb29398f8e09d2c5151f0b6586c81c8ccdfe529c34b1ea3337425e
+"@types/node@npm:20.3.2":
+  version: 20.3.2
+  resolution: "@types/node@npm:20.3.2"
+  checksum: 5929ce2b9b12b1e2a2304a0921a953c72a81f5753ad39ac43b99ce6312fbb2b4fb5bc6b60d64a2550704e3223cd5de1299467d36085ac69888899db978f2653a
   languageName: node
   linkType: hard
 
@@ -4941,7 +4941,7 @@ __metadata:
     "@changesets/cli": 2.26.1
     "@hexatool/eslint-config-typescript": 1.0.10
     "@hexatool/tsconfig": 20.0.1
-    "@types/node": 20.2.5
+    "@types/node": 20.3.2
     "@vitest/coverage-c8": 0.32.2
     axios: 1.4.0
     eslint: 8.43.0
