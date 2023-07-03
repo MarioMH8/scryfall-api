@@ -54,14 +54,14 @@
 		"@hexatool/eslint-config-typescript": "1.0.10",
 		"@hexatool/tsconfig": "20.0.1",
 		"@types/node": "20.3.3",
-		"@vitest/coverage-c8": "0.32.2",
+		"@vitest/coverage-c8": "0.32.4",
 		"axios": "1.4.0",
 		"eslint": "8.44.0",
 		"typescript": "5.1.6",
 		"vite": "4.3.9",
 		"vite-plugin-dts": "2.3.0",
 		"vite-plugin-externalize-deps": "0.7.0",
-		"vitest": "0.32.2"
+		"vitest": "0.32.4"
 	},
 	"volta": {
 		"node": "18.16.1",
