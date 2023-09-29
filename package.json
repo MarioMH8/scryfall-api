@@ -61,7 +61,7 @@
 		"vite": "4.4.9",
 		"vite-plugin-dts": "2.3.0",
 		"vite-plugin-externalize-deps": "0.7.0",
-		"vitest": "0.34.5"
+		"vitest": "0.34.6"
 	},
 	"volta": {
 		"node": "18.18.0",
