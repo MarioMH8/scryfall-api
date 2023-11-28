@@ -50,7 +50,7 @@
 		"axios": "^0 || ^1"
 	},
 	"devDependencies": {
-		"@changesets/cli": "2.27.0",
+		"@changesets/cli": "2.27.1",
 		"@hexatool/eslint-config-typescript": "1.0.11",
 		"@hexatool/tsconfig": "20.0.1",
 		"@types/node": "20.8.7",
