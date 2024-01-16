@@ -4,13 +4,9 @@
 .yarn
 spec
 src
-.editorconfig
 .eslintignore
 .eslintrc.json
-.vitest-result.json
-.yarnrc.yml
+bun.lockb
 renovate.json
 tsconfig.json
-tsconfig.tsbuildinfo
-vite.config.ts
-yarn.lock
+tsup.config.ts

@@ -138,9 +138,7 @@ describe('Scryfall', function () {
 
 		describe('collection', () => {
 			it('by id', async () => {
-				const collection = [
-					CardIdentifierBuilder.byId('94c70f23-0ca9-425e-a53a-6c09921c0075'),
-				];
+				const collection = [CardIdentifierBuilder.byId('94c70f23-0ca9-425e-a53a-6c09921c0075')];
 				const cards = await Cards.collection(...collection);
 				expect(cards.length).toBe(1);
 				expect(cards[0]?.name).toBe('Crush Dissent');
@@ -161,18 +159,14 @@ describe('Scryfall', function () {
 			});
 
 			it('by oracle id', async () => {
-				const collection = [
-					CardIdentifierBuilder.byOracleId('394c6de5-7957-4a0b-a6b9-ee0c707cd022'),
-				];
+				const collection = [CardIdentifierBuilder.byOracleId('394c6de5-7957-4a0b-a6b9-ee0c707cd022')];
 				const cards = await Cards.collection(...collection);
 				expect(cards.length).toBe(1);
 				expect(cards[0]?.name).toBe('Forgotten Cave');
 			});
 
 			it('by illustration id', async () => {
-				const collection = [
-					CardIdentifierBuilder.byIllustrationId('99f43949-049e-41e2-bf4c-e22e11790012'),
-				];
+				const collection = [CardIdentifierBuilder.byIllustrationId('99f43949-049e-41e2-bf4c-e22e11790012')];
 				const cards = await Cards.collection(...collection);
 				expect(cards.length).toBe(1);
 				expect(cards[0]?.name).toBe('GO TO JAIL');

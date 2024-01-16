@@ -1,3 +1,3 @@
 import type { QueryValue } from './PageQueryValue';
 
-export type Query = { [key: string]: QueryValue };
+export type Query = Record<string, QueryValue>;

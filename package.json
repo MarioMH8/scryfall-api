@@ -37,35 +37,18 @@
 		}
 	},
 	"scripts": {
-		"build": "vite build",
+		"build": "bun build",
 		"lint": "eslint .",
 		"lint:fix": "eslint --fix .",
-		"publish": "yarn changeset publish",
-		"test": "vitest run --no-isolate",
-		"test:coverage": "vitest run --no-isolate --coverage",
-		"typecheck": "tsc --noEmit",
-		"version": "yarn changeset version && yarn install --mode update-lockfile"
-	},
-	"peerDependencies": {
-		"axios": "^0 || ^1"
+		"test": "bun test",
+		"typecheck": "tsc --noEmit"
 	},
 	"devDependencies": {
 		"@changesets/cli": "2.27.1",
-		"@hexatool/eslint-config-typescript": "1.0.11",
+		"@hexatool/eslint-config": "2.3.0",
 		"@hexatool/tsconfig": "20.0.1",
-		"@types/node": "20.11.4",
-		"@vitest/coverage-c8": "0.33.0",
-		"axios": "1.6.5",
+		"@types/bun": "1.0.1",
 		"eslint": "8.56.0",
-		"typescript": "5.3.3",
-		"vite": "5.0.11",
-		"vite-plugin-dts": "2.3.0",
-		"vite-plugin-externalize-deps": "0.8.0",
-		"vitest": "0.34.6"
-	},
-	"volta": {
-		"node": "20.11.0",
-		"yarn": "3.7.0"
-	},
-	"packageManager": "yarn@3.7.0"
+		"typescript": "5.3.3"
+	}
 }

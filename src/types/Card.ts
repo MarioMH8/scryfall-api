@@ -16,11 +16,11 @@ import type { RelatedUris } from './RelatedUris';
 import type { Set as ScryfallSet } from './Set';
 
 export interface Card {
-	// gameplay fields
+	// Gameplay fields
 	all_parts?: RelatedCard[];
-	// core fields
+	// Core fields
 	arena_id?: number;
-	// print fields
+	// Print fields
 	artist?: string;
 	artist_ids?: string[];
 	booster: boolean;

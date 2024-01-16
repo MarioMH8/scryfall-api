@@ -31,11 +31,7 @@ class Cards extends MagicQuery {
 
 	public async byName(name: string, set?: string, fuzzy?: boolean): Promise<Card | undefined>;
 
-	public async byName(
-		name: string,
-		set?: boolean | string,
-		fuzzy = false
-	): Promise<Card | undefined> {
+	public async byName(name: string, set?: boolean | string, fuzzy = false): Promise<Card | undefined> {
 		let f = fuzzy;
 		let s = set;
 		if (typeof set === 'boolean') {
@@ -49,11 +45,7 @@ class Cards extends MagicQuery {
 		});
 	}
 
-	public async bySet(
-		setCode: string,
-		collectorNumber: number,
-		lang?: string
-	): Promise<Card | undefined> {
+	public async bySet(setCode: string, collectorNumber: number, lang?: string): Promise<Card | undefined> {
 		const path = ['cards', setCode, collectorNumber];
 		if (lang) {
 			path.push(lang);
@@ -69,8 +61,10 @@ class Cards extends MagicQuery {
 	public async collection(...identifiers: CardIdentifier[]): Promise<Card[]> {
 		const cards: Card[] = [];
 		for (let i = 0; i < identifiers.length; i += 75) {
-			// the api only supports a max collection size of 75, so we take the list of identifiers (any length)
-			// and split it into 75 card-max requests
+			/*
+			 * The api only supports a max collection size of 75, so we take the list of identifiers (any length)
+			 * and split it into 75 card-max requests
+			 */
 			const collectionSection = { identifiers: identifiers.slice(i, i + 75) };
 			/* eslint no-await-in-loop: "warn" */
 			const result = await this.query<ResultList<Card, CardIdentifier>>(

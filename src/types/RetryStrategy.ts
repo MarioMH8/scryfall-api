@@ -9,6 +9,5 @@ export interface RetryStrategy {
 	forced?: boolean;
 	timeout?: number;
 
-	// tslint:disable-next-line space-before-function-paren typescript autoformats this to remove the space
 	canRetry?(error?: SearchError): boolean;
 }

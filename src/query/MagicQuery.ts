@@ -6,11 +6,11 @@ import type { Query, RetryStrategy, SearchError, TOrArrayOfT } from '../types';
 
 export default abstract class MagicQuery {
 	public static retry: RetryStrategy = { attempts: 1 };
-	// the path to the api
+	// The path to the api
 	private static readonly endpoint = 'https://api.scryfall.com';
-	// time when the last api call was made
+	// Time when the last api call was made
 	private static lastQuery = 100;
-	// the api requests 50-100 ms between calls, we go on the generous side and never wait less than 100 ms between calls
+	// The api requests 50-100 ms between calls, we go on the generous side and never wait less than 100 ms between calls
 	private static readonly rateLimit = 100;
 
 	private static canRetry(error?: SearchError | string) {
@@ -63,7 +63,7 @@ export default abstract class MagicQuery {
 			return await Axios.request<T, AxiosResponse<T>, Y>(config);
 		} catch (e: any) {
 			/* eslint @typescript-eslint/no-unsafe-member-access: "warn" */
-			if (e['isAxiosError']) {
+			if (e.isAxiosError) {
 				const error = e as AxiosError<SearchError>;
 				throw new MagicQueryError(error.response?.data ?? error.message);
 			} else {
