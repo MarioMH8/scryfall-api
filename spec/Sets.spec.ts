@@ -1,9 +1,9 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it } from 'bun:test';
 
-import Sets from '../src/api/Sets';
+import { Sets } from '../src';
 
-describe('Scryfall', function () {
-	describe('Sets', function () {
+describe('Scryfall', () => {
+	describe('Sets', () => {
 		it('by code', async () => {
 			const set = await Sets.byCode('hou');
 			expect(set?.name).toBe('Hour of Devastation');

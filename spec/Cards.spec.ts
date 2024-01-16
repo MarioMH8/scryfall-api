@@ -1,11 +1,10 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it } from 'bun:test';
 
 import type { Card } from '../src';
-import { CardIdentifierBuilder } from '../src';
-import Cards from '../src/api/Cards';
+import { CardIdentifierBuilder, Cards } from '../src';
 
-describe('Scryfall', function () {
-	describe('Cards', function () {
+describe('Scryfall', () => {
+	describe('Cards', () => {
 		it('by id', async () => {
 			const card = await Cards.byId('9ea8179a-d3c9-4cdc-a5b5-68cc73279050');
 			expect(card).toBeDefined();

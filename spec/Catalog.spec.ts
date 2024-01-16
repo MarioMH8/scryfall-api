@@ -1,9 +1,9 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it } from 'bun:test';
 
-import Catalog from '../src/api/Catalog';
+import { Catalog } from '../src';
 
-describe('Scryfall', function () {
-	describe('Catalog', function () {
+describe('Scryfall', () => {
+	describe('Catalog', () => {
 		it('card names', async () => {
 			const result = await Catalog.cardNames();
 			expect(result.length).toBeGreaterThanOrEqual(18059);

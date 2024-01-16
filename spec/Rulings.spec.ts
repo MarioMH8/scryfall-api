@@ -1,9 +1,9 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it } from 'bun:test';
 
-import Rulings from '../src/api/Rulings';
+import { Rulings } from '../src';
 
-describe('Scryfall', function () {
-	describe('Rulings', function () {
+describe('Scryfall', () => {
+	describe('Rulings', () => {
 		it('by id', async () => {
 			const rulings = await Rulings.byId('9ea8179a-d3c9-4cdc-a5b5-68cc73279050');
 			expect(rulings.length).toBeGreaterThanOrEqual(2);

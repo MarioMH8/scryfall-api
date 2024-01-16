@@ -1,8 +1,8 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it } from 'bun:test';
 
-import Symbology from '../src/api/Symbology';
+import { Symbology } from '../src';
 
-describe('Scryfall', function () {
+describe('Scryfall', () => {
 	describe('Symbology', () => {
 		it('all', async () => {
 			const symbology = await Symbology.all();
