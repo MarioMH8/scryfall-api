@@ -7,4 +7,5 @@ export interface ManaCost {
 	cost: string;
 	monocolored: boolean;
 	multicolored: boolean;
+	object: 'mana_cost';
 }

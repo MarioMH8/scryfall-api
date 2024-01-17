@@ -23,5 +23,5 @@ export enum PromoType {
 	premiereshop,
 	playerrewards,
 	gateway,
-	arenaleague,
+	arenaleague
 }

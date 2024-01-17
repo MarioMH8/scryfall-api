@@ -1,7 +1,6 @@
 import type { BulkDataType } from './BulkDataType';
 
 export interface BulkDataDefinition {
-	compressed_size: number;
 	content_encoding: string;
 	content_type: string;
 	description: string;
@@ -9,6 +8,7 @@ export interface BulkDataDefinition {
 	id: string;
 	name: string;
 	object: 'bulk_data';
+	size: number;
 	type: BulkDataType;
 	updated_at: string;
 	uri: string;

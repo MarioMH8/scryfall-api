@@ -6,7 +6,6 @@ export enum Layout {
 	modal_dfc,
 	meld,
 	leveler,
-	'class',
 	saga,
 	adventure,
 	planar,
@@ -18,5 +17,5 @@ export enum Layout {
 	augment,
 	host,
 	art_series,
-	reversible_card,
+	double_sided,
 }

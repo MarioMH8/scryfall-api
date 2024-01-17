@@ -2,7 +2,9 @@ export enum SetType {
 	core,
 	expansion,
 	masters,
+	alchemy,
 	masterpiece,
+	arsenal,
 	from_the_vault,
 	spellbook,
 	premium_deck,
@@ -19,6 +21,5 @@ export enum SetType {
 	promo,
 	token,
 	memorabilia,
-	alchemy,
-	arsenal,
+	minigame,
 }

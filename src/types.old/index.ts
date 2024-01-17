@@ -10,7 +10,6 @@ export * from './Color';
 export * from './Format';
 export * from './FrameEffect';
 export * from './Game';
-export * from './HomepageLink';
 export * from './ImageUris';
 export * from './Layout';
 export * from './Legalties';

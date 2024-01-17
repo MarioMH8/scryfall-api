@@ -14,4 +14,12 @@ export enum FrameEffect {
 	moonreversemoondfc,
 	showcase,
 	extendedart,
+	companion,
+	etched,
+	snow,
+	lesson,
+	shatteredglass,
+	convertdfc,
+	fandfc,
+	upsidedowndfc,
 }
