@@ -135,7 +135,7 @@ describe('Scryfall', () => {
 			expect(cardNames).toContain('Blood Scrivener');
 		});
 
-		describe.skip('collection', () => {
+		describe('collection', () => {
 			it('by id', async () => {
 				const collection = [CardIdentifierBuilder.byId('94c70f23-0ca9-425e-a53a-6c09921c0075')];
 				const cards = await Cards.collection(...collection);
