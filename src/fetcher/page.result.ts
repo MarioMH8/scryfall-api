@@ -2,28 +2,28 @@ import type { PageQuery, ResultList } from '../types.old';
 import fetcher from './index';
 
 export default class MagicPageResult<T> {
-	private _count: number;
+	#count: number;
+	#hasMore: boolean;
 
-	private _hasMore: boolean;
 	constructor(
 		private readonly apiPath: string,
 		private readonly query: PageQuery
 	) {
-		this._hasMore = true;
-		this._count = 0;
+		this.#hasMore = true;
+		this.#count = 0;
 	}
 
 	public get count(): number {
-		return this._count;
+		return this.#count;
 	}
 
 	public get hasMore(): boolean {
-		return this._hasMore;
+		return this.#hasMore;
 	}
 
 	public async all(): Promise<T[]> {
 		const r: T[] = [];
-		while (this._hasMore) {
+		while (this.#hasMore) {
 			const result = await this.next();
 			r.push(...result);
 		}
@@ -33,7 +33,7 @@ export default class MagicPageResult<T> {
 
 	public async get(limit: number): Promise<T[]> {
 		const r: T[] = [];
-		while (this._hasMore) {
+		while (this.#hasMore) {
 			const result = await this.next();
 			r.push(...result);
 			if (r.length === limit) {
@@ -49,9 +49,9 @@ export default class MagicPageResult<T> {
 
 	public async next(): Promise<T[]> {
 		const results = await fetcher<ResultList<T>>(this.apiPath, this.query);
-		this._hasMore = results?.has_more ?? false;
-		this._count = Number.parseInt(`${results?.total_cards ?? 0}`, 10);
-		if (this._hasMore) {
+		this.#hasMore = results?.has_more ?? false;
+		this.#count = Number.parseInt(`${results?.total_cards ?? 0}`, 10);
+		if (this.#hasMore) {
 			this.setNextPage();
 		}
 
@@ -65,6 +65,6 @@ export default class MagicPageResult<T> {
 	}
 
 	private setNextPage(): void {
-		this.query.page = this.query.page + 1;
+		this.query.page += 1;
 	}
 }
