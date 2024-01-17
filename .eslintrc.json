@@ -1,5 +1,9 @@
 {
 	"extends": [
 		"@hexatool/eslint-config"
-	]
+	],
+	"rules": {
+		"no-await-in-loop": "warn",
+		"no-console": "warn"
+	}
 }
