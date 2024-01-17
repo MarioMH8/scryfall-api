@@ -1,21 +1,21 @@
 import { ScryfallError } from '../error';
 import UnknownScryfallError from '../error/unknown.error';
-import { ErrorResponse } from '../schemas';
 import type { Fetcher } from './fetcher';
 
 interface RetryOptions {
 	maxAttempts?: number;
-	canRetry?(response: Response): boolean;
+	canRetry?(response: Response): Promise<boolean> | boolean;
 }
 
-const defaultCanRetry = (response: Response) => {
-	const parse = ErrorResponse.safeParse(response.json());
-	if (!parse.success) {
-		return response.status >= 500;
+const defaultCanRetry = async (response: Response) => {
+	const object = (await response.json()) as object;
+	const status = 'status' in object ? Number(object.status) : undefined;
+	if (status && status >= 500) {
+		return true;
 	}
-	const error = parse.data;
+	const code = 'code' in object && typeof object.code === 'string' ? object.code : undefined;
 
-	return error.code !== 'not_found' && error.code !== 'bad_request';
+	return code !== 'not_found' && code !== 'bad_request';
 };
 
 export default function createRetryFetcher<TFetcher extends Fetcher>(
@@ -31,11 +31,17 @@ export default function createRetryFetcher<TFetcher extends Fetcher>(
 		if (response.ok) {
 			return response;
 		}
-		const parse = ErrorResponse.safeParse(response.json());
+		const object = (await response.json()) as object;
+		const code = 'code' in object && typeof object.code === 'string' ? object.code : undefined;
+		const status = 'status' in object ? Number(object.status) : undefined;
+		const details = 'details' in object && typeof object.details === 'string' ? object.details : undefined;
+		const type = 'type' in object && typeof object.type === 'string' ? object.type : undefined;
+		const warnings =
+			'warnings' in object && Array.isArray(object.warnings) ? (object.warnings as string[]) : undefined;
 
 		if (retries >= maxAttempts) {
-			if (parse.success) {
-				throw new ScryfallError(parse.data);
+			if (code && details && status) {
+				throw new ScryfallError(code, details, status, type, warnings);
 			}
 
 			throw new UnknownScryfallError(`Request failed with status ${response.status}`);
@@ -45,8 +51,8 @@ export default function createRetryFetcher<TFetcher extends Fetcher>(
 			return retryFetcher(...args);
 		}
 
-		if (parse.success) {
-			throw new ScryfallError(parse.data);
+		if (code && details && status) {
+			throw new ScryfallError(code, details, status, type, warnings);
 		}
 
 		throw new UnknownScryfallError(`Request failed with status ${response.status}`);

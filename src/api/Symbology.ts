@@ -1,12 +1,12 @@
-import InvalidScryfallArgumentError from '../error/invalid.error';
+import { InvalidScryfallArgumentError } from '../error';
 import fetcher from '../fetcher';
-import type { CardSymbol, ListResponse, ManaCost } from '../types';
+import type { CardSymbol, ManaCost, ResultList } from '../types.old';
 
 class Symbology {
 	public async all(): Promise<CardSymbol[]> {
-		const list = await fetcher<ListResponse<CardSymbol>>('symbology');
+		const list = await fetcher<ResultList<CardSymbol>>('symbology');
 
-		return list.data;
+		return list?.data ?? [];
 	}
 
 	public async parseMana(shorthand: string): Promise<ManaCost> {
@@ -14,9 +14,9 @@ class Symbology {
 			throw new InvalidScryfallArgumentError('shorthand must be a string');
 		}
 
-		return await fetcher('symbology/parse-mana', {
+		return (await fetcher('symbology/parse-mana', {
 			cost: shorthand,
-		});
+		}))!;
 	}
 }
 const symbology = new Symbology();

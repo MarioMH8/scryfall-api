@@ -1,15 +1,13 @@
 import type { PageQuery, ResultList } from '../types.old';
-import type MagicQuery from './MagicQuery';
+import fetcher from './index';
 
-export default class MagicPageResult<T, Q extends MagicQuery, P = unknown> {
+export default class MagicPageResult<T> {
 	private _count: number;
 
 	private _hasMore: boolean;
 	constructor(
-		private readonly q: Q,
 		private readonly apiPath: string,
-		private readonly query: PageQuery,
-		private readonly post?: P
+		private readonly query: PageQuery
 	) {
 		this._hasMore = true;
 		this._count = 0;
@@ -26,7 +24,6 @@ export default class MagicPageResult<T, Q extends MagicQuery, P = unknown> {
 	public async all(): Promise<T[]> {
 		const r: T[] = [];
 		while (this._hasMore) {
-			// eslint-disable-next-line no-await-in-loop
 			const result = await this.next();
 			r.push(...result);
 		}
@@ -37,7 +34,6 @@ export default class MagicPageResult<T, Q extends MagicQuery, P = unknown> {
 	public async get(limit: number): Promise<T[]> {
 		const r: T[] = [];
 		while (this._hasMore) {
-			// eslint-disable-next-line no-await-in-loop
 			const result = await this.next();
 			r.push(...result);
 			if (r.length === limit) {
@@ -52,7 +48,7 @@ export default class MagicPageResult<T, Q extends MagicQuery, P = unknown> {
 	}
 
 	public async next(): Promise<T[]> {
-		const results = await this.q.query<ResultList<T>, P>(this.apiPath, this.query, this.post);
+		const results = await fetcher<ResultList<T>>(this.apiPath, this.query);
 		this._hasMore = results?.has_more ?? false;
 		this._count = Number.parseInt(`${results?.total_cards ?? 0}`, 10);
 		if (this._hasMore) {

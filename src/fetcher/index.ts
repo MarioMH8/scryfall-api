@@ -1,21 +1,18 @@
-import type { ZodType } from 'zod';
-
-import type { TOrArrayOfT } from '../types';
+import { ScryfallError } from '../error';
+import type { TOrArrayOfT } from '../types.old';
 import createDebounceFetcher from './debounce.fetcher';
 import type { FetcherParams } from './fetcher.params';
+import MagicPageResult from './page.result';
 import createRetryFetcher from './retry.fetcher';
-import createZodFetcher from './zod.fetcher';
 
 const simpleFetcher = createDebounceFetcher(createRetryFetcher());
-const zodFetcher = createZodFetcher(simpleFetcher);
 
 const endpoint = 'https://api.scryfall.com';
 
 export default async function fetcher<TData>(
 	apiPath: TOrArrayOfT<number | string | undefined>,
-	params?: FetcherParams,
-	schema?: ZodType<TData>
-): Promise<TData> {
+	params?: FetcherParams
+): Promise<TData | undefined> {
 	let path: number | string = '';
 	if (typeof apiPath === 'number' || typeof apiPath === 'string') {
 		path = apiPath;
@@ -32,13 +29,21 @@ export default async function fetcher<TData>(
 		});
 	}
 
-	if (schema) {
-		return zodFetcher(schema, url, {
-			headers: { 'Accept-Encoding': 'gzip,deflate,compress' },
-		});
+	try {
+		const response = await simpleFetcher(url);
+
+		return (await response.json()) as TData;
+	} catch (e) {
+		if (e instanceof ScryfallError) {
+			if (e.warnings) {
+				console.warn(e.warnings);
+			}
+			if (e.code === 'not_found' || e.code === 'bad_request') {
+				return undefined;
+			}
+		}
+		throw e;
 	}
-
-	const response = await simpleFetcher(url);
-
-	return (await response.json()) as TData;
 }
+
+export { MagicPageResult };

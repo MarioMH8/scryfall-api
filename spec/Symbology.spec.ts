@@ -13,7 +13,7 @@ describe('Scryfall', () => {
 		describe('.parseMana()', () => {
 			it('should works as expected', async () => {
 				const cost = await Symbology.parseMana('2ww');
-				expect(cost).toMatchSnapshot();
+				expect(cost.cost).toBe('{2}{W}{W}');
 			});
 			it('should throw if invalid shorthand', () => {
 				// @ts-expect-error test

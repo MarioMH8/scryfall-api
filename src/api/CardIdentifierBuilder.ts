@@ -1,4 +1,4 @@
-import type { CardIdentifier } from '../types';
+import type { CardIdentifier } from '../types.old';
 
 export class CardIdentifierBuilder {
 	public static byId(id: string): CardIdentifier {

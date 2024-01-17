@@ -1,10 +1,9 @@
-import MagicPageResult from '../query/MagicPageResult';
-import MagicQuery from '../query/MagicQuery';
-import type { Card, CardIdentifier, ResultCatalog, ResultList, SearchOptions } from '../types';
+import fetcher, { MagicPageResult } from '../fetcher';
+import type { Card, CardIdentifier, ResultCatalog, SearchOptions } from '../types.old';
 
-class Cards extends MagicQuery {
+class Cards {
 	public async autoCompleteName(name: string): Promise<string[]> {
-		const result = await this.query<ResultCatalog>('cards/autocomplete', {
+		const result = await fetcher<ResultCatalog>('cards/autocomplete', {
 			q: name,
 		});
 
@@ -12,19 +11,19 @@ class Cards extends MagicQuery {
 	}
 
 	public async byArenaId(id: number): Promise<Card | undefined> {
-		return this.query<Card>(['cards/arena', id]);
+		return fetcher<Card>(['cards/arena', id]);
 	}
 
 	public async byId(id: string): Promise<Card | undefined> {
-		return this.query<Card>(['cards', id]);
+		return fetcher<Card>(['cards', id]);
 	}
 
 	public async byMtgoId(id: number): Promise<Card | undefined> {
-		return this.query<Card>(['cards/mtgo', id]);
+		return fetcher<Card>(['cards/mtgo', id]);
 	}
 
 	public async byMultiverseId(id: number): Promise<Card | undefined> {
-		return this.query<Card>(['cards/multiverse', id]);
+		return fetcher<Card>(['cards/multiverse', id]);
 	}
 
 	public async byName(name: string, fuzzy?: boolean): Promise<Card | undefined>;
@@ -39,7 +38,7 @@ class Cards extends MagicQuery {
 			s = undefined;
 		}
 
-		return this.query<Card>('cards/named', {
+		return fetcher<Card>('cards/named', {
 			[f ? 'fuzzy' : 'exact']: name,
 			set: s,
 		});
@@ -51,39 +50,23 @@ class Cards extends MagicQuery {
 			path.push(lang);
 		}
 
-		return this.query<Card>(path);
+		return fetcher<Card>(path);
 	}
 
 	public async byTcgPlayerId(id: number): Promise<Card | undefined> {
-		return this.query<Card>(['cards/tcgplayer', id]);
+		return fetcher<Card>(['cards/tcgplayer', id]);
 	}
 
-	public async collection(...identifiers: CardIdentifier[]): Promise<Card[]> {
-		const cards: Card[] = [];
-		for (let i = 0; i < identifiers.length; i += 75) {
-			/*
-			 * The api only supports a max collection size of 75, so we take the list of identifiers (any length)
-			 * and split it into 75 card-max requests
-			 */
-			const collectionSection = { identifiers: identifiers.slice(i, i + 75) };
-			/* eslint no-await-in-loop: "warn" */
-			const result = await this.query<ResultList<Card, CardIdentifier>>(
-				'cards/collection',
-				undefined,
-				collectionSection
-			);
-			cards.push(...(result?.data ?? []));
-		}
-
-		return cards;
+	public async collection(..._identifiers: CardIdentifier[]): Promise<Card[]> {
+		throw new Error('Not implemented');
 	}
 
 	public async random(): Promise<Card | undefined> {
-		return this.query<Card>('cards/random');
+		return fetcher<Card>('cards/random');
 	}
 
-	public search(query: string, options?: SearchOptions | number): MagicPageResult<Card, Cards> {
-		return new MagicPageResult<Card, Cards>(this, 'cards/search', {
+	public search(query: string, options?: SearchOptions | number): MagicPageResult<Card> {
+		return new MagicPageResult<Card>('cards/search', {
 			q: query,
 			...(typeof options === 'number' ? { page: options } : { page: 1, ...options }),
 		});
