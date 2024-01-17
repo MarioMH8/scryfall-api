@@ -11,7 +11,8 @@ const endpoint = 'https://api.scryfall.com';
 
 export default async function fetcher<TData>(
 	apiPath: TOrArrayOfT<number | string | undefined>,
-	params?: FetcherParams
+	params?: FetcherParams,
+	body?: object
 ): Promise<TData | undefined> {
 	let path: number | string = '';
 	if (typeof apiPath === 'number' || typeof apiPath === 'string') {
@@ -30,7 +31,16 @@ export default async function fetcher<TData>(
 	}
 
 	try {
-		const response = await simpleFetcher(url);
+		const init: RequestInit = {
+			method: body ? 'POST' : 'GET',
+		};
+		if (body) {
+			init.body = JSON.stringify(body);
+			init.headers = {
+				'Content-Type': 'application/json',
+			};
+		}
+		const response = await simpleFetcher(url, init);
 
 		return (await response.json()) as TData;
 	} catch (e) {
