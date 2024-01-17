@@ -18,7 +18,17 @@ class Symbology {
 			cost: shorthand,
 		});
 
-		return cost ?? { cost: '', colors: [], cmc: 0, colorless: false, monocolored: false, multicolored: false };
+		return (
+			cost ?? {
+				cost: '',
+				colors: [],
+				cmc: 0,
+				colorless: false,
+				monocolored: false,
+				multicolored: false,
+				object: 'mana_cost',
+			}
+		);
 	}
 }
 const symbology = new Symbology();
