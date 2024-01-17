@@ -1,16 +1,24 @@
-import MagicQuery from '../query/MagicQuery';
-import type { CardSymbol, ManaCost, ResultList } from '../types';
+import InvalidScryfallArgumentError from '../error/invalid.error';
+import fetcher from '../fetcher';
+import type { CardSymbol, ListResponse, ManaCost } from '../types';
 
-class Symbology extends MagicQuery {
+class Symbology {
 	public async all(): Promise<CardSymbol[]> {
-		return (await this.query<ResultList<CardSymbol>>('symbology'))?.data ?? [];
+		const list = await fetcher<ListResponse<CardSymbol>>('symbology');
+
+		return list.data;
 	}
 
-	public async parseMana(shorthand: string): Promise<ManaCost | undefined> {
-		return await this.query<ManaCost>('symbology/parse-mana', {
+	public async parseMana(shorthand: string): Promise<ManaCost> {
+		if (!shorthand || typeof shorthand !== 'string') {
+			throw new InvalidScryfallArgumentError('shorthand must be a string');
+		}
+
+		return await fetcher('symbology/parse-mana', {
 			cost: shorthand,
 		});
 	}
 }
+const symbology = new Symbology();
 
-export default new Symbology();
+export default symbology;
