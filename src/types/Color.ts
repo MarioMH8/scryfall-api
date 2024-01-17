@@ -1,9 +1,5 @@
-enum Colors {
-	W,
-	B,
-	R,
-	U,
-	G,
-}
+import type { infer as inferType } from 'zod';
 
-export type Color = keyof typeof Colors;
+import { Color } from '../schemas';
+
+export type Color = inferType<typeof Color>;

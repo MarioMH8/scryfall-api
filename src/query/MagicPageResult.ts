@@ -1,4 +1,4 @@
-import type { PageQuery, ResultList } from '../types';
+import type { PageQuery, ResultList } from '../types.old';
 import type MagicQuery from './MagicQuery';
 
 export default class MagicPageResult<T, Q extends MagicQuery, P = unknown> {
