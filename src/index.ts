@@ -4,6 +4,7 @@ export { default as Catalog } from './api/Catalog';
 export { default as Rulings } from './api/Rulings';
 export { default as Sets } from './api/Sets';
 export { default as Symbology } from './api/Symbology';
+export * from './error';
 export * from './error/MagicQueryError';
 export * from './query/MagicPageResult';
 export * from './query/MagicQuery';
