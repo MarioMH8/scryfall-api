@@ -240,7 +240,7 @@ Cards.search('type:planeswalker')
 
 For information on how to provide extra options, see
 the [`/get/cards/search`](https://scryfall.com/docs/api/cards/search) page on Scryfall. You can also reference
-the [`SearchOptions`](src/types/SearchOptions.ts) interface
+the [`SearchOptions`](src/types.old/SearchOptions.ts) interface
 
 The page parameter is the page of results that the query will begin at. A page is 175 cards, and cannot be changed. To
 get only the one page you requested, you can do the following:
