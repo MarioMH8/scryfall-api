@@ -23,4 +23,6 @@ class Rulings {
 	}
 }
 
-export default new Rulings();
+const rulings = new Rulings();
+
+export default rulings;

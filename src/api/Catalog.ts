@@ -55,4 +55,6 @@ class Catalog {
 	}
 }
 
-export default new Catalog();
+const catalog = new Catalog();
+
+export default catalog;

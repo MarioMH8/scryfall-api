@@ -14,9 +14,11 @@ class Symbology {
 			throw new InvalidScryfallArgumentError('shorthand must be a string');
 		}
 
-		return (await fetcher('symbology/parse-mana', {
+		const cost = await fetcher<ManaCost>('symbology/parse-mana', {
 			cost: shorthand,
-		}))!;
+		});
+
+		return cost ?? { cost: '', colors: [], cmc: 0, colorless: false, monocolored: false, multicolored: false };
 	}
 }
 const symbology = new Symbology();

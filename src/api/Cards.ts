@@ -1,5 +1,5 @@
 import fetcher, { MagicPageResult } from '../fetcher';
-import type { Card, CardIdentifier, ResultCatalog, SearchOptions } from '../types.old';
+import type { Card, CardIdentifier, ResultCatalog, ResultList, SearchOptions } from '../types.old';
 
 class Cards {
 	public async autoCompleteName(name: string): Promise<string[]> {
@@ -57,8 +57,23 @@ class Cards {
 		return fetcher<Card>(['cards/tcgplayer', id]);
 	}
 
-	public async collection(..._identifiers: CardIdentifier[]): Promise<Card[]> {
-		throw new Error('Not implemented');
+	public async collection(...identifiers: CardIdentifier[]): Promise<Card[]> {
+		const cards: Card[] = [];
+		for (let i = 0; i < identifiers.length; i += 75) {
+			/*
+			 * The api only supports a max collection size of 75, so we take the list of identifiers (any length)
+			 * and split it into 75 card-max requests
+			 */
+			const collectionSection = { identifiers: identifiers.slice(i, i + 75) };
+			const result = await fetcher<ResultList<Card, CardIdentifier>>(
+				'cards/collection',
+				undefined,
+				collectionSection
+			);
+			cards.push(...(result?.data ?? []));
+		}
+
+		return cards;
 	}
 
 	public async random(): Promise<Card | undefined> {
@@ -73,4 +88,6 @@ class Cards {
 	}
 }
 
-export default new Cards();
+const cards = new Cards();
+
+export default cards;

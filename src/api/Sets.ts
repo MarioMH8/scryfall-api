@@ -21,4 +21,6 @@ class Sets {
 	}
 }
 
-export default new Sets();
+const set = new Sets();
+
+export default set;
