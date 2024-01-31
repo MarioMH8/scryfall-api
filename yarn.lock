@@ -1229,12 +1229,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:20.11.11":
-  version: 20.11.11
-  resolution: "@types/node@npm:20.11.11"
+"@types/node@npm:20.11.13":
+  version: 20.11.13
+  resolution: "@types/node@npm:20.11.13"
   dependencies:
     undici-types: ~5.26.4
-  checksum: 4d8624d9fc4a32b7cb74b3c4ea74b7aba666ed1f8fb6ede99fcdaf3a8d58eba5e091bff136d21ffec6eac6a878bbc2d26f25bf881d222e3054ccfa8eb5400f7a
+  checksum: 76fbe4dbcce9ecb602c1e0528124bb113e9ece58d417e96710b7ba96dd67cd0bb050272218dc796be36c0d8c29d7c55da44311be429daa4253c3a00f1b3840ff
   languageName: node
   linkType: hard
 
@@ -4998,7 +4998,7 @@ __metadata:
     "@changesets/cli": 2.27.1
     "@hexatool/eslint-config-typescript": 1.0.11
     "@hexatool/tsconfig": 20.0.1
-    "@types/node": 20.11.11
+    "@types/node": 20.11.13
     "@vitest/coverage-c8": 0.33.0
     axios: 1.6.7
     eslint: 8.56.0
