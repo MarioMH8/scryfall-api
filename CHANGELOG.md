@@ -1,5 +1,11 @@
 # scryfall-api
 
+## 4.0.0-beta.1
+
+### Patch Changes
+
+- e049bb4: Fix build
+
 ## 4.0.0-beta.0
 
 ### Major Changes
