@@ -7,7 +7,7 @@ make an issue! See [SUPPORT.md](./SUPPORT.md).
 
 
 - [Cards](#cards)
-    - [`Cards.autoCompleteName(name: string): Promise<string[]>;` ](#cardsautocompletenamename-string-promisestring-)
+    - [`Cards.autoCompleteName(name: string): Promise<string[]>;` ](#cardsautocompletenamename-string-promisestring)
     - [`Cards.byArenaId(id: number): Promise<Card | undefined>;` ](#cardsbyarenaidid-number-promisecard--undefined-)
     - [`Cards.byId(id: string): Promise<Card | undefined>;`](#cardsbyidid-string-promisecard--undefined-)
     - [`Cards.byMtgoId(id: number): Promise<Card | undefined>;` ](#cardsbymtgoidid-number-promisecard--undefined-)
