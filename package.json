@@ -3,11 +3,12 @@
 	"version": "3.2.5",
 	"description": "A Javascript library for https://scryfall.com/docs/api written in Typescript.",
 	"keywords": [
-		"magic the gathering",
 		"magic",
+		"magic the gathering",
+		"magic-the-gathering",
 		"gathering",
 		"api",
-		"mtg",
+		"mtgsdk",
 		"typescript",
 		"card",
 		"cards",
@@ -26,38 +27,31 @@
 	"files": [
 		"dist"
 	],
-	"module": "./dist/scryfall-api.mjs",
-	"types": "./dist/index.d.ts",
+	"type": "module",
+	"module": "./dist/scryfall-api.js",
+	"types": "./dist/scryfall-api.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"require": "./dist/scryfall-api.js",
-			"import": "./dist/scryfall-api.mjs",
-			"default": "./dist/scryfall-api.mjs"
+			"types": "./dist/scryfall-api.d.ts",
+			"require": "./dist/scryfall-api.cjs",
+			"import": "./dist/scryfall-api.js",
+			"default": "./dist/scryfall-api.js"
 		}
 	},
 	"scripts": {
-		"build": "bun build",
+		"build": "tsup",
 		"lint": "eslint .",
 		"lint:fix": "eslint --fix .",
 		"test": "bun test",
 		"typecheck": "tsc --noEmit"
 	},
-	"peerDependencies": {
-		"zod": "^3.22.4"
-	},
-	"peerDependenciesMeta": {
-		"zod": {
-			"optional": true
-		}
-	},
 	"devDependencies": {
 		"@changesets/cli": "2.27.1",
 		"@hexatool/eslint-config": "2.3.0",
 		"@hexatool/tsconfig": "20.0.1",
-		"@types/bun": "1.0.1",
-		"eslint": "8.56.0",
-		"typescript": "5.3.3",
-		"zod": "3.22.4"
+		"@types/bun": "1.0.7",
+		"eslint": "8.57.0",
+		"tsup": "8.0.2",
+		"typescript": "5.3.3"
 	}
 }
