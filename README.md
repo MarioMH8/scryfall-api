@@ -1,5 +1,6 @@
-<h1 style='display: flex; flex-flow: column; justify-content: center; align-items: center'>
-  <img src="https://raw.githubusercontent.com/MarioMH8/scryfall-api/next/.idea/icon.svg" alt="Scryfall logo" style="max-width: 4rem">
+
+<h1 align="center">
+  <img src="https://raw.githubusercontent.com/MarioMH8/scryfall-api/next/.idea/icon.svg" alt="Scryfall logo">
   scryfall-api
 </h1>
 
