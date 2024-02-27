@@ -3,11 +3,12 @@
 	"version": "3.2.5",
 	"description": "A Javascript library for https://scryfall.com/docs/api written in Typescript.",
 	"keywords": [
-		"magic the gathering",
 		"magic",
+		"magic the gathering",
+		"magic-the-gathering",
 		"gathering",
 		"api",
-		"mtg",
+		"mtgsdk",
 		"typescript",
 		"card",
 		"cards",
@@ -26,46 +27,31 @@
 	"files": [
 		"dist"
 	],
-	"module": "./dist/scryfall-api.mjs",
-	"types": "./dist/index.d.ts",
+	"type": "module",
+	"module": "./dist/scryfall-api.js",
+	"types": "./dist/scryfall-api.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"require": "./dist/scryfall-api.js",
-			"import": "./dist/scryfall-api.mjs",
-			"default": "./dist/scryfall-api.mjs"
+			"types": "./dist/scryfall-api.d.ts",
+			"require": "./dist/scryfall-api.cjs",
+			"import": "./dist/scryfall-api.js",
+			"default": "./dist/scryfall-api.js"
 		}
 	},
 	"scripts": {
-		"build": "vite build",
+		"build": "tsup",
 		"lint": "eslint .",
 		"lint:fix": "eslint --fix .",
-		"publish": "yarn changeset publish",
-		"test": "vitest run --no-isolate",
-		"test:coverage": "vitest run --no-isolate --coverage",
-		"typecheck": "tsc --noEmit",
-		"version": "yarn changeset version && yarn install --mode update-lockfile"
-	},
-	"peerDependencies": {
-		"axios": "^0 || ^1"
+		"test": "bun test",
+		"typecheck": "tsc --noEmit"
 	},
 	"devDependencies": {
 		"@changesets/cli": "2.27.1",
-		"@hexatool/eslint-config-typescript": "1.0.11",
+		"@hexatool/eslint-config": "2.3.0",
 		"@hexatool/tsconfig": "20.0.1",
-		"@types/node": "20.11.20",
-		"@vitest/coverage-c8": "0.33.0",
-		"axios": "1.6.7",
+		"@types/bun": "1.0.7",
 		"eslint": "8.57.0",
-		"typescript": "5.3.3",
-		"vite": "5.1.4",
-		"vite-plugin-dts": "2.3.0",
-		"vite-plugin-externalize-deps": "0.8.0",
-		"vitest": "0.34.6"
-	},
-	"volta": {
-		"node": "20.11.1",
-		"yarn": "3.8.0"
-	},
-	"packageManager": "yarn@3.8.0"
+		"tsup": "8.0.2",
+		"typescript": "5.3.3"
+	}
 }
