@@ -1,7 +1,6 @@
 .changeset
 .github
 .idea
-.yarn
 spec
 src
 .eslintignore
