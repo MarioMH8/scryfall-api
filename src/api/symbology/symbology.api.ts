@@ -1,10 +1,11 @@
-import { InvalidScryfallArgumentError } from '../error';
-import fetcher from '../fetcher';
-import type { CardSymbol, ManaCost, ResultList } from '../types.old';
+import { InvalidScryfallArgumentError } from '../../error';
+import fetcher from '../../fetcher';
+import type { ListResponse } from '../../response';
+import type { ManaCost, Symbology } from './symbology.schema';
 
-class Symbology {
-	public async all(): Promise<CardSymbol[]> {
-		const list = await fetcher<ResultList<CardSymbol>>('symbology');
+class SymbologyApi {
+	public async all(): Promise<Symbology[]> {
+		const list = await fetcher<ListResponse<Symbology>>('symbology');
 
 		return list?.data ?? [];
 	}
@@ -31,6 +32,6 @@ class Symbology {
 		);
 	}
 }
-const symbology = new Symbology();
+const symbology = new SymbologyApi();
 
 export default symbology;

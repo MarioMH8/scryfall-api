@@ -1,9 +1,10 @@
-import fetcher from '../fetcher';
-import type { ResultList, Set } from '../types.old';
+import fetcher from '../../fetcher';
+import type { ListResponse } from '../../response';
+import type { Set } from './set.schema';
 
-class Sets {
+class SetApi {
 	public async all(): Promise<Set[]> {
-		const result = await fetcher<ResultList<Set>>('sets');
+		const result = await fetcher<ListResponse<Set>>('sets');
 
 		return result?.data ?? [];
 	}
@@ -21,6 +22,6 @@ class Sets {
 	}
 }
 
-const set = new Sets();
+const set = new SetApi();
 
 export default set;

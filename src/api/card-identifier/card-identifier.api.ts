@@ -1,6 +1,6 @@
-import type { CardIdentifier } from '../types.old';
+import type { CardIdentifier } from './card-identifier.schema';
 
-export default class CardIdentifierBuilder {
+export default class CardIdentifierApi {
 	public static byId(id: string): CardIdentifier {
 		return { id };
 	}

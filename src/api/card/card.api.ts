@@ -1,9 +1,13 @@
-import fetcher, { MagicPageResult } from '../fetcher';
-import type { Card, CardIdentifier, ResultCatalog, ResultList, SearchOptions } from '../types.old';
+import fetcher, { MagicPageResult } from '../../fetcher';
+import type { ListResponse } from '../../response';
+import type { CardIdentifier } from '../card-identifier';
+import type { Catalog } from '../catalog';
+import type { Card } from './card.schema';
+import type { CardSearch } from './card-search.schema';
 
-class Cards {
+class CardApi {
 	public async autoCompleteName(name: string): Promise<string[]> {
-		const result = await fetcher<ResultCatalog>('cards/autocomplete', {
+		const result = await fetcher<Catalog>('cards/autocomplete', {
 			q: name,
 		});
 
@@ -65,7 +69,7 @@ class Cards {
 			 * and split it into 75 card-max requests
 			 */
 			const collectionSection = { identifiers: identifiers.slice(i, i + 75) };
-			const result = await fetcher<ResultList<Card, CardIdentifier>>(
+			const result = await fetcher<ListResponse<Card, CardIdentifier>>(
 				'cards/collection',
 				undefined,
 				collectionSection
@@ -80,14 +84,14 @@ class Cards {
 		return fetcher<Card>('cards/random');
 	}
 
-	public search(query: string, options?: SearchOptions | number): MagicPageResult<Card> {
+	public search(query: string, options?: CardSearch | number): MagicPageResult<Card> {
 		return new MagicPageResult<Card>('cards/search', {
 			q: query,
-			...(typeof options === 'number' ? { page: options } : { page: 1, ...options }),
+			...(typeof options === 'number' ? { page: options } : { ...options, page: options?.page ?? 1 }),
 		});
 	}
 }
 
-const cards = new Cards();
+const cards = new CardApi();
 
 export default cards;
