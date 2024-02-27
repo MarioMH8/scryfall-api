@@ -52,12 +52,12 @@ interface Preview {
 }
 
 interface Prices {
-	eur??: Nullable<string>;
-	eur_foil??: Nullable<string>;
-	tix??: Nullable<string>;
-	usd??: Nullable<string>;
-	usd_etched??: Nullable<string>;
-	usd_foil??: Nullable<string>;
+	eur?: Nullable<string>;
+	eur_foil?: Nullable<string>;
+	tix?: Nullable<string>;
+	usd?: Nullable<string>;
+	usd_etched?: Nullable<string>;
+	usd_foil?: Nullable<string>;
 }
 
 type PromoType =
@@ -88,22 +88,22 @@ type PromoType =
 	| 'arenaleague';
 
 interface PurchaseUris {
-	[key: string]?: Nullable<string>;
-	cardhoarder??: Nullable<string>;
-	cardmarket??: Nullable<string>;
-	tcgplayer??: Nullable<string>;
+	[key: string]: Nullable<string>;
+	cardhoarder?: Nullable<string>;
+	cardmarket?: Nullable<string>;
+	tcgplayer?: Nullable<string>;
 }
 
 type Rarity = 'common' | 'uncommon' | 'rare' | 'special' | 'mythic' | 'bonus';
 
 interface RelatedUris {
-	[key: string]?: Nullable<string>;
-	edhrec??: Nullable<string>;
-	gatherer??: Nullable<string>;
-	mtgtop8??: Nullable<string>;
-	tcgplayer_decks??: Nullable<string>;
-	tcgplayer_infinite_articles??: Nullable<string>;
-	tcgplayer_infinite_decks??: Nullable<string>;
+	[key: string]: Nullable<string>;
+	edhrec?: Nullable<string>;
+	gatherer?: Nullable<string>;
+	mtgtop8?: Nullable<string>;
+	tcgplayer_decks?: Nullable<string>;
+	tcgplayer_infinite_articles?: Nullable<string>;
+	tcgplayer_infinite_decks?: Nullable<string>;
 }
 
 type SecurityStamp = 'oval' | 'triangle' | 'acorn' | 'circle' | 'arena' | 'heart';
