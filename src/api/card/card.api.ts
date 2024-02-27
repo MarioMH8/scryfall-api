@@ -6,6 +6,13 @@ import type { Card } from './card.schema';
 import type { CardSearch } from './card-search.schema';
 
 class CardApi {
+	/*
+	 * Returns up to 20 full English card names that could be autocompletions of the given string parameter.
+	 * @param {string} name
+	 * 	The string to search for
+	 * @returns {Promise<string[]>}
+	 * 	A list of up to 20 full English card names that could be autocompletions of the given string parameter.
+	 */
 	public async autoCompleteName(name: string): Promise<string[]> {
 		const result = await fetcher<Catalog>('cards/autocomplete', {
 			q: name,

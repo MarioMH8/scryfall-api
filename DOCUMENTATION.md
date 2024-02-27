@@ -1,7 +1,4 @@
-## Table of Contents
-
-- [Usage](#usage-)
-- [Cards](#cards-)
+- [Cards](#cards)
     - [`Cards.autoCompleteName(name: string): Promise<string[]>;` ](#cardsautocompletenamename-string-promisestring-)
     - [`Cards.byArenaId(id: number): Promise<Card | undefined>;` ](#cardsbyarenaidid-number-promisecard--undefined-)
     - [`Cards.byId(id: string): Promise<Card | undefined>;`](#cardsbyidid-string-promisecard--undefined-)
@@ -43,55 +40,34 @@
     - [`Catalog.watermarks(): Promise<string[]>;` ](#catalogwatermarks-promisestring-)
     - [`Catalog.wordBank(): Promise<string[]>;`](#catalogwordbank-promisestring-)
 
-## Usage [↑](#table-of-contents)
+## Cards
+- Full documentation [here](https://scryfall.com/docs/api/cards).
 
-In the documentation below, requiring the package is assumed.
+### `Cards.autoCompleteName(name: string): Promise<string[]>;`
+- Full documentation [here](https://scryfall.com/docs/api/cards).
+- URL: `https://api.scryfall.com/cards/autocomplete?q={name}`
 
-```js
-const Scry = require('scryfall-api');
-```
-
-Or with TypeScrypt:
-
-```ts
-import * as Scry from 'scryfall-api';
-```
-
-If you only need Cards
-
-```ts
-import { Cards } from 'scryfall-api';
-```
-
-## Cards [↑](#table-of-contents)
-
-### `Cards.autoCompleteName(name: string): Promise<string[]>;` [↑](#table-of-contents)
-
-From the [Scryfall documentation](https://scryfall.com/docs/api/cards/autocomplete):
-
-Returns [an array] containing up to 25 full card names that could be autocompletions of the given string parameter q.
+Returns up to 20 full English card names that could be autocompletions of the given string parameter.
 
 This method is designed for creating assistive UI elements that allow users to free-type card names.
-The names are sorted with the nearest match first.
-
+The names are sorted with the nearest match first, highly favoring results that begin with your given string.
 Spaces, punctuation, and capitalization are ignored.
 
-If q is less than 2 characters long, or if no names match, the Catalog will contain 0 items(instead of returning any
-errors).
+If q is less than 2 characters long, or if no names match, the array will contain 0 items (instead of returning any errors).
 
 ```ts
 import { Cards } from 'scryfall-api';
 
-Cards.autoCompleteName('bloodsc').then(results => {
-	for (const result of results) {
-		console.log(result);
-		// Bloodscent
-		// Blood Scrivener
-		// Bloodscale Prowler
-		// Burning-Tree Bloodscale
-		// Ghor-Clan Bloodscale
-	}
-});
+const results = await Cards.autoCompleteName('bloodsc');
+
+for (const result of results) {
+    console.log(result);
+    // Bloodscent
+    // Blood Scrivener
+    // Bloodscale Prowler
+    // Burning-Tree Bloodscale
+    // Ghor-Clan Bloodscale
+}
 ```
 
 ### `Cards.byArenaId(id: number): Promise<Card | undefined>;` [↑](#table-of-contents)

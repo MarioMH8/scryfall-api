@@ -1,42 +1,97 @@
-# scryfall-api
+<h1 align="center">
+  scryfall-api
+</h1>
 
-[![npm](https://img.shields.io/npm/v/scryfall-api?style=flat-square)](https://www.npmjs.com/package/scryfall-api)
-[![GitHub issues](https://img.shields.io/github/issues/mariomh8/scryfall-api?style=flat-square)](https://github.com/MarioMH8/scryfall-api)
+<p align="center">
+  A Javascript library for <a href='https://scryfall.com/docs/api' target='_blank'>scryfall.com</a> written in Typescript.
+</p>
 
-A Javascript library for [Scryfall](https://scryfall.com/docs/api) written in Typescript.
+<p align="center">
+    <a href="https://www.npmjs.com/package/scryfall-api" rel="nofollow">
+        <img src="https://camo.githubusercontent.com/a172c58fbefc7103cb230b872119a85914a463f32958ea9e4e1f3ad9d7e1a100/68747470733a2f2f696d672e736869656c64732e696f2f6e706d2f762f7363727966616c6c2d6170693f7374796c653d666c61742d737175617265" alt="npm" data-canonical-src="https://img.shields.io/npm/v/scryfall-api?style=flat-square" style="max-width: 100%;">
+    </a>
+    <a href="https://github.com/MarioMH8/scryfall-api">
+        <img src="https://camo.githubusercontent.com/93378eea577b6b00f04b1fbfa5dc6871778ff3f6b4de76833a6211d35770f6c4/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f6973737565732f6d6172696f6d68382f7363727966616c6c2d6170693f7374796c653d666c61742d737175617265" alt="GitHub issues" data-canonical-src="https://img.shields.io/github/issues/mariomh8/scryfall-api?style=flat-square" style="max-width: 100%;">
+    </a>
+</p>
 
-As of [August 6th, 2022](./CHANGELOG.md), almost all features described in
+## Table of Contents
+
+- [Installation](#installation)
+- [Documentation](#documentation)
+    - [Cards](#cards)
+        - [`Cards.autoCompleteName(name: string): Promise<string[]>;` ](#cardsautocompletenamename-string-promisestring-)
+- [Contributing](#contributing)
+
+As of [Feb 26th, 2024](./CHANGELOG.md), almost all features described in
 the [Scryfall documentation](https://scryfall.com/docs/api) are supported. If you see something that isn't supported,
 make an issue! See [support readme](./SUPPORT.md).
 
 ## Installation
 
-```bat
-npm install scryfall-api
+```bash
+npm install --save scryfall-api
+```
+
+**Using bun**
+
+```bash
+bun add scryfall-api
 ```
 
 ## Documentation
+
+In the documentation below, requiring the package is assumed.
+
+```js
+import scryfall from 'scryfall-api';
+```
+
+
+**With CommonJS**
+
+```js
+const scryfall = require('scryfall-api');
+```
+
+**If you only need Cards**
+
+```js
+import { Cards } from 'scryfall-api';
+```
 
 Link to [documentation.](./DOCUMENTATION.md)
 
 ## Contributing
 
+This project uses [Bun](https://bun.sh) as a runtime, test runner and bundler.
+
 Thanks for wanting to help out! Here's the setup you'll have to do:
 
-```bat
+Clone the project
+
+```bash
 git clone git@github.com:MarioMH8/scryfall-api.git
-cd scryfall-api
-yarn install
 ```
 
-You can now make changes to the repository.
+Go to the project directory
 
-To compile:
+```bash
+cd scryfall-api
+```
 
-```bat
-yarn build
+Install dependencies
+
+```bash
+bun install
+```
+
+Compile the project
+
+```bash
+bun run build
 ```
 
 ## MIT License
 
-[Copyright 2021-2022 Mario Menéndez](./LICENSE)
+[Copyright 2021-2024 MarioMH](./LICENSE)
