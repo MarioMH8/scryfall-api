@@ -1,5 +1,15 @@
 # scryfall-api
 
+## 4.0.0-beta.0
+
+### Major Changes
+
+- 7fe3118: Remove `axios` dependency in favor of `fetch`
+
+### Minor Changes
+
+- e42e562: Update Card schema
+
 ## 3.2.5
 
 ### Patch Changes
