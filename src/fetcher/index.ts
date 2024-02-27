@@ -1,5 +1,5 @@
 import { ScryfallError } from '../error';
-import type { TOrArrayOfT } from '../types.old';
+import type { TOrArrayOfT } from '../types';
 import createDebounceFetcher from './debounce.fetcher';
 import type { FetcherParams } from './fetcher.params';
 import MagicPageResult from './page.result';
@@ -40,7 +40,7 @@ export default async function fetcher<TData>(
 				'Content-Type': 'application/json',
 			};
 		}
-		const response = await simpleFetcher(url, init);
+		const response = await simpleFetcher(url as URL, init);
 
 		return (await response.json()) as TData;
 	} catch (e) {
