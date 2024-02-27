@@ -4,5 +4,8 @@
   "initialVersions": {
     "scryfall-api": "3.2.5"
   },
-  "changesets": []
+  "changesets": [
+    "nasty-badgers-shop",
+    "nine-poems-fold"
+  ]
 }
