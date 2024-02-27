@@ -42,6 +42,7 @@
 		"build": "tsup",
 		"lint": "eslint .",
 		"lint:fix": "eslint --fix .",
+		"prepublishOnly": "tsup",
 		"test": "bun test",
 		"typecheck": "tsc --noEmit"
 	},
