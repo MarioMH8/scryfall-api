@@ -1,3 +1,5 @@
+![banner.png](.idea%2Fbanner.png)
+
 <h1 align="center">
   scryfall-api
 </h1>
