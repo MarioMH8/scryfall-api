@@ -9,6 +9,18 @@ const simpleFetcher = createDebounceFetcher(createRetryFetcher());
 
 const endpoint = 'https://api.scryfall.com';
 
+const DATE_REGEXP = /^(\d{4})-(\d{2})-(\d{2})?$/;
+
+
+const dateParser = (_key: string, value: unknown) => {
+	if (typeof value === 'string') {
+		if (DATE_REGEXP.test(value)) {
+			return new Date(value);
+		}
+	}
+	return value;
+}
+
 export default async function fetcher<TData>(
 	apiPath: TOrArrayOfT<number | string | undefined>,
 	params?: FetcherParams,
@@ -42,7 +54,11 @@ export default async function fetcher<TData>(
 		}
 		const response = await simpleFetcher(url as URL, init);
 
-		return (await response.json()) as TData;
+		const content = await response.text();
+
+		const parse = JSON.parse(content, dateParser);
+
+		return parse as TData;
 	} catch (e) {
 		if (e instanceof ScryfallError) {
 			if (e.warnings) {

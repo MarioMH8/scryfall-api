@@ -46,21 +46,21 @@ type CardLayout =
 	| 'reversible_card';
 
 interface CardCore {
-	arena_id: Nullable<string>;
-	cardmarket_id: Nullable<number>;
+	arena_id?: Nullable<string>;
+	cardmarket_id?: Nullable<number>;
 	id: string;
 	lang: CardLanguage;
 	layout: CardLayout;
-	mtgo_foil_id: Nullable<number>;
-	mtgo_id: Nullable<number>;
-	multiverse_ids: Nullable<number[]>;
+	mtgo_foil_id?: Nullable<number>;
+	mtgo_id?: Nullable<number>;
+	multiverse_ids?: Nullable<number[]>;
 	object: 'card';
-	oracle_id: Nullable<string>;
+	oracle_id?: Nullable<string>;
 	prints_search_uri: string;
 	rulings_uri: string;
 	scryfall_uri: string;
-	tcgplayer_etched_id: Nullable<number>;
-	tcgplayer_id: Nullable<number>;
+	tcgplayer_etched_id?: Nullable<number>;
+	tcgplayer_id?: Nullable<number>;
 	uri: string;
 }
 

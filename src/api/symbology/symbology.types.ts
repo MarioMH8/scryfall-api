@@ -17,14 +17,14 @@ interface Symbology {
 	colors: Color[];
 	english: string;
 	funny: boolean;
-	gatherer_alternates: Nullable<string[]>;
+	gatherer_alternates?: Nullable<string[]>;
 	hybrid: boolean;
-	loose_variant: Nullable<string>;
-	mana_value: Nullable<number>;
+	loose_variant?: Nullable<string>;
+	mana_value?: Nullable<number>;
 	object: 'card_symbol';
 	phyrexian: boolean;
 	represents_mana: boolean;
-	svg_uri: Nullable<string>;
+	svg_uri?: Nullable<string>;
 	symbol: string;
 	transposable: boolean;
 }
