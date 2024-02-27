@@ -7,7 +7,7 @@ make an issue! See [SUPPORT.md](./SUPPORT.md).
 
 
 - [Cards](#cards)
-    - [`Cards.autoCompleteName(name: string): Promise<string[]>;` ](#cardsautocompletenamename-string-promisestring-)
+    - [`Cards.autoCompleteName(name: string): Promise<string[]>;` ](#cardsautocompletenamename-string-promisestring)
     - [`Cards.byArenaId(id: number): Promise<Card | undefined>;` ](#cardsbyarenaidid-number-promisecard--undefined-)
     - [`Cards.byId(id: string): Promise<Card | undefined>;`](#cardsbyidid-string-promisecard--undefined-)
     - [`Cards.byMtgoId(id: number): Promise<Card | undefined>;` ](#cardsbymtgoidid-number-promisecard--undefined-)
@@ -52,8 +52,8 @@ make an issue! See [SUPPORT.md](./SUPPORT.md).
 - Full documentation [here](https://scryfall.com/docs/api/cards).
 
 ### `Cards.autoCompleteName(name: string): Promise<string[]>;`
-- Full documentation [here](https://scryfall.com/docs/api/cards).
-- URL: `https://api.scryfall.com/cards/autocomplete?q={name}`
+- **URL**: `/cards/autocomplete`
+- **Documentation**: [here](https://scryfall.com/docs/api/cards/autocomplete).
 
 Returns up to 20 full English card names that could be autocompletions of the given string parameter.
 
