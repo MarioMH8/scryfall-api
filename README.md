@@ -54,7 +54,7 @@ const scryfall = require('scryfall-api');
 import { Cards } from 'scryfall-api';
 ```
 
-Link to [documentation.](./DOCUMENTATION.md)
+Link to [full documentation.](./DOCUMENTATION.md)
 
 ## Contributing
 
