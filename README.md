@@ -1,4 +1,3 @@
-<img align='center' src="https://raw.githubusercontent.com/MarioMH8/scryfall-api/next/.idea/icon.svg" alt="Scryfall logo">
 <h1 align="center">
   scryfall-api
 </h1>
