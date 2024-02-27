@@ -2,8 +2,8 @@ import fetcher, { MagicPageResult } from '../../fetcher';
 import type { ListResponse } from '../../response';
 import type { CardIdentifier } from '../card-identifier';
 import type { Catalog } from '../catalog';
-import type { Card } from './card.schema';
-import type { CardSearch } from './card-search.schema';
+import type { Card } from './card.types';
+import type { CardSearch } from './card-search.types';
 
 class CardApi {
 	/*
@@ -31,7 +31,6 @@ class CardApi {
 	public async byArenaId(id: number): Promise<Card | undefined> {
 		return fetcher<Card>(['cards/arena', id]);
 	}
-
 
 	/*
 	 * Returns a single card with the given Scryfall ID.

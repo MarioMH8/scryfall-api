@@ -1,5 +1,5 @@
 import fetcher from '../../fetcher';
-import type { Catalog } from './catalog.schema';
+import type { Catalog } from './catalog.types';
 
 class CatalogApi {
 	public async artifactTypes(): Promise<string[]> {

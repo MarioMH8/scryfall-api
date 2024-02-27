@@ -1,6 +1,6 @@
 import fetcher from '../../fetcher';
 import type { ListResponse } from '../../response';
-import type { Ruling } from './ruling.schema';
+import type { Ruling } from './ruling.types';
 
 class RulingApi {
 	public async byArenaId(id: number): Promise<Ruling[]> {

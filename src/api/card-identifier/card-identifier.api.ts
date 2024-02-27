@@ -1,4 +1,4 @@
-import type { CardIdentifier } from './card-identifier.schema';
+import type { CardIdentifier } from './card-identifier.types';
 
 export default class CardIdentifierApi {
 	public static byId(id: string): CardIdentifier {

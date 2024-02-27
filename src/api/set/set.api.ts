@@ -1,6 +1,6 @@
 import fetcher from '../../fetcher';
 import type { ListResponse } from '../../response';
-import type { Set } from './set.schema';
+import type { Set } from './set.types';
 
 class SetApi {
 	public async all(): Promise<Set[]> {

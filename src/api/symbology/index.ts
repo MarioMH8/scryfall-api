@@ -1,5 +1,5 @@
 import api from './symbology.api';
 
-export * from './symbology.schema';
+export * from './symbology.types';
 
 export default api;
