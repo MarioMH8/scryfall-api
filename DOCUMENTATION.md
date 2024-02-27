@@ -1,3 +1,11 @@
+# Table of Contents
+
+> [!NOTE]
+> As of [Feb 26th, 2024](./CHANGELOG.md), almost all features described in
+the [documentation](https://scryfall.com/docs/api) are supported. If you see something that isn't supported,
+make an issue! See [SUPPORT.md](./SUPPORT.md).
+
+
 - [Cards](#cards)
     - [`Cards.autoCompleteName(name: string): Promise<string[]>;` ](#cardsautocompletenamename-string-promisestring-)
     - [`Cards.byArenaId(id: number): Promise<Card | undefined>;` ](#cardsbyarenaidid-number-promisecard--undefined-)
