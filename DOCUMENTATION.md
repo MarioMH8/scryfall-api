@@ -52,8 +52,6 @@ make an issue! See [SUPPORT.md](./SUPPORT.md).
 - Full documentation [here](https://scryfall.com/docs/api/cards).
 
 ### `Cards.autoCompleteName(name: string): Promise<string[]>;`
-- **URL**: `/cards/autocomplete`
-- **Documentation**: [here](https://scryfall.com/docs/api/cards/autocomplete).
 
 Returns up to 20 full English card names that could be autocompletions of the given string parameter.
 
@@ -62,6 +60,9 @@ The names are sorted with the nearest match first, highly favoring results that 
 Spaces, punctuation, and capitalization are ignored.
 
 If q is less than 2 characters long, or if no names match, the array will contain 0 items (instead of returning any errors).
+
+- **URL**: `/cards/autocomplete`
+- **Documentation**: [here](https://scryfall.com/docs/api/cards/autocomplete).
 
 ```ts
 import { Cards } from 'scryfall-api';
@@ -79,10 +80,11 @@ for (const result of results) {
 ```
 
 ### `Cards.byArenaId(id: number): Promise<Card | undefined>;`
-- **URL**: `/cards/arena/:id`
-- **Documentation**: [here](https://scryfall.com/docs/api/cards/arena).
 
 Returns a single card with the given Magic: The Gathering Arena ID.
+
+- **URL**: `/cards/arena/:id`
+- **Documentation**: [here](https://scryfall.com/docs/api/cards/arena).
 
 ```ts
 import { Cards } from 'scryfall-api';
@@ -92,10 +94,11 @@ console.log(card.name); // Yargle, Glutton of Urborg
 ```
 
 ### `Cards.byId(id: string): Promise<Card | undefined>;`
-- **URL**: `/cards/:id`
-- **Documentation**: [here](https://scryfall.com/docs/api/cards/id).
 
 Returns a single card with the given Scryfall ID.
+
+- **URL**: `/cards/:id`
+- **Documentation**: [here](https://scryfall.com/docs/api/cards/id).
 
 ```ts
 import { Cards } from 'scryfall-api';
