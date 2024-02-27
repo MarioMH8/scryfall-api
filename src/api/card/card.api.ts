@@ -32,6 +32,14 @@ class CardApi {
 		return fetcher<Card>(['cards/arena', id]);
 	}
 
+
+	/*
+	 * Returns a single card with the given Scryfall ID.
+	 * @param {number} id
+	 * 	The Scryfall ID.
+	 * @returns {Promise<Card | undefined>}
+	 * 	Returns a single card or undefined if no card is found.
+	 */
 	public async byId(id: string): Promise<Card | undefined> {
 		return fetcher<Card>(['cards', id]);
 	}
