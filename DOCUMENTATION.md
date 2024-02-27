@@ -8,7 +8,7 @@ make an issue! See [SUPPORT.md](./SUPPORT.md).
 
 - [Cards](#cards)
     - [`Cards.autoCompleteName(name: string): Promise<string[]>;` ](#cardsautocompletenamename-string-promisestring)
-    - [`Cards.byArenaId(id: number): Promise<Card | undefined>;` ](#cardsbyarenaidid-number-promisecard--undefined-)
+    - [`Cards.byArenaId(id: number): Promise<Card | undefined>;` ](#cardsbyarenaidid-number-promisecard--undefined)
     - [`Cards.byId(id: string): Promise<Card | undefined>;`](#cardsbyidid-string-promisecard--undefined-)
     - [`Cards.byMtgoId(id: number): Promise<Card | undefined>;` ](#cardsbymtgoidid-number-promisecard--undefined-)
     - [`Cards.byMultiverseId(id: number): Promise<Card | undefined>;` ](#cardsbymultiverseidid-number-promisecard--undefined-)
@@ -78,14 +78,17 @@ for (const result of results) {
 }
 ```
 
-### `Cards.byArenaId(id: number): Promise<Card | undefined>;` [↑](#table-of-contents)
+### `Cards.byArenaId(id: number): Promise<Card | undefined>;`
+- **URL**: `/cards/arena/:id`
+- **Documentation**: [here](https://scryfall.com/docs/api/cards/arena).
 
-Gets a card based on its MTG Arena id.
+Returns a single card with the given Magic: The Gathering Arena ID.
 
 ```ts
 import { Cards } from 'scryfall-api';
 
-Cards.byArenaId(67330).then(result => console.log(result.name)); // Yargle, Glutton of Urborg
+const card = await Cards.byArenaId(67330);
+console.log(card.name); // Yargle, Glutton of Urborg
 ```
 
 ### `Cards.byId(id: string): Promise<Card | undefined>;` [↑](#table-of-contents)

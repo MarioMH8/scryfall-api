@@ -11,7 +11,7 @@ class CardApi {
 	 * @param {string} name
 	 * 	The string to search for
 	 * @returns {Promise<string[]>}
-	 * 	A list of up to 20 full English card names that could be autocompletions of the given string parameter.
+	 * 	A list of up to 20 full English card names.
 	 */
 	public async autoCompleteName(name: string): Promise<string[]> {
 		const result = await fetcher<Catalog>('cards/autocomplete', {
@@ -21,6 +21,13 @@ class CardApi {
 		return result?.data ?? [];
 	}
 
+	/*
+	 * Returns a single card with the given Magic: The Gathering Arena ID.
+	 * @param {number} id
+	 * 	The Magic: The Gathering Arena ID of the card to retrieve.
+	 * @returns {Promise<Card | undefined>}
+	 * 	Returns a single card or undefined if no card is found.
+	 */
 	public async byArenaId(id: number): Promise<Card | undefined> {
 		return fetcher<Card>(['cards/arena', id]);
 	}
