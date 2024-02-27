@@ -2,7 +2,7 @@ import { describe, expect, it } from 'bun:test';
 
 import { Sets } from '../src';
 
-describe('Scryfall', () => {
+describe('scryfall-sdk', () => {
 	describe('Sets', () => {
 		it('by code', async () => {
 			const set = await Sets.byCode('hou');
