@@ -102,7 +102,7 @@ class CardApi {
 	}
 
 	public async random(): Promise<Card> {
-		return fetcher<Card>('cards/random');
+		return fetcher<Card>('cards/random') as Promise<Card>;
 	}
 
 	public search(query: string, options?: CardSearch | number): MagicPageResult<Card> {

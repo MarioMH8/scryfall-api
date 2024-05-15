@@ -5,6 +5,7 @@
     "scryfall-api": "3.2.5"
   },
   "changesets": [
+    "honest-pumpkins-turn",
     "nasty-badgers-shop",
     "nine-poems-fold",
     "poor-vans-collect"
