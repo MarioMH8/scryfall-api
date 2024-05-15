@@ -101,7 +101,7 @@ class CardApi {
 		return cards;
 	}
 
-	public async random(): Promise<Card | undefined> {
+	public async random(): Promise<Card> {
 		return fetcher<Card>('cards/random');
 	}
 
