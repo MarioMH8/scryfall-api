@@ -1,6 +1,3 @@
 {
-	"extends": "@hexadrop/tsconfig",
-	"compilerOptions": {
-		"baseUrl": "."
-	}
+	"extends": "@hexadrop/tsconfig"
 }
