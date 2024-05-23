@@ -4,9 +4,15 @@ import { Sets } from '../src';
 
 describe('scryfall-sdk', () => {
 	describe('Sets', () => {
-		it('by code', async () => {
-			const set = await Sets.byCode('hou');
-			expect(set?.name).toBe('Hour of Devastation');
+		describe('by code,', () => {
+			it('exact', async () => {
+				const set = await Sets.byCode('hou');
+				expect(set?.name).toBe('Hour of Devastation');
+			});
+			it('not found', async () => {
+				const set = await Sets.byCode('sada');
+				expect(set).toBeUndefined();
+			});
 		});
 
 		it('by id', async () => {

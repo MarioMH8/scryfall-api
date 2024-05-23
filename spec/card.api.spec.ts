@@ -5,12 +5,19 @@ import { CardIdentifierBuilder, Cards } from '../src';
 
 describe('scryfall-sdk', () => {
 	describe('Cards', () => {
-		it('by id', async () => {
-			const card = await Cards.byId('9ea8179a-d3c9-4cdc-a5b5-68cc73279050');
-			expect(card).toBeDefined();
-			expect(card?.name).toBe('Blood Scrivener');
-			expect(card?.released_at).toBeDefined();
-			expect(card?.released_at).toBeInstanceOf(Date);
+
+		describe('by id,', () => {
+			it('exact', async () => {
+				const card = await Cards.byId('9ea8179a-d3c9-4cdc-a5b5-68cc73279050');
+				expect(card).toBeDefined();
+				expect(card?.name).toBe('Blood Scrivener');
+				expect(card?.released_at).toBeDefined();
+				expect(card?.released_at).toBeInstanceOf(Date);
+			});
+			it('not found', async () => {
+				const card = await Cards.byId('343a69ab-19f4-43be-99da-cff50cc1e0fe');
+				expect(card).toBeUndefined();
+			});
 		});
 
 		describe('by name,', () => {
