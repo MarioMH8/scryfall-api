@@ -3,8 +3,8 @@ export default class ScryfallError extends Error {
 		readonly code: string,
 		details: string,
 		readonly status: number,
-		readonly type?: string | undefined | null,
-		readonly warnings?: string[] | undefined | null
+		readonly type?: null | string | undefined,
+		readonly warnings?: null | string[] | undefined
 	) {
 		super(details);
 	}

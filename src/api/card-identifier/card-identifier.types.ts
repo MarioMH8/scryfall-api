@@ -29,13 +29,13 @@ interface CardIdentifierCollectorSet {
 }
 
 type CardIdentifier =
+	| CardIdentifierCollectorSet
 	| CardIdentifierId
 	| CardIdentifierIllustrationId
 	| CardIdentifierMtgGoId
 	| CardIdentifierMultiverseId
 	| CardIdentifierNameSet
-	| CardIdentifierOracleId
-	| CardIdentifierCollectorSet;
+	| CardIdentifierOracleId;
 
 export type {
 	CardIdentifier,

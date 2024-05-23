@@ -1,6 +1,6 @@
 import { ScryfallError } from '../error';
 import UnknownScryfallError from '../error/unknown.error';
-import type { Fetcher } from './fetcher';
+import type { FetcherType } from './fetcher.type';
 
 interface RetryOptions {
 	maxAttempts?: number;
@@ -18,15 +18,15 @@ const defaultCanRetry = async (response: Response) => {
 	return code !== 'not_found' && code !== 'bad_request';
 };
 
-export default function createRetryFetcher<TFetcher extends Fetcher>(
-	{ maxAttempts = 3, canRetry = defaultCanRetry }: RetryOptions = {},
+export default function createRetryFetcher<TFetcher extends FetcherType>(
+	{ canRetry = defaultCanRetry, maxAttempts = 3 }: RetryOptions = {},
 	fetcher: TFetcher = fetch as TFetcher
 ): TFetcher {
 	let retries = 0;
 
-	return async function retryFetcher(...args): Promise<Response> {
+	return async function retryFetcher(...arguments_): Promise<Response> {
 		retries++;
-		const response = await fetcher(...args);
+		const response = await fetcher(...arguments_);
 
 		if (response.ok) {
 			return response;
@@ -44,17 +44,17 @@ export default function createRetryFetcher<TFetcher extends Fetcher>(
 				throw new ScryfallError(code, details, status, type, warnings);
 			}
 
-			throw new UnknownScryfallError(`Request failed with status ${response.status}`);
+			throw new UnknownScryfallError(`Request failed with status ${response.status.toFixed(0)}`);
 		}
 
 		if (canRetry(response)) {
-			return retryFetcher(...args);
+			return retryFetcher(...arguments_);
 		}
 
 		if (code && details && status) {
 			throw new ScryfallError(code, details, status, type, warnings);
 		}
 
-		throw new UnknownScryfallError(`Request failed with status ${response.status}`);
+		throw new UnknownScryfallError(`Request failed with status ${response.status.toFixed(0)}`);
 	} as TFetcher;
 }

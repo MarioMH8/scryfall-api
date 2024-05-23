@@ -5,7 +5,6 @@ import { CardIdentifierBuilder, Cards } from '../src';
 
 describe('scryfall-sdk', () => {
 	describe('Cards', () => {
-
 		describe('by id,', () => {
 			it('exact', async () => {
 				const card = await Cards.byId('9ea8179a-d3c9-4cdc-a5b5-68cc73279050');
@@ -55,19 +54,19 @@ describe('scryfall-sdk', () => {
 		});
 
 		it('by multiverse id', async () => {
-			const card = await Cards.byMultiverseId(369030);
+			const card = await Cards.byMultiverseId(369_030);
 			expect(card).toBeDefined();
 			expect(card?.name).toBe('Blood Scrivener');
 		});
 
 		it('by mtgo id', async () => {
-			const card = await Cards.byMtgoId(48338);
+			const card = await Cards.byMtgoId(48_338);
 			expect(card).toBeDefined();
 			expect(card?.name).toBe('Blood Scrivener');
 		});
 
 		it('by arena id', async () => {
-			const card = await Cards.byArenaId(67330);
+			const card = await Cards.byArenaId(67_330);
 			expect(card).toBeDefined();
 			expect(card?.name).toBe('Yargle, Glutton of Urborg');
 		});
@@ -108,18 +107,18 @@ describe('scryfall-sdk', () => {
 			it('search by set', async () => {
 				const results = await Cards.search('s:kld', { order: 'cmc' }).all();
 				expect(results.length).toBe(264);
-				results.forEach((v, i) => {
-					if (i === 0) {
-						return;
+				for (const [index, v] of results.entries()) {
+					if (index === 0) {
+						continue;
 					}
-					expect(v.cmc).toBeGreaterThanOrEqual(results[i - 1]?.cmc ?? 0);
-				});
+					expect(v.cmc).toBeGreaterThanOrEqual(results[index - 1]?.cmc ?? 0);
+				}
 			});
 
 			it('search type:creature (get only 427 cards)', async () => {
 				const results = await Cards.search('type:creature').get(427);
 				expect(results.length).toBe(427);
-			}, 20000);
+			}, 20_000);
 
 			it('should support pagination of searches', async () => {
 				const firstR = await Cards.search('type:creature', 1).get(1);
@@ -131,7 +130,7 @@ describe('scryfall-sdk', () => {
 				expect(first).toBeDefined();
 				expect(second).toBeDefined();
 				expect(first?.id).not.toEqual(second?.id);
-			}, 20000);
+			}, 20_000);
 
 			it('should return an empty array on an invalid search', async () => {
 				const result = await Cards.search('cmc>cmc').all();
@@ -153,14 +152,14 @@ describe('scryfall-sdk', () => {
 			});
 
 			it('by multiverse id', async () => {
-				const collection = [CardIdentifierBuilder.byMultiverseId(462293)];
+				const collection = [CardIdentifierBuilder.byMultiverseId(462_293)];
 				const cards = await Cards.collection(...collection);
 				expect(cards.length).toBe(1);
 				expect(cards[0]?.name).toBe('Contentious Plan');
 			});
 
 			it('by mtgo id', async () => {
-				const collection = [CardIdentifierBuilder.byMtgoId(71692)];
+				const collection = [CardIdentifierBuilder.byMtgoId(71_692)];
 				const cards = await Cards.collection(...collection);
 				expect(cards.length).toBe(1);
 				expect(cards[0]?.name).toBe('Bond of Insight');
@@ -204,14 +203,14 @@ describe('scryfall-sdk', () => {
 
 			it('by multiverse id, 100 cards', async () => {
 				const collection = [];
-				for (let i = 1; i < 101; i++) {
-					collection.push(CardIdentifierBuilder.byMultiverseId(i));
+				for (let index = 1; index < 101; index++) {
+					collection.push(CardIdentifierBuilder.byMultiverseId(index));
 				}
 
 				const cards = await Cards.collection(...collection);
 				expect(cards.length).toBe(100);
-				for (let i = 0; i < 100; i++) {
-					expect(cards[i]?.multiverse_ids).toContain(i + 1);
+				for (let index = 0; index < 100; index++) {
+					expect(cards[index]?.multiverse_ids).toContain(index + 1);
 				}
 			});
 

@@ -5,7 +5,6 @@
 the [documentation](https://scryfall.com/docs/api) are supported. If you see something that isn't supported,
 make an issue! See [SUPPORT.md](./SUPPORT.md).
 
-
 - [Cards](#cards)
     - [`Cards.autoCompleteName(name: string): Promise<string[]>;` ](#cardsautocompletenamename-string-promisestring)
     - [`Cards.byArenaId(id: number): Promise<Card | undefined>;` ](#cardsbyarenaidid-number-promisecard--undefined)
@@ -70,12 +69,12 @@ import { Cards } from 'scryfall-api';
 const results = await Cards.autoCompleteName('bloodsc');
 
 for (const result of results) {
-    console.log(result);
-    // Bloodscent
-    // Blood Scrivener
-    // Bloodscale Prowler
-    // Burning-Tree Bloodscale
-    // Ghor-Clan Bloodscale
+  console.log(result);
+  // Bloodscent
+  // Blood Scrivener
+  // Bloodscale Prowler
+  // Burning-Tree Bloodscale
+  // Ghor-Clan Bloodscale
 }
 ```
 
@@ -89,7 +88,7 @@ Returns a single card with the given Magic: The Gathering Arena ID.
 ```ts
 import { Cards } from 'scryfall-api';
 
-const card = await Cards.byArenaId(67330);
+const card = await Cards.byArenaId(67_330);
 console.log(card.name); // Yargle, Glutton of Urborg
 ```
 
@@ -114,7 +113,7 @@ Gets a card based on its MTGO(sometimes called "Cat") id.
 ```ts
 import { Cards } from 'scryfall-api';
 
-Cards.byMtgoId(48338).then(result => console.log(result.name)); // Blood Scrivener
+Cards.byMtgoId(48_338).then(result => console.log(result.name)); // Blood Scrivener
 ```
 
 ### `Cards.byMultiverseId(id: number): Promise<Card | undefined>;`
@@ -122,7 +121,7 @@ Cards.byMtgoId(48338).then(result => console.log(result.name)); // Blood Scriven
 Gets a card based on its multiverse id.
 
 ```ts
-Cards.byMultiverseId(369030).then(result => console.log(result.name)); // Blood Scrivener
+Cards.byMultiverseId(369_030).then(result => console.log(result.name)); // Blood Scrivener
 ```
 
 ### `Cards.byName(name: string, set?: string, fuzzy = false): Promise<Card | undefined>;`
@@ -146,8 +145,8 @@ language. See the [Scryfall Documentation for a list of all languages](https://s
 ```ts
 import { Cards } from 'scryfall-api';
 
-Cards.bySet('dgm', 22).then(result => console.log(result.name + ', ' + result.printed_name)); // Blood Scrivener, undefined
-Cards.bySet('dgm', 22, 'ja').then(result => console.log(result.name + ', ' + result.printed_name)); // Blood Scrivener, 血の公証人
+Cards.bySet('dgm', 22).then(result => console.log(`${result.name}, ${result.printed_name}`)); // Blood Scrivener, undefined
+Cards.bySet('dgm', 22, 'ja').then(result => console.log(`${result.name}, ${result.printed_name}`)); // Blood Scrivener, 血の公証人
 ```
 
 ### `Cards.byTcgPlayerId(id: number): Promise<Card | undefined>;`
@@ -180,24 +179,24 @@ These are:
 - `CardIdentifier.bySet(set: string, collectorNumber: string | number): CardIdentifier;`
 
 ```ts
-import { Cards, CardIdentifier } from 'scryfall-api';
+import { CardIdentifier, Cards } from 'scryfall-api';
 
 const collection = [
-	CardIdentifier.byId('94c70f23-0ca9-425e-a53a-6c09921c0075'),
-	CardIdentifier.byMultiverseId(462293),
-	CardIdentifier.byMtgoId(71692),
-	CardIdentifier.byOracleId('394c6de5-7957-4a0b-a6b9-ee0c707cd022'),
-	CardIdentifier.byIllustrationId('99f43949-049e-41e2-bf4c-e22e11790012'),
-	CardIdentifier.byName('Blood Scrivener'),
-	CardIdentifier.byName('Lightning Bolt', 'prm'),
-	CardIdentifier.bySet('mrd', '150'),
+  CardIdentifier.byId('94c70f23-0ca9-425e-a53a-6c09921c0075'),
+  CardIdentifier.byMultiverseId(462_293),
+  CardIdentifier.byMtgoId(71_692),
+  CardIdentifier.byOracleId('394c6de5-7957-4a0b-a6b9-ee0c707cd022'),
+  CardIdentifier.byIllustrationId('99f43949-049e-41e2-bf4c-e22e11790012'),
+  CardIdentifier.byName('Blood Scrivener'),
+  CardIdentifier.byName('Lightning Bolt', 'prm'),
+  CardIdentifier.bySet('mrd', '150'),
 ];
 
 const cards = await Cards.collection(...collection);
 // every card identifier has been mapped to its real card object
 
 for (const card of cards) {
-	console.log(card.name);
+  console.log(card.name);
 }
 // Crush Dissent
 // Contentious Plan
@@ -227,8 +226,8 @@ Queries for a card using the [Scryfall Search API](https://scryfall.com/docs/ref
 import { Cards } from 'scryfall-api';
 
 Cards.search('type:planeswalker')
-	.all()
-	.then(result => console.log(result.name));
+  .all()
+  .then(result => console.log(result.name));
 ```
 
 For information on how to provide extra options, see
@@ -317,7 +316,7 @@ Gets the rulings for a card based on its Arena id.
 ```ts
 import { Rulings } from 'scryfall-api';
 
-Rulings.byArenaId(67204).then(result => console.log(result.lenh)); // 3
+Rulings.byArenaId(67_204).then(result => console.log(result.lenh)); // 3
 ```
 
 ### `Rulings.byId(id: string): Promise<Ruling[]>;`
@@ -337,7 +336,7 @@ Gets the rulings for a card based on its MTGO(sometimes called "Cat") id.
 ```ts
 import { Rulings } from 'scryfall-api';
 
-Rulings.byMtgoId(48338).then(result => console.log(result.lenh)); // 2
+Rulings.byMtgoId(48_338).then(result => console.log(result.lenh)); // 2
 ```
 
 ### `Rulings.byMultiverseId(id: number): Promise<Ruling[]>;`
@@ -347,7 +346,7 @@ Gets the rulings for a card based on its multiverse id.
 ```ts
 import { Rulings } from 'scryfall-api';
 
-Rulings.byMultiverseId(369030).then(result => console.log(result.lenh)); // 2
+Rulings.byMultiverseId(369_030).then(result => console.log(result.lenh)); // 2
 ```
 
 ### `Rulings.bySet(code: string, collectorId: string | number): Promise<Ruling[]>;`

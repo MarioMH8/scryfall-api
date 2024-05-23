@@ -1,5 +1,2 @@
-import api from './ruling.api';
-
+export { default } from './ruling.api';
 export * from './ruling.types';
-
-export default api;

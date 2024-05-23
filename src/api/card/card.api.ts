@@ -84,12 +84,12 @@ class CardApi {
 
 	public async collection(...identifiers: CardIdentifier[]): Promise<Card[]> {
 		const cards: Card[] = [];
-		for (let i = 0; i < identifiers.length; i += 75) {
+		for (let index = 0; index < identifiers.length; index += 75) {
 			/*
 			 * The api only supports a max collection size of 75, so we take the list of identifiers (any length)
 			 * and split it into 75 card-max requests
 			 */
-			const collectionSection = { identifiers: identifiers.slice(i, i + 75) };
+			const collectionSection = { identifiers: identifiers.slice(index, index + 75) };
 			const result = await fetcher<ListResponse<Card, CardIdentifier>>(
 				'cards/collection',
 				undefined,

@@ -1,4 +1,4 @@
-import type { Fetcher } from './fetcher';
+import type { FetcherType } from './fetcher.type';
 
 // Time when the last api call was made
 let lastQuery = 100;
@@ -24,12 +24,12 @@ async function debounce(): Promise<void> {
 	}
 }
 
-export default function createDebounceFetcher<TFetcher extends Fetcher>(
+export default function createDebounceFetcher<TFetcher extends FetcherType>(
 	fetcher: TFetcher = fetch as TFetcher
 ): TFetcher {
-	return async function debounceFetcher(...args): Promise<Response> {
+	return async function debounceFetcher(...arguments_): Promise<Response> {
 		await debounce();
 
-		return fetcher(...args);
+		return fetcher(...arguments_);
 	} as TFetcher;
 }

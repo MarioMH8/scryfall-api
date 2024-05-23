@@ -39,21 +39,26 @@ bun add scryfall-api
 
 In the documentation below, requiring the package is assumed.
 
-```js
+```ts
 import scryfall from 'scryfall-api';
-```
 
+scryfall.Cards.byName('Black Lotus').then(console.log);
+```
 
 **With CommonJS**
 
 ```js
 const scryfall = require('scryfall-api');
+
+scryfall.Cards.byName('Black Lotus').then(console.log);
 ```
 
 **If you only need Cards**
 
-```js
+```ts
 import { Cards } from 'scryfall-api';
+
+Cards.byName('Black Lotus').then(console.log);
 ```
 
 Link to [full documentation.](./DOCUMENTATION.md)

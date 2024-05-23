@@ -30,6 +30,6 @@ export default class CardIdentifierApi {
 	}
 
 	public static bySet(set: string, collectorNumber: number | string): CardIdentifier {
-		return { collector_number: `${collectorNumber}`, set };
+		return { collector_number: String(collectorNumber), set };
 	}
 }

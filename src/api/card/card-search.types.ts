@@ -1,28 +1,28 @@
-type CardSearchUnique = 'cards' | 'art' | 'prints';
+type CardSearchUnique = 'art' | 'cards' | 'prints';
 
 type CardSearchOrder =
-	| 'name'
-	| 'set'
-	| 'released'
-	| 'rarity'
-	| 'color'
-	| 'usd'
-	| 'tix'
-	| 'eur'
-	| 'cmc'
-	| 'power'
-	| 'toughness'
-	| 'edhrec'
-	| 'penny'
 	| 'artist'
-	| 'review';
+	| 'cmc'
+	| 'color'
+	| 'edhrec'
+	| 'eur'
+	| 'name'
+	| 'penny'
+	| 'power'
+	| 'rarity'
+	| 'released'
+	| 'review'
+	| 'set'
+	| 'tix'
+	| 'toughness'
+	| 'usd';
 
-type CardSearchDir = 'auto' | 'asc' | 'desc';
+type CardSearchDirection = 'asc' | 'auto' | 'desc';
 
-type CardSearchFormat = 'json' | 'csv';
+type CardSearchFormat = 'csv' | 'json';
 
 interface CardSearch {
-	dir?: CardSearchDir;
+	dir?: CardSearchDirection;
 	format?: CardSearchFormat;
 	include_extras?: boolean;
 	include_multilingual?: boolean;
@@ -33,4 +33,4 @@ interface CardSearch {
 	unique?: CardSearchUnique;
 }
 
-export type { CardSearch, CardSearchDir, CardSearchFormat, CardSearchOrder, CardSearchUnique };
+export type { CardSearch, CardSearchDirection, CardSearchFormat, CardSearchOrder, CardSearchUnique };

@@ -6,7 +6,7 @@ describe('scryfall-sdk', () => {
 	describe('Catalog', () => {
 		it('card names', async () => {
 			const result = await Catalogs.cardNames();
-			expect(result.length).toBeGreaterThanOrEqual(18059);
+			expect(result.length).toBeGreaterThanOrEqual(18_059);
 		});
 
 		it('artist names', async () => {
@@ -16,7 +16,7 @@ describe('scryfall-sdk', () => {
 
 		it('word bank', async () => {
 			const result = await Catalogs.wordBank();
-			expect(result.length).toBeGreaterThanOrEqual(12892);
+			expect(result.length).toBeGreaterThanOrEqual(12_892);
 		});
 
 		it('creature types', async () => {

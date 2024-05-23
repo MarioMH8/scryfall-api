@@ -21,10 +21,10 @@ class SymbologyApi {
 
 		return (
 			cost ?? {
-				cost: '',
-				colors: [],
 				cmc: 0,
 				colorless: false,
+				colors: [],
+				cost: '',
 				monocolored: false,
 				multicolored: false,
 				object: 'mana_cost',

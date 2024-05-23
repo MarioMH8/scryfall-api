@@ -1,9 +1,9 @@
 import type { Nullable } from '../../types';
 import type { Color } from '../symbology';
 
-type CardComponent = 'token' | 'meld_part' | 'meld_result' | 'combo_piece';
+type CardComponent = 'combo_piece' | 'meld_part' | 'meld_result' | 'token';
 
-type Legality = 'legal' | 'not_legal' | 'restricted' | 'banned';
+type Legality = 'banned' | 'legal' | 'not_legal' | 'restricted';
 
 interface ImageUris {
 	art_crop: string;

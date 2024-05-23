@@ -1,6 +1,6 @@
 import type { Nullable } from '../../types';
 
-type Color = 'W' | 'B' | 'R' | 'U' | 'G';
+type Color = 'B' | 'G' | 'R' | 'U' | 'W';
 
 interface ManaCost {
 	cmc: number;

@@ -1,7 +1,6 @@
 {
-	"extends": "@hexatool/tsconfig",
+	"extends": "@hexadrop/tsconfig",
 	"compilerOptions": {
 		"baseUrl": "."
-	},
-	"exclude": ["dist", "node_modules"]
+	}
 }

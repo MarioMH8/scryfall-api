@@ -1,5 +1,5 @@
 import type { ListResponse } from '../response';
-import fetcher from './index';
+import fetcher from './fetcher';
 
 type QueryValue = boolean | number | string | undefined;
 
@@ -57,7 +57,7 @@ export default class MagicPageResult<T> {
 	public async next(): Promise<T[]> {
 		const results = await fetcher<ListResponse<T>>(this.apiPath, this.query);
 		this.#hasMore = results?.has_more ?? false;
-		this.#count = Number.parseInt(`${results?.total_cards ?? 0}`, 10);
+		this.#count = Number.parseInt(results?.total_cards?.toFixed(0) ?? '0', 10);
 		if (this.#hasMore) {
 			this.setNextPage();
 		}

@@ -1,29 +1,29 @@
 import type { Nullable } from '../../types';
 
 type SetType =
-	| 'core'
-	| 'expansion'
-	| 'masters'
 	| 'alchemy'
-	| 'masterpiece'
-	| 'arsenal'
-	| 'from_the_vault'
-	| 'spellbook'
-	| 'premium_deck'
-	| 'duel_deck'
-	| 'draft_innovation'
-	| 'treasure_chest'
-	| 'commander'
-	| 'planechase'
 	| 'archenemy'
-	| 'vanguard'
-	| 'funny'
-	| 'starter'
+	| 'arsenal'
 	| 'box'
-	| 'promo'
-	| 'token'
+	| 'commander'
+	| 'core'
+	| 'draft_innovation'
+	| 'duel_deck'
+	| 'expansion'
+	| 'from_the_vault'
+	| 'funny'
+	| 'masterpiece'
+	| 'masters'
 	| 'memorabilia'
-	| 'minigame';
+	| 'minigame'
+	| 'planechase'
+	| 'premium_deck'
+	| 'promo'
+	| 'spellbook'
+	| 'starter'
+	| 'token'
+	| 'treasure_chest'
+	| 'vanguard';
 
 interface Set {
 	arena_code?: Nullable<string>;

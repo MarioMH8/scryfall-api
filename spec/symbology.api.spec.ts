@@ -16,9 +16,9 @@ describe('scryfall-sdk', () => {
 				expect(cost.cost).toBe('{2}{W}{W}');
 			});
 			it('should throw if invalid shorthand', () => {
-				// @ts-expect-error test
+				// @ts-expect-error TS2554: Expected 1 arguments, but got 0
 				expect(() => SymbologyApi.parseMana()).toThrow(InvalidScryfallArgumentError);
-				// @ts-expect-error test
+				// @ts-expect-error TS2345: Argument of type number is not assignable to parameter of type string
 				expect(() => SymbologyApi.parseMana(1)).toThrow(InvalidScryfallArgumentError);
 				expect(() => SymbologyApi.parseMana('')).toThrow(InvalidScryfallArgumentError);
 			});

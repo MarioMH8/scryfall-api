@@ -3,55 +3,81 @@ import type { Catalog } from './catalog.types';
 
 class CatalogApi {
 	public async artifactTypes(): Promise<string[]> {
-		return (await fetcher<Catalog>('catalog/artifact-types'))?.data ?? [];
+		const response = await fetcher<Catalog>('catalog/artifact-types');
+
+		return response?.data ?? [];
 	}
 
 	public async artistNames(): Promise<string[]> {
-		return (await fetcher<Catalog>('catalog/artist-names'))?.data ?? [];
+		const response = await fetcher<Catalog>('catalog/artist-names');
+
+		return response?.data ?? [];
 	}
 
 	public async cardNames(): Promise<string[]> {
-		return (await fetcher<Catalog>('catalog/card-names'))?.data ?? [];
+		const response = await fetcher<Catalog>('catalog/card-names');
+
+		return response?.data ?? [];
 	}
 
 	public async creatureTypes(): Promise<string[]> {
-		return (await fetcher<Catalog>('catalog/creature-types'))?.data ?? [];
+		const response = await fetcher<Catalog>('catalog/creature-types');
+
+		return response?.data ?? [];
 	}
 
 	public async enchantmentTypes(): Promise<string[]> {
-		return (await fetcher<Catalog>('catalog/enchantment-types'))?.data ?? [];
+		const response = await fetcher<Catalog>('catalog/enchantment-types');
+
+		return response?.data ?? [];
 	}
 
 	public async landTypes(): Promise<string[]> {
-		return (await fetcher<Catalog>('catalog/land-types'))?.data ?? [];
+		const response = await fetcher<Catalog>('catalog/land-types');
+
+		return response?.data ?? [];
 	}
 
 	public async loyalties(): Promise<string[]> {
-		return (await fetcher<Catalog>('catalog/loyalties'))?.data ?? [];
+		const response = await fetcher<Catalog>('catalog/loyalties');
+
+		return response?.data ?? [];
 	}
 
 	public async planeswalkerTypes(): Promise<string[]> {
-		return (await fetcher<Catalog>('catalog/planeswalker-types'))?.data ?? [];
+		const response = await fetcher<Catalog>('catalog/planeswalker-types');
+
+		return response?.data ?? [];
 	}
 
 	public async powers(): Promise<string[]> {
-		return (await fetcher<Catalog>('catalog/powers'))?.data ?? [];
+		const response = await fetcher<Catalog>('catalog/powers');
+
+		return response?.data ?? [];
 	}
 
 	public async spellTypes(): Promise<string[]> {
-		return (await fetcher<Catalog>('catalog/spell-types'))?.data ?? [];
+		const response = await fetcher<Catalog>('catalog/spell-types');
+
+		return response?.data ?? [];
 	}
 
 	public async toughnesses(): Promise<string[]> {
-		return (await fetcher<Catalog>('catalog/toughnesses'))?.data ?? [];
+		const response = await fetcher<Catalog>('catalog/toughnesses');
+
+		return response?.data ?? [];
 	}
 
 	public async watermarks(): Promise<string[]> {
-		return (await fetcher<Catalog>('catalog/watermarks'))?.data ?? [];
+		const response = await fetcher<Catalog>('catalog/watermarks');
+
+		return response?.data ?? [];
 	}
 
 	public async wordBank(): Promise<string[]> {
-		return (await fetcher<Catalog>('catalog/word-bank'))?.data ?? [];
+		const response = await fetcher<Catalog>('catalog/word-bank');
+
+		return response?.data ?? [];
 	}
 }
 

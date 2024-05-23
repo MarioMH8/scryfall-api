@@ -2,32 +2,32 @@ import { defineConfig } from 'tsup';
 
 export default defineConfig([
 	{
-		format: ['esm'],
-		dts: true,
 		clean: true,
+		dts: true,
 		entry: ['./src/scryfall-api.ts'],
+		format: ['esm'],
 		minify: false,
 		sourcemap: false,
 	},
 	{
+		clean: false,
+		dts: false,
+		entry: ['./src/scryfall-api.ts'],
 		format: ['cjs'],
-		dts: false,
-		clean: false,
-		entry: ['./src/scryfall-api.ts'],
 		minify: false,
 		sourcemap: false,
 	},
 	{
-		format: ['esm', 'cjs'],
-		dts: false,
 		clean: false,
+		dts: false,
 		entry: ['./src/scryfall-api.ts'],
+		format: ['esm', 'cjs'],
 		minify: true,
-		sourcemap: false,
 		outExtension({ format }) {
 			return {
 				js: `.min.${format === 'esm' ? 'js' : 'cjs'}`,
 			};
 		},
+		sourcemap: false,
 	},
 ]);

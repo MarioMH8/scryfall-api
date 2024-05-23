@@ -3,38 +3,38 @@ import type { SetType } from '../set';
 
 type BorderColor = 'black' | 'borderless' | 'gold' | 'silver' | 'white';
 
-type Finish = 'foil' | 'nonfoil' | 'etched';
+type Finish = 'etched' | 'foil' | 'nonfoil';
 
 type Frame = '1993' | '1997' | '2003' | '2015' | 'future';
 
 type FrameEffect =
-	| 'legendary'
-	| 'miracle'
-	| 'nyxtouched'
-	| 'draft'
-	| 'devoid'
-	| 'tombstone'
 	| 'colorshifted'
-	| 'inverted'
-	| 'sunmoondfc'
-	| 'compasslanddfc'
-	| 'originpwdfc'
-	| 'mooneldrazidfc'
-	| 'waxingandwaningmoondfc'
-	| 'showcase'
-	| 'extendedart'
 	| 'companion'
-	| 'etched'
-	| 'snow'
-	| 'lesson'
-	| 'shatteredglass'
+	| 'compasslanddfc'
 	| 'convertdfc'
+	| 'devoid'
+	| 'draft'
+	| 'etched'
+	| 'extendedart'
 	| 'fandfc'
-	| 'upsidedowndfc';
+	| 'inverted'
+	| 'legendary'
+	| 'lesson'
+	| 'miracle'
+	| 'mooneldrazidfc'
+	| 'nyxtouched'
+	| 'originpwdfc'
+	| 'shatteredglass'
+	| 'showcase'
+	| 'snow'
+	| 'sunmoondfc'
+	| 'tombstone'
+	| 'upsidedowndfc'
+	| 'waxingandwaningmoondfc';
 
-type Game = 'paper' | 'arena' | 'mtgo';
+type Game = 'arena' | 'mtgo' | 'paper';
 
-type ImageStatus = 'missing' | 'placeholder' | 'lowres' | 'highres_scan';
+type ImageStatus = 'highres_scan' | 'lowres' | 'missing' | 'placeholder';
 
 interface ImageUris {
 	art_crop: string;
@@ -61,31 +61,31 @@ interface Prices {
 }
 
 type PromoType =
-	| 'ourney'
-	| 'prerelease'
-	| 'datestamped'
-	| 'planeswalkerdeck'
+	| 'arenaleague'
 	| 'buyabox'
-	| 'judgegift'
-	| 'event'
 	| 'convention'
-	| 'starterdeck'
-	| 'instore'
-	| 'setpromo'
-	| 'fnm'
-	| 'openhouse'
-	| 'league'
+	| 'datestamped'
 	| 'draftweekend'
-	| 'gameday'
-	| 'release'
-	| 'intropack'
-	| 'giftbox'
 	| 'duels'
-	| 'wizardsplaynetwork'
-	| 'premiereshop'
-	| 'playerrewards'
+	| 'event'
+	| 'fnm'
+	| 'gameday'
 	| 'gateway'
-	| 'arenaleague';
+	| 'giftbox'
+	| 'instore'
+	| 'intropack'
+	| 'judgegift'
+	| 'league'
+	| 'openhouse'
+	| 'ourney'
+	| 'planeswalkerdeck'
+	| 'playerrewards'
+	| 'premiereshop'
+	| 'prerelease'
+	| 'release'
+	| 'setpromo'
+	| 'starterdeck'
+	| 'wizardsplaynetwork';
 
 interface PurchaseUris {
 	[key: string]: Nullable<string>;
@@ -94,7 +94,7 @@ interface PurchaseUris {
 	tcgplayer?: Nullable<string>;
 }
 
-type Rarity = 'common' | 'uncommon' | 'rare' | 'special' | 'mythic' | 'bonus';
+type Rarity = 'bonus' | 'common' | 'mythic' | 'rare' | 'special' | 'uncommon';
 
 interface RelatedUris {
 	[key: string]: Nullable<string>;
@@ -106,7 +106,7 @@ interface RelatedUris {
 	tcgplayer_infinite_decks?: Nullable<string>;
 }
 
-type SecurityStamp = 'oval' | 'triangle' | 'acorn' | 'circle' | 'arena' | 'heart';
+type SecurityStamp = 'acorn' | 'arena' | 'circle' | 'heart' | 'oval' | 'triangle';
 
 interface CardPrint {
 	artist?: Nullable<string>;

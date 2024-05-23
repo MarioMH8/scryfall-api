@@ -15,17 +15,17 @@ describe('scryfall-sdk', () => {
 		});
 
 		it('by multiverse id', async () => {
-			const rulings = await Rulings.byMultiverseId(369030);
+			const rulings = await Rulings.byMultiverseId(369_030);
 			expect(rulings.length).toBeGreaterThanOrEqual(2);
 		});
 
 		it('by mtgo id', async () => {
-			const rulings = await Rulings.byMtgoId(48338);
+			const rulings = await Rulings.byMtgoId(48_338);
 			expect(rulings.length).toBeGreaterThanOrEqual(2);
 		});
 
 		it('by arena id', async () => {
-			const rulings = await Rulings.byArenaId(67204);
+			const rulings = await Rulings.byArenaId(67_204);
 			expect(rulings.length).toBeGreaterThanOrEqual(3);
 		});
 	});
