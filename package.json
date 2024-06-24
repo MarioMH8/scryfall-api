@@ -47,7 +47,7 @@
 		"typecheck": "tsc --noEmit"
 	},
 	"devDependencies": {
-		"@changesets/cli": "2.27.5",
+		"@changesets/cli": "2.27.6",
 		"@hexadrop/eslint-config": "0.0.1-beta.13",
 		"@hexadrop/tsconfig": "0.0.5",
 		"@types/bun": "1.1.5",
