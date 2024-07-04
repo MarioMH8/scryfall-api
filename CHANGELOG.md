@@ -1,5 +1,11 @@
 # scryfall-api
 
+## 4.0.1
+
+### Patch Changes
+
+- 5e10aad: Fix `package.json` `exports` field
+
 ## 4.0.0
 
 ### Major Changes
