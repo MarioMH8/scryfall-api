@@ -28,9 +28,9 @@
 	"files": [
 		"dist"
 	],
+	"main": "./dist/scryfall-api.js",
 	"module": "./dist/scryfall-api.js",
 	"types": "./dist/scryfall-api.d.ts",
-	"main": "./dist/scryfall-api.js",
 	"exports": {
 		".": {
 			"types": "./dist/scryfall-api.d.ts",
