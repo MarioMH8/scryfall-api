@@ -33,9 +33,14 @@
 	"types": "./dist/scryfall-api.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/scryfall-api.d.ts",
-			"import": "./dist/scryfall-api.js",
-			"require": "./dist/scryfall-api.cjs",
+			"import": {
+				"types": "./dist/scryfall-api.d.ts",
+				"default": "./dist/scryfall-api.js"
+			},
+			"require": {
+				"types": "./dist/scryfall-api.d.cts",
+				"default": "./dist/scryfall-api.cjs"
+			},
 			"default": "./dist/scryfall-api.js"
 		}
 	},

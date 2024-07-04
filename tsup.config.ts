@@ -11,7 +11,7 @@ export default defineConfig([
 	},
 	{
 		clean: false,
-		dts: false,
+		dts: true,
 		entry: ['./src/scryfall-api.ts'],
 		format: ['cjs'],
 		minify: false,
