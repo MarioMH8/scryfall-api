@@ -1,5 +1,21 @@
 # scryfall-api
 
+## 4.0.0
+
+### Major Changes
+
+- 7fe3118: Remove `axios` dependency in favor of `fetch`
+
+### Minor Changes
+
+- e42e562: Update Card schema
+
+### Patch Changes
+
+- bcdcadd: Fix `Cards.random()` return type
+- e049bb4: Fix build
+- 55a1249: Include `main` field to the `package.json` so `scryfall-api` can be used without ESModules
+
 ## 4.0.0-beta.2
 
 ### Patch Changes
