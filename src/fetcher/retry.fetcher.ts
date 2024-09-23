@@ -4,7 +4,7 @@ import type { FetcherType } from './fetcher.type';
 
 interface RetryOptions {
 	maxAttempts?: number;
-	canRetry?(response: Response): Promise<boolean> | boolean;
+	canRetry?(response: Response): boolean | Promise<boolean>;
 }
 
 const defaultCanRetry = async (response: Response) => {
@@ -19,6 +19,7 @@ const defaultCanRetry = async (response: Response) => {
 };
 
 export default function createRetryFetcher<TFetcher extends FetcherType>(
+	// eslint-disable-next-line typescript/unbound-method
 	{ canRetry = defaultCanRetry, maxAttempts = 3 }: RetryOptions = {},
 	fetcher: TFetcher = fetch as TFetcher
 ): TFetcher {
