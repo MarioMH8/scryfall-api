@@ -10,10 +10,10 @@
 
 <p align="center">
     <a href="https://www.npmjs.com/package/scryfall-api" rel="nofollow">
-        <img src="https://camo.githubusercontent.com/a172c58fbefc7103cb230b872119a85914a463f32958ea9e4e1f3ad9d7e1a100/68747470733a2f2f696d672e736869656c64732e696f2f6e706d2f762f7363727966616c6c2d6170693f7374796c653d666c61742d737175617265" alt="npm" data-canonical-src="https://img.shields.io/npm/v/scryfall-api?style=flat-square" style="max-width: 100%;">
+        <img src="https://img.shields.io/npm/v/scryfall-api?style=flat-square" alt="npm" style="max-width: 100%;">
     </a>
     <a href="https://github.com/MarioMH8/scryfall-api">
-        <img src="https://camo.githubusercontent.com/93378eea577b6b00f04b1fbfa5dc6871778ff3f6b4de76833a6211d35770f6c4/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f6973737565732f6d6172696f6d68382f7363727966616c6c2d6170693f7374796c653d666c61742d737175617265" alt="GitHub issues" data-canonical-src="https://img.shields.io/github/issues/mariomh8/scryfall-api?style=flat-square" style="max-width: 100%;">
+        <img src="https://img.shields.io/github/issues/mariomh8/scryfall-api?style=flat-square" alt="GitHub issues" style="max-width: 100%;">
     </a>
 </p>
 
