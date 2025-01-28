@@ -1,5 +1,6 @@
 import type { Nullable } from '../../types';
 import type { SetType } from '../set';
+import type { ImageUris } from './card-image-uris.types';
 
 type BorderColor = 'black' | 'borderless' | 'gold' | 'silver' | 'white';
 
@@ -35,15 +36,6 @@ type FrameEffect =
 type Game = 'arena' | 'mtgo' | 'paper';
 
 type ImageStatus = 'highres_scan' | 'lowres' | 'missing' | 'placeholder';
-
-interface ImageUris {
-	art_crop: string;
-	border_crop: string;
-	large: string;
-	normal: string;
-	png: string;
-	small: string;
-}
 
 interface Preview {
 	previewed_at: Date;
@@ -165,7 +157,6 @@ export type {
 	FrameEffect,
 	Game,
 	ImageStatus,
-	ImageUris,
 	Preview,
 	Prices,
 	PromoType,
@@ -174,3 +165,5 @@ export type {
 	RelatedUris,
 	SecurityStamp,
 };
+
+export { type ImageUris } from './card-image-uris.types';

@@ -1,18 +1,10 @@
 import type { Nullable } from '../../types';
 import type { Color } from '../symbology';
+import type { ImageUris } from './card-image-uris.types';
 
 type CardComponent = 'combo_piece' | 'meld_part' | 'meld_result' | 'token';
 
 type Legality = 'banned' | 'legal' | 'not_legal' | 'restricted';
-
-interface ImageUris {
-	art_crop: string;
-	border_crop: string;
-	large: string;
-	normal: string;
-	png: string;
-	small: string;
-}
 
 interface CardFace {
 	artist?: Nullable<string>;
@@ -99,4 +91,4 @@ interface GameplayCard {
 	type_line: string;
 }
 
-export type { CardComponent, CardFace, GameplayCard, ImageUris, Legalities, Legality, RelatedCard };
+export type { CardComponent, CardFace, GameplayCard, Legalities, Legality, RelatedCard };

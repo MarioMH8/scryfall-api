@@ -1,5 +1,11 @@
 # scryfall-api
 
+## 4.0.2
+
+### Patch Changes
+
+- Export Card types
+
 ## 4.0.1
 
 ### Patch Changes
