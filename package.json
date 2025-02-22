@@ -56,7 +56,7 @@
 		"@changesets/cli": "2.28.1",
 		"@hexadrop/eslint-config": "0.1.0",
 		"@hexadrop/tsconfig": "0.0.5",
-		"@types/bun": "1.2.2",
+		"@types/bun": "1.2.3",
 		"eslint": "9.20.1",
 		"tsup": "8.3.6",
 		"typescript": "5.7.3"
