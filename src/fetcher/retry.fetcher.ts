@@ -4,11 +4,10 @@ import type { FetcherType } from './fetcher.type';
 
 interface RetryOptions {
 	maxAttempts?: number;
-	canRetry?(response: Response): boolean | Promise<boolean>;
+	canRetry?(object: object): boolean | Promise<boolean>;
 }
 
-const defaultCanRetry = async (response: Response) => {
-	const object = (await response.json()) as object;
+const defaultCanRetry = (object: object) => {
 	const status = 'status' in object ? Number(object.status) : undefined;
 	if (status && status >= 500) {
 		return true;
@@ -48,7 +47,7 @@ export default function createRetryFetcher<TFetcher extends FetcherType>(
 			throw new UnknownScryfallError(`Request failed with status ${response.status.toFixed(0)}`);
 		}
 
-		if (canRetry(response)) {
+		if (canRetry(object)) {
 			return retryFetcher(...arguments_);
 		}
 
