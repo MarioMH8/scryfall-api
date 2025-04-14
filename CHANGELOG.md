@@ -1,5 +1,11 @@
 # scryfall-api
 
+## 4.0.3
+
+### Patch Changes
+
+- 4d20732: Fix `canRetry` in `retryFetcher`
+
 ## 4.0.2
 
 ### Patch Changes
