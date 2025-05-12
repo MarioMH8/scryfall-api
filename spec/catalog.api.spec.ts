@@ -2,7 +2,7 @@ import { describe, expect, it } from 'bun:test';
 
 import { Catalogs } from '../src';
 
-describe('scryfall-sdk', () => {
+describe('scryfall-api', () => {
 	describe('Catalog', () => {
 		it('card names', async () => {
 			const result = await Catalogs.cardNames();

@@ -2,7 +2,7 @@ import { describe, expect, it } from 'bun:test';
 
 import { Sets } from '../src';
 
-describe('scryfall-sdk', () => {
+describe('scryfall-api', () => {
 	describe('Sets', () => {
 		describe('by code,', () => {
 			it('exact', async () => {

@@ -2,7 +2,7 @@ import { describe, expect, it } from 'bun:test';
 
 import { Rulings } from '../src';
 
-describe('scryfall-sdk', () => {
+describe('scryfall-api', () => {
 	describe('Rulings', () => {
 		it('by id', async () => {
 			const rulings = await Rulings.byId('9ea8179a-d3c9-4cdc-a5b5-68cc73279050');

@@ -2,7 +2,7 @@ import { describe, expect, it } from 'bun:test';
 
 import { InvalidScryfallArgumentError, SymbologyApi } from '../src';
 
-describe('scryfall-sdk', () => {
+describe('scryfall-api', () => {
 	describe('Symbology', () => {
 		describe('.all()', () => {
 			it('should works as expected', async () => {

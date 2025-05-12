@@ -3,7 +3,7 @@ import { describe, expect, it } from 'bun:test';
 import type { Card } from '../src';
 import { CardIdentifierBuilder, Cards } from '../src';
 
-describe('scryfall-sdk', () => {
+describe('scryfall-api', () => {
 	describe('Cards', () => {
 		describe('by id,', () => {
 			it('exact', async () => {
