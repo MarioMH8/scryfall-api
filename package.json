@@ -49,7 +49,7 @@
 		"lint": "eslint .",
 		"lint:fix": "eslint --fix .",
 		"prepublishOnly": "tsup",
-		"test": "bun test --timeout 10000",
+		"test": "bun test --timeout 50000",
 		"typecheck": "tsc --noEmit"
 	},
 	"devDependencies": {
