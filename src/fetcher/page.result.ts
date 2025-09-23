@@ -9,16 +9,13 @@ export interface PageQuery {
 }
 
 export default class MagicPageResult<T> {
-	#count: number;
-	#hasMore: boolean;
+	#count = 0;
+	#hasMore = true;
 
 	constructor(
 		private readonly apiPath: string,
 		private readonly query: PageQuery
-	) {
-		this.#hasMore = true;
-		this.#count = 0;
-	}
+	) {}
 
 	public get count(): number {
 		return this.#count;
