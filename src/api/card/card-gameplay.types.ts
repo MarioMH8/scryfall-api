@@ -75,6 +75,7 @@ interface GameplayCard {
 	colors?: Nullable<Color[]>;
 	defense?: Nullable<string>;
 	edhrec_rank?: Nullable<number>;
+	game_changer?: Nullable<boolean>;
 	hand_modifier?: Nullable<string>;
 	keywords: string[];
 	legalities: Legalities;
