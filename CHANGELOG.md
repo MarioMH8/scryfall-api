@@ -1,5 +1,11 @@
 # scryfall-api
 
+## 4.0.4
+
+### Patch Changes
+
+- e07a453: Add game_changer to gameplay types
+
 ## 4.0.3
 
 ### Patch Changes
