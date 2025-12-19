@@ -14,6 +14,7 @@ interface ManaCost {
 
 interface Symbology {
 	appears_in_mana_costs: boolean;
+	cmc: number;
 	colors: Color[];
 	english: string;
 	funny: boolean;
