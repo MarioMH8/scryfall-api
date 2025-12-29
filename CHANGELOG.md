@@ -1,5 +1,11 @@
 # scryfall-api
 
+## 4.0.5
+
+### Patch Changes
+
+- 5d05667: Added `cmc` to `Symbology` type
+
 ## 4.0.4
 
 ### Patch Changes
