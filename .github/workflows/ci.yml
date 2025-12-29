@@ -63,7 +63,3 @@ jobs:
                     title: 'chore: release'
                 env:
                     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                    # Workaround for https://github.com/changesets/changesets/issues/1152
-                    NODE_AUTH_TOKEN: ""
-                    NPM_TOKEN: ""
-                    NPM_CONFIG_PROVENANCE: true
