@@ -18,9 +18,9 @@ const defaultCanRetry = (object: object) => {
 };
 
 export default function createRetryFetcher<TFetcher extends FetcherType>(
+	fetcher: TFetcher = fetch as TFetcher,
 	// eslint-disable-next-line typescript/unbound-method
-	{ canRetry = defaultCanRetry, maxAttempts = 3 }: RetryOptions = {},
-	fetcher: TFetcher = fetch as TFetcher
+	{ canRetry = defaultCanRetry, maxAttempts = 3 }: RetryOptions = {}
 ): TFetcher {
 	let retries = 0;
 

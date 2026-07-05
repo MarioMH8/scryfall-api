@@ -51,26 +51,26 @@ class CardApi {
 		return fetcher<Card>(['cards/multiverse', id]);
 	}
 
-	public async byName(name: string, fuzzy?: boolean): Promise<Card | undefined>;
+	public async byName(name: string, isFuzzySearch?: boolean): Promise<Card | undefined>;
 
-	public async byName(name: string, set?: string, fuzzy?: boolean): Promise<Card | undefined>;
+	public async byName(name: string, set?: string, isFuzzySearch?: boolean): Promise<Card | undefined>;
 
-	public async byName(name: string, set?: boolean | string, fuzzy = false): Promise<Card | undefined> {
-		let f = fuzzy;
+	public async byName(name: string, set?: boolean | string, isFuzzySearch = false): Promise<Card | undefined> {
+		let isF = isFuzzySearch;
 		let s = set;
 		if (typeof set === 'boolean') {
-			f = set;
+			isF = set;
 			s = undefined;
 		}
 
 		return fetcher<Card>('cards/named', {
-			[f ? 'fuzzy' : 'exact']: name,
+			[isF ? 'fuzzy' : 'exact']: name,
 			set: s,
 		});
 	}
 
-	public async bySet(setCode: string, collectorNumber: number, lang?: string): Promise<Card | undefined> {
-		const path = ['cards', setCode, collectorNumber];
+	public async bySet(set: string, collectorNumber: number, lang?: string): Promise<Card | undefined> {
+		const path = ['cards', set, collectorNumber];
 		if (lang) {
 			path.push(lang);
 		}

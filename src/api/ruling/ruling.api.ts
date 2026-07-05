@@ -27,8 +27,8 @@ class RulingApi {
 		return response?.data ?? [];
 	}
 
-	public async bySet(setCode: string, collectorNumber: number | string): Promise<Ruling[]> {
-		const response = await fetcher<ListResponse<Ruling>>(['cards', setCode, String(collectorNumber), 'rulings']);
+	public async bySet(set: string, collectorNumber: number | string): Promise<Ruling[]> {
+		const response = await fetcher<ListResponse<Ruling>>(['cards', set, String(collectorNumber), 'rulings']);
 
 		return response?.data ?? [];
 	}

@@ -1,3 +1,6 @@
 {
-	"extends": "@hexadrop/tsconfig"
+	"extends": "@hexadrop/tsconfig",
+	"compilerOptions": {
+		"types": ["bun"]
+	}
 }

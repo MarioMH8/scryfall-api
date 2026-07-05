@@ -6,6 +6,7 @@ export default hexadrop(
 		rules: {
 			'no-await-in-loop': 'warn',
 			'no-console': 'warn',
+			'unicorn/no-useless-recursion': 'warn',
 		},
 	},
 	{
@@ -14,6 +15,7 @@ export default hexadrop(
 			'import/no-commonjs': 'off',
 			'typescript/no-require-imports': 'off',
 			'typescript/no-var-requires': 'off',
+			'unicorn/prefer-await': 'off',
 			'unicorn/prefer-module': 'off',
 			'unicorn/prefer-top-level-await': 'off',
 		},

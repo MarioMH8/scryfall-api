@@ -28,37 +28,28 @@
 	"files": [
 		"dist"
 	],
-	"main": "./dist/scryfall-api.js",
-	"module": "./dist/scryfall-api.js",
-	"types": "./dist/scryfall-api.d.ts",
+	"main": "./dist/scryfall-api.mjs",
+	"types": "./dist/scryfall-api.d.mts",
 	"exports": {
 		".": {
-			"import": {
-				"types": "./dist/scryfall-api.d.ts",
-				"default": "./dist/scryfall-api.js"
-			},
-			"require": {
-				"types": "./dist/scryfall-api.d.cts",
-				"default": "./dist/scryfall-api.cjs"
-			},
-			"default": "./dist/scryfall-api.js"
+			"import": "./dist/scryfall-api.d.mts"
 		}
 	},
 	"scripts": {
-		"build": "tsup",
+		"build": "tsdown",
 		"lint": "eslint .",
 		"lint:fix": "eslint --fix .",
-		"prepublishOnly": "tsup",
+		"prepublishOnly": "tsdown",
 		"test": "bun test --timeout 50000",
 		"typecheck": "tsc --noEmit"
 	},
 	"devDependencies": {
 		"@changesets/cli": "2.31.0",
-		"@hexadrop/eslint-config": "0.1.19",
+		"@hexadrop/eslint-config": "1.0.5",
 		"@hexadrop/tsconfig": "0.0.5",
-		"@types/bun": "1.3.13",
+		"@types/bun": "1.3.14",
 		"eslint": "10.6.0",
-		"tsup": "8.5.1",
-		"typescript": "5.9.3"
+		"tsdown": "0.22.3",
+		"typescript": "6.0.3"
 	}
 }

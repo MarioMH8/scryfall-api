@@ -4,7 +4,7 @@ import createDebounceFetcher from './debounce.fetcher';
 import type { FetcherParams as FetcherParameters } from './fetcher.parameters';
 import createRetryFetcher from './retry.fetcher';
 
-const simpleFetcher = createDebounceFetcher(createRetryFetcher());
+const simpleFetcher = createRetryFetcher(createDebounceFetcher());
 
 const endpoint = 'https://api.scryfall.com';
 

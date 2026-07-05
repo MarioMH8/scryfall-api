@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/no-top-level-assignment-in-function */
 import type { FetcherType } from './fetcher.type';
 
 // Time when the last api call was made
