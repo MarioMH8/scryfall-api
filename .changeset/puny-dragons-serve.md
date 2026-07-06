@@ -1,5 +1,5 @@
 ---
-"scryfall-api": patch
+"scryfall-api": major
 ---
 
 Migrate to tsdown and drop CJS compatibility
