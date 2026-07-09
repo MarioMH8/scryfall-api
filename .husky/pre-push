@@ -1,0 +1,2 @@
+bun run lint:fix
+bun run typecheck
