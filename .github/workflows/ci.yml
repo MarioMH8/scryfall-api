@@ -16,7 +16,7 @@ jobs:
             id-token: 'write'
         strategy:
             matrix:
-                command: [ lint, typecheck ]
+                command: [ 'lint:ci', typecheck ]
         steps:
             -   name: Checkout
                 uses: actions/checkout@v7
@@ -29,8 +29,15 @@ jobs:
             -   name: Install dependencies
                 run: bun install
 
+            - name: ESLint cache
+              uses: actions/cache@v6
+              if: matrix.command == 'lint:ci'
+              with:
+                  path: .eslintcache
+                  key: ${{ runner.os }}-node
+
             -   name: ${{ matrix.command }}
-                run: bun run ${{ matrix.command }}
+                run: bun ${{ matrix.command }}
 
     release:
         name: Release
@@ -51,16 +58,27 @@ jobs:
                 with:
                     bun-version: latest
 
+            -   name: Setup Node.js
+                uses: actions/setup-node@v6
+                with:
+                    node-version: '24'
+                    registry-url: 'https://registry.npmjs.org'
+
             -   name: Install dependencies
                 run: bun install
+
+            -   name: Capture release version
+                run: |
+                    bun changeset status --output=release.json
+                    echo "NEW_VERSION=$(jq -r '.releases[0].newVersion' release.json)" >> "$GITHUB_ENV"
+                    rm release.json
 
             -   name: Create Release Pull Request or Publish to npm
                 uses: changesets/action@v1
                 with:
                     publish: bun changeset publish
                     version: bun changeset version
-                    commit: 'chore: release'
-                    title: 'chore: release'
+                    commit: 'chore: release v${{env.NEW_VERSION}}'
+                    title: 'chore: release v${{env.NEW_VERSION}}'
                 env:
                     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                    NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
