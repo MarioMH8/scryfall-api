@@ -100,7 +100,6 @@ describe('scryfall-api', () => {
 				while(Date.now() - pre < 1800) {
 					await Cards.random();
 				}
-				console.log("CALLS:", fetchSpy.mock.calls.length);
 				expect(fetchSpy.mock.calls.length).toBeLessThanOrEqual(5);
 			}, 20_000);
 		});
