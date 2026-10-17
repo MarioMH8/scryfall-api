@@ -1,5 +1,11 @@
 # scryfall-api
 
+## 5.0.0
+
+### Major Changes
+
+- 5dab143: Migrate to tsdown and drop CJS compatibility
+
 ## 4.0.5
 
 ### Patch Changes
