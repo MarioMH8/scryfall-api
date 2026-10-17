@@ -4,7 +4,8 @@ import createDebounceFetcher from './debounce.fetcher';
 import type { FetcherParams as FetcherParameters } from './fetcher.parameters';
 import createRetryFetcher from './retry.fetcher';
 
-const simpleFetcher = createRetryFetcher(createDebounceFetcher());
+// https://scryfall.com/docs/api/rate-limits
+const scryfallDefaultRequestsPerSecond = 10;
 
 const endpoint = 'https://api.scryfall.com';
 
@@ -18,51 +19,64 @@ const dateParser = (_key: string, value: unknown) => {
 	return value;
 };
 
-export default async function fetcher<TData>(
+export type TFetcher = <TData>(
 	apiPath: TOrArrayOfT<number | string | undefined>,
 	parameters?: FetcherParameters,
 	body?: object
-): Promise<TData | undefined> {
-	let path: number | string = '';
-	if (typeof apiPath === 'number' || typeof apiPath === 'string') {
-		path = apiPath;
-	} else if (apiPath) {
-		path = apiPath.join('/');
-	}
+) => Promise<TData | undefined>;
 
-	const url = new URL(`${endpoint}/${String(path)}`);
-	if (parameters) {
-		for (const [key, value] of Object.entries(parameters)) {
-			if (value !== undefined) {
-				url.searchParams.append(key, value.toString());
+export function createFetcher(
+	options: { maxRequestsPerSecond: number } = { maxRequestsPerSecond: scryfallDefaultRequestsPerSecond}
+): TFetcher {
+	const simpleFetcher = createRetryFetcher(createDebounceFetcher(options));
+	return async function fetcher<TData>(
+		apiPath: TOrArrayOfT<number | string | undefined>,
+		parameters?: FetcherParameters,
+		body?: object
+	): Promise<TData | undefined> {
+		let path: number | string = '';
+		if (typeof apiPath === 'number' || typeof apiPath === 'string') {
+			path = apiPath;
+		} else if (apiPath) {
+			path = apiPath.join('/');
+		}
+
+		const url = new URL(`${endpoint}/${String(path)}`);
+		if (parameters) {
+			for (const [key, value] of Object.entries(parameters)) {
+				if (value !== undefined) {
+					url.searchParams.append(key, value.toString());
+				}
 			}
 		}
-	}
 
-	try {
-		const init: RequestInit = {
-			method: body ? 'POST' : 'GET',
-		};
-		if (body) {
-			init.body = JSON.stringify(body);
-			init.headers = {
-				'Content-Type': 'application/json',
+		try {
+			const init: RequestInit = {
+				method: body ? 'POST' : 'GET',
 			};
-		}
-		const response = await simpleFetcher(url, init);
-
-		const content = await response.text();
-
-		return JSON.parse(content, dateParser) as TData;
-	} catch (error) {
-		if (error instanceof ScryfallError) {
-			if (error.warnings) {
-				console.warn(error.warnings);
+			if (body) {
+				init.body = JSON.stringify(body);
+				init.headers = {
+					'Content-Type': 'application/json',
+				};
 			}
-			if (error.code === 'not_found' || error.code === 'bad_request') {
-				return undefined;
+			const response = await simpleFetcher(url, init);
+
+			const content = await response.text();
+
+			return JSON.parse(content, dateParser) as TData;
+		} catch (error) {
+			if (error instanceof ScryfallError) {
+				if (error.warnings) {
+					console.warn(error.warnings);
+				}
+				if (error.code === 'not_found' || error.code === 'bad_request') {
+					return undefined;
+				}
 			}
+			throw error;
 		}
-		throw error;
-	}
+	};
 }
+
+export default createFetcher();

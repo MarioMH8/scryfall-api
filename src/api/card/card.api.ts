@@ -4,7 +4,11 @@ import type { CardIdentifier } from '../card-identifier';
 import type { Catalog } from '../catalog';
 import type { Card } from './card.types';
 import type { CardSearch } from './card-search.types';
+import { createFetcher } from '../../fetcher/fetcher';
 
+// https://scryfall.com/docs/api/rate-limits
+// Various card APIs require slower rate limits
+const slowFetcher = createFetcher({ maxRequestsPerSecond: 2});
 class CardApi {
 	/*
 	 * Returns up to 20 full English card names that could be autocompletions of the given string parameter.
@@ -63,7 +67,7 @@ class CardApi {
 			s = undefined;
 		}
 
-		return fetcher<Card>('cards/named', {
+		return slowFetcher<Card>('cards/named', {
 			[isF ? 'fuzzy' : 'exact']: name,
 			set: s,
 		});
@@ -90,7 +94,7 @@ class CardApi {
 			 * and split it into 75 card-max requests
 			 */
 			const collectionSection = { identifiers: identifiers.slice(index, index + 75) };
-			const result = await fetcher<ListResponse<Card, CardIdentifier>>(
+			const result = await slowFetcher<ListResponse<Card, CardIdentifier>>(
 				'cards/collection',
 				undefined,
 				collectionSection
@@ -102,14 +106,14 @@ class CardApi {
 	}
 
 	public async random(): Promise<Card> {
-		return fetcher<Card>('cards/random') as Promise<Card>;
+		return slowFetcher<Card>('cards/random') as Promise<Card>;
 	}
 
 	public search(query: string, options?: CardSearch | number): MagicPageResult<Card> {
 		return new MagicPageResult<Card>('cards/search', {
 			q: query,
 			...(typeof options === 'number' ? { page: options } : { ...options, page: options?.page ?? 1 }),
-		});
+		}, slowFetcher);
 	}
 }
 

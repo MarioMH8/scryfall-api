@@ -1,9 +1,14 @@
-import { describe, expect, it } from 'bun:test';
+import { beforeEach, describe, expect, it, spyOn } from 'bun:test';
 
 import type { Card } from '../src';
 import { CardIdentifierBuilder, Cards } from '../src';
 
 describe('scryfall-api', () => {
+
+	const fetchSpy = spyOn(globalThis, "fetch");
+	beforeEach(() => {
+		fetchSpy.mockClear();
+	});
 	describe('Cards', () => {
 		describe('by id,', () => {
 			it('exact', async () => {
@@ -83,9 +88,20 @@ describe('scryfall-api', () => {
 			expect(card?.printed_name).toBe('ウルザの後継、カーン');
 		});
 
-		it('random', async () => {
-			const card = await Cards.random();
-			expect(card).toBeDefined();
+		describe('random', () => {
+			it('returns a card', async () => {
+				const card = await Cards.random();
+				expect(card).toBeDefined();
+			});
+		
+			it('should not request more than 2x per second', async () => {
+				const fetchSpy = spyOn(global, "fetch");
+				const pre = Date.now();
+				while(Date.now() - pre < 1800) {
+					await Cards.random();
+				}
+				expect(fetchSpy.mock.calls.length).toBeLessThanOrEqual(5);
+			}, 20_000);
 		});
 
 		describe('search', () => {
@@ -136,6 +152,14 @@ describe('scryfall-api', () => {
 				const result = await Cards.search('cmc>cmc').all();
 				expect(result.length).toBe(0);
 			});
+
+			it('should not request more than 2x per second', async () => {
+				const pre = Date.now();
+				while(Date.now() - pre < 1800) {
+					await Cards.search("s:dgm cn:22").get(1);
+				}
+				expect(fetchSpy.mock.calls.length).toBeLessThanOrEqual(5);
+			}, 20_000);
 		});
 
 		it('autocomplete name', async () => {
@@ -223,6 +247,16 @@ describe('scryfall-api', () => {
 				expect(cards.length).toBe(1);
 				expect(cards[0]?.name).toBe('Crush Dissent');
 			});
+
+			it('should not request more than 2x per second', async () => {
+				const fetchSpy = spyOn(globalThis, "fetch");
+				const pre = Date.now();
+				while(Date.now() - pre < 1800) {
+					const collection = [CardIdentifierBuilder.byName('Lightning Bolt', 'prm')];
+					await Cards.collection(...collection);
+				}
+				expect(fetchSpy.mock.calls.length).toBeLessThanOrEqual(5);
+			}, 20_000);
 		});
 	});
 });
