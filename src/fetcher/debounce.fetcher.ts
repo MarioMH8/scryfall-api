@@ -1,35 +1,42 @@
-/* eslint-disable unicorn/no-top-level-assignment-in-function */
 import type { FetcherType } from './fetcher.type';
 
-// Time when the last api call was made
-let lastQuery = 100;
+interface DebounceFetcherOptions {
+	maxRequestsPerSecond: number;
+	now?: (() => number) | undefined;
+	sleep?: ((milliseconds: number) => Promise<void>) | undefined;
+}
 
-// The api requests 50-100 ms between calls, we go on the generous side and never wait less than 100 ms between calls
-const rateLimit = 100;
+const defaultNow = () => Date.now();
 
-async function sleep(ms = 0) {
-	return new Promise(resolve => {
-		setTimeout(resolve, ms);
+async function sleep(milliseconds: number): Promise<void> {
+	await new Promise(resolve => {
+		setTimeout(resolve, milliseconds);
 	});
 }
 
-async function debounce(): Promise<void> {
-	const now = Date.now();
-	const timeSinceLastQuery = now - lastQuery;
-	if (timeSinceLastQuery >= rateLimit) {
-		lastQuery = now;
-	} else {
-		const timeUntilNextQuery = rateLimit - timeSinceLastQuery;
-		lastQuery += timeUntilNextQuery;
-		await sleep(timeUntilNextQuery);
-	}
-}
-
 export default function createDebounceFetcher<TFetcher extends FetcherType>(
-	fetcher: TFetcher = fetch as TFetcher
+	fetcher: TFetcher,
+	{ maxRequestsPerSecond, now, sleep: sleepFunction }: DebounceFetcherOptions
 ): TFetcher {
+	const interval = 1000 / maxRequestsPerSecond;
+	const clock = now ?? defaultNow;
+	const wait = sleepFunction ?? sleep;
+
+	// The debounce state belongs to this fetcher instance, so each endpoint gets its own rate limit
+	let lastRequestAt = -Infinity;
+
 	return async function debounceFetcher(...arguments_): Promise<Response> {
-		await debounce();
+		for (;;) {
+			const currentTime = clock();
+			const timeUntilNextRequest = lastRequestAt + interval - currentTime;
+			if (timeUntilNextRequest <= 0) {
+				lastRequestAt = currentTime;
+				break;
+			}
+
+			// eslint-disable-next-line no-await-in-loop
+			await wait(timeUntilNextRequest);
+		}
 
 		return fetcher(...arguments_);
 	} as TFetcher;

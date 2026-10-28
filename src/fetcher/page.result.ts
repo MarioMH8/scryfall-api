@@ -1,5 +1,6 @@
 import type { ListResponse } from '../response';
-import fetcher from './fetcher';
+import type { TFetcher } from './fetcher';
+import defaultFetcher from './fetcher';
 
 type QueryValue = boolean | number | string | undefined;
 
@@ -14,7 +15,8 @@ export default class MagicPageResult<T> {
 
 	constructor(
 		private readonly apiPath: string,
-		private readonly query: PageQuery
+		private readonly query: PageQuery,
+		private readonly fetcher: TFetcher = defaultFetcher
 	) {}
 
 	public get count(): number {
@@ -52,7 +54,7 @@ export default class MagicPageResult<T> {
 	}
 
 	public async next(): Promise<T[]> {
-		const results = await fetcher<ListResponse<T>>(this.apiPath, this.query);
+		const results = await this.fetcher<ListResponse<T>>(this.apiPath, this.query);
 		this.#hasMore = results?.has_more ?? false;
 		this.#count = Number.parseInt(results?.total_cards?.toFixed(0) ?? '0', 10);
 		if (this.#hasMore) {
