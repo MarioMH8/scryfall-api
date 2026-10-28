@@ -1,9 +1,21 @@
 import fetcher, { MagicPageResult } from '../../fetcher';
+import { createFetcher } from '../../fetcher/fetcher';
 import type { ListResponse } from '../../response';
 import type { CardIdentifier } from '../card-identifier';
 import type { Catalog } from '../catalog';
 import type { Card } from './card.types';
 import type { CardSearch } from './card-search.types';
+
+/*
+ * https://scryfall.com/docs/api/rate-limits
+ * These endpoints allow 2 requests per second, and each one has its own budget
+ */
+const cardsPerSecond = 2;
+
+const collectionFetcher = createFetcher({ maxRequestsPerSecond: cardsPerSecond });
+const namedFetcher = createFetcher({ maxRequestsPerSecond: cardsPerSecond });
+const randomFetcher = createFetcher({ maxRequestsPerSecond: cardsPerSecond });
+const searchFetcher = createFetcher({ maxRequestsPerSecond: cardsPerSecond });
 
 class CardApi {
 	/*
@@ -63,7 +75,7 @@ class CardApi {
 			s = undefined;
 		}
 
-		return fetcher<Card>('cards/named', {
+		return namedFetcher<Card>('cards/named', {
 			[isF ? 'fuzzy' : 'exact']: name,
 			set: s,
 		});
@@ -90,7 +102,7 @@ class CardApi {
 			 * and split it into 75 card-max requests
 			 */
 			const collectionSection = { identifiers: identifiers.slice(index, index + 75) };
-			const result = await fetcher<ListResponse<Card, CardIdentifier>>(
+			const result = await collectionFetcher<ListResponse<Card, CardIdentifier>>(
 				'cards/collection',
 				undefined,
 				collectionSection
@@ -102,14 +114,18 @@ class CardApi {
 	}
 
 	public async random(): Promise<Card> {
-		return fetcher<Card>('cards/random') as Promise<Card>;
+		return randomFetcher<Card>('cards/random') as Promise<Card>;
 	}
 
 	public search(query: string, options?: CardSearch | number): MagicPageResult<Card> {
-		return new MagicPageResult<Card>('cards/search', {
-			q: query,
-			...(typeof options === 'number' ? { page: options } : { ...options, page: options?.page ?? 1 }),
-		});
+		return new MagicPageResult<Card>(
+			'cards/search',
+			{
+				q: query,
+				...(typeof options === 'number' ? { page: options } : { ...options, page: options?.page ?? 1 }),
+			},
+			searchFetcher
+		);
 	}
 }
 
