@@ -1,5 +1,17 @@
 # scryfall-api
 
+## 5.0.0
+
+### Major Changes
+
+- 5dab143: Migrate to tsdown and drop CJS compatibility
+
+### Minor Changes
+
+- d5413de: Respect Scryfall's per-endpoint rate limits
+
+  `Cards.byName`, `Cards.random`, `Cards.collection` and `Cards.search` (including pagination) are now limited to 2 requests per second each, as required by the Scryfall API. Every request still counts against the global 10 requests per second limit.
+
 ## 4.0.5
 
 ### Patch Changes
