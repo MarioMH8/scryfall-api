@@ -2,58 +2,23 @@ name: "Release"
 
 on:
   push:
-    branches: [main]
-
-permissions:
-  contents: read
+    branches: [ main, develop ]
 
 jobs:
-  detect:
-    name: Detect a version change
-    runs-on: ubuntu-latest
-    outputs:
-      changed: ${{ steps.detect.outputs.changed }}
-    steps:
-      - name: Check out the repository
-        uses: actions/checkout@v7
-        with:
-          fetch-depth: 0
-
-      - name: Detect a version change
-        id: detect
-        env:
-          BEFORE: ${{ github.event.before }}
-        run: |
-          if [ -z "${BEFORE}" ] || [ "${BEFORE}" = "0000000000000000000000000000000000000000" ]; then
-            echo "No previous commit to compare: releasing."
-            echo "changed=true" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-
-          if ! changes="$(git diff --unified=0 "${BEFORE}" "${GITHUB_SHA}" -- package.json)"; then
-            echo "::warning::Cannot compare with ${BEFORE}: releasing anyway."
-            echo "changed=true" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-
-          if grep -q '^[+-][[:space:]]*"version":' <<< "${changes}"; then
-            echo "The package version changed in this push."
-            echo "changed=true" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-
-          echo "changed=false" >> "$GITHUB_OUTPUT"
+  detect-changeset-change:
+    name: Changeset
+    uses: hexadrop/github-workflows/.github/workflows/detect-changeset-change.yml@v1.7.4
 
   publish:
     name: Publish
-    needs: detect
-    if: needs.detect.outputs.changed == 'true'
+    needs: [ detect-changeset-change ]
+    if: github.ref == 'refs/heads/main' || needs.detect-changeset-change.outputs.should_publish_beta == 'true'
     permissions:
-      contents: write
-      id-token: write
-      issues: write
-      pull-requests: write
+      contents: 'write'
+      id-token: 'write'
+      issues: 'write'
+      pull-requests: 'write'
     uses: hexadrop/github-workflows/.github/workflows/release.yml@v1.7.4
     with:
-      target: registry
-      concurrency-group: release-main
+      snapshot: ${{ github.ref == 'refs/heads/develop' }}
+      concurrency-group: release-${{ github.ref_name }}
