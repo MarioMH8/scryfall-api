@@ -31,9 +31,7 @@
 	"main": "./dist/scryfall-api.mjs",
 	"types": "./dist/scryfall-api.d.mts",
 	"exports": {
-		".": {
-			"import": "./dist/scryfall-api.d.mts"
-		}
+		".": "./dist/scryfall-api.mjs"
 	},
 	"scripts": {
 		"build": "tsdown",
