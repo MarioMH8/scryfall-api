@@ -5,6 +5,10 @@
 	"linked": [],
 	"access": "public",
 	"baseBranch": "main",
+	"snapshot": {
+		"useCalculatedVersion": true,
+		"prereleaseTemplate": "{tag}-{datetime}"
+	},
 	"updateInternalDependencies": "patch",
 	"ignore": []
 }
