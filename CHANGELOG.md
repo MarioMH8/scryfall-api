@@ -1,5 +1,11 @@
 # scryfall-api
 
+## 5.0.1
+
+### Patch Changes
+
+- 9205574: Fix the `exports` map so importers resolve the runtime entry point instead of the type declarations. `import { Cards } from 'scryfall-api'` works again with Bun, Rollup, Deno and any resolver that honours `exports`.
+
 ## 5.0.0
 
 ### Major Changes
